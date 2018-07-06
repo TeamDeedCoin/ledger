@@ -16,6 +16,9 @@ body {
     box-sizing: border-box; 
     -moz-box-sizing: border-box;
 }
+a { color: #1a1a1a !important; }
+a:hover { color: #1a1a1a !important; }
+
 #container {
     background: #000 ;
     z-index: 1000;
@@ -50,7 +53,7 @@ div.page{
     top: 0;
     left: 0;
     background: transparent; 
-    color: red;
+    color: #1a1a1a;
     padding: 20px;
     box-sizing: border-box;
     display: none;
@@ -68,11 +71,14 @@ div.innerPage{
     top: 0;
     right: 0;
     cursor: pointer;
+    font-size: 20px;
 }
-#canvas0 {
+#canvas0,#canvas1,#canvas2,#canvas3,#canvas4 {
     top: 0;
     left: 0;
     position: absolute;
     z-index: -1;
 }
+
+.pt5 { padding-top: 5px; }
 
