@@ -124,6 +124,7 @@
     var renderer, scene;
     var mouse = new THREE.Vector2();
 
+    var octa, octa_material, octa_geometry;
     var objects = [];
     var pages = [];
     var labels = [];
@@ -145,6 +146,7 @@
     function init(){
       container = document.getElementById( 'boxes' );
       scene = new THREE.Scene();
+      scene.background = new THREE.Color( 0xfafafa );
 
       renderer = new THREE.WebGLRenderer({antialias: true, alpha: true});
       renderer.setPixelRatio( window.devicePixelRatio );
@@ -152,11 +154,16 @@
       
       container.appendChild( renderer.domElement );
       
-      renderer.gammaInput = true;
-      renderer.gammaOutput = true;
+      //renderer.gammaInput = true;
+      //renderer.gammaOutput = true;
+      var ambientLight = new THREE.AmbientLight( 0xcccccc, 0.8);
+      scene.add(ambientLight);
+      var pointLight = new THREE.PointLight( 0xffffff, 0.4);
 
       camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.01, 1000);
       camera.position.set(0, 0, 8);
+      camera.add(pointLight);
+      scene.add(camera);
       
       controlsOrbit = new THREE.OrbitControls( camera, renderer.domElement );
       controlsOrbit.minDistance = 5;
@@ -171,12 +178,12 @@
 
       /* Logo */
       var spriteMap = new THREE.TextureLoader().load("images/logo.png");
-      var spriteMaterial = new THREE.SpriteMaterial({map: spriteMap, color: 0xffffff});
+      var spriteMaterial = new THREE.SpriteMaterial({map: spriteMap, color: 0xcccccc});
       logo = new THREE.Sprite(spriteMaterial);
       scene.add(logo);
 
       spriteMap = new THREE.TextureLoader().load("images/logoLabel1.png");
-      spriteMaterial = new THREE.SpriteMaterial({map: spriteMap, color: 0xffffff});
+      spriteMaterial = new THREE.SpriteMaterial({map: spriteMap, color: 0xcccccc});
       logoLabel = new THREE.Sprite(spriteMaterial);
       scene.add(logoLabel);
 
@@ -192,7 +199,8 @@
           index = (index + 1) % 5;
 
         var geometry;
-        var material = new THREE.MeshBasicMaterial({color: 0xffffff, wireframe: true, side: THREE.DoubleSide});
+        var material = new THREE.MeshBasicMaterial({color: 0xcccccc, wireframe: true, side: THREE.DoubleSide});
+        //var material = new THREE.MeshStandardMaterial({ metalness: 0, roughness: 0, color: 0xfbfbfb });
 
         switch(index){
           case 0: // Box
@@ -204,9 +212,6 @@
           case 2:
             geometry = new THREE.TetrahedronGeometry(0.5, 1);
           break;
-          /*case 3: // Cylinder
-            geometry = new THREE.CylinderGeometry(0.5, 0.5, 1, 12);
-          break;*/
           case 3:
             geometry = new THREE.IcosahedronGeometry(0.5, 0);
           break;
@@ -216,7 +221,7 @@
         }
 
         var labelMap = new THREE.TextureLoader().load("images/label"+i+".png");
-        var labelMat = new THREE.SpriteMaterial({map: labelMap, color: 0xffffff});
+        var labelMat = new THREE.SpriteMaterial({map: labelMap, color: 0xcccccc});
         var labelObject = new THREE.Sprite(labelMat);
 
         var object = new THREE.Mesh(geometry, material);
@@ -238,6 +243,25 @@
       renderer.domElement.addEventListener('touchend', onDocumentMouseUp, false);
 
       window.addEventListener( 'resize', onWindowResize, false );
+
+      octa_material = new THREE.MeshStandardMaterial( { wireframe: false, metalness: 0, roughness: 0, color: 0xffffff });
+      var i;
+      for (i=0; i <= 50; i++){
+        octa_geometry = new THREE.OctahedronGeometry( getRandomInt(40), 0);
+        octa = new THREE.Mesh(octa_geometry, octa_material);
+        octa.position.set( getRandomIntInRange(-200, 200), getRandomIntInRange(-200, 200), getRandomInt(-800) );
+        octa.name = "octa" + i.toString() ;
+        scene.add(octa);
+      }
+
+    }//end init()
+
+    function getRandomIntInRange( min, max ) {
+        return Math.random() * ( max - min ) + min;
+    }
+
+    function getRandomInt(max) {
+        return Math.floor(Math.random() * Math.floor(max));
     }
 
     function onWindowResize(event){
@@ -251,7 +275,7 @@
     function setPosition(){
       var width = window.innerWidth;
 
-      if(width >= 738)
+      if(width >= 1000)
         loadDesktopPosition();
       else if(width >= 600)
         loadTabletPosition();
@@ -464,131 +488,22 @@
     }
 
     function render(){
+
+      if (scene.children[16].name === "octa0"){
+        var j;
+        for (j=16; j <= 66; j++){
+          scene.children[j].position.y += Math.random() * 0.01;
+          scene.children[j].rotation.y += Math.random() * 0.01;
+          
+        
+        }
+      
+      }
+      
       renderer.render(scene, camera);
+
     }
     </script>
 
-    <script type="text/javascript">
-      var NUM_PARTICLES = ( ( ROWS = 200 ) * ( COLS = 300 ) ),
-        THICKNESS = Math.pow( 80, 2 ),
-        SPACING = 7,
-        MARGIN = 0,
-        COLOR = 255,
-        DRAG = 0.95,
-        EASE = 0.25,  
-        container,
-        particle,
-        canvas,
-        mouse,
-        stats,
-        list,
-        ctx,
-        tog,
-        man,
-        dx, dy,
-        mx, my,
-        d, t, f,
-        a, b,
-        i, n,
-        w, h,
-        p, s,
-        r, c;
-
-        particle = {
-          vx: 0,
-          vy: 0,
-          x: 0,
-          y: 0
-        };
-
-      function init() {
-        container = document.getElementById( 'container' );
-        canvas = document.createElement( 'canvas' );
-
-        ctx = canvas.getContext( '2d' );
-        man = false;
-        tog = true;
-        
-        list = [];
-
-        w = canvas.width = COLS * SPACING + MARGIN * 2;
-        //w = window.innerWidth; 
-        h = canvas.height = ROWS * SPACING + MARGIN * 2;
-        //h = window.innerHeight; 
-
-        //canvas.width = document.body.clientWidth;
-        //canvas.height = document.body.clientHeight;
-        
-        //container.style.marginLeft = Math.round( w * -0.5 ) + 'px';
-        //container.style.marginTop = Math.round( h * -0.5 ) + 'px';
-
-        for ( i = 0; i < NUM_PARTICLES; i++ ){
-          p = Object.create( particle );
-          p.x = p.ox = MARGIN + SPACING * ( i % COLS );
-          p.y = p.oy = MARGIN + SPACING * Math.floor( i / COLS );
-
-          list[i] = p;
-        }
-
-        container.addEventListener( 'mousemove', function(e) {
-
-          bounds = container.getBoundingClientRect();
-          mx = e.clientX - bounds.left;
-          my = e.clientY - bounds.top;
-          man = true;
-
-        });
-
-        if ( typeof Stats === 'function' ) {
-          document.body.appendChild( ( stats = new Stats() ).domElement );
-        }
-
-        container.appendChild( canvas );
-      }
-
-      function step() {
-        if(stats) stats.begin();
-
-        if(tog = !tog){
-          if (!man){
-            t = +new Date() * 0.001;
-            mx = w * 0.5 + ( Math.cos( t * 2.1 ) * Math.cos( t * 0.9 ) * w * 0.45 );
-            my = h * 0.5 + ( Math.sin( t * 3.2 ) * Math.tan( Math.sin( t * 0.8 ) ) * h * 0.45 );
-          }
-
-          for ( i = 0; i < NUM_PARTICLES; i++ ){
-            p = list[i];
-
-            d = ( dx = mx - p.x ) * dx + ( dy = my - p.y ) * dy;
-            f = -THICKNESS / d;
-
-            if ( d < THICKNESS ) {
-              t = Math.atan2( dy, dx );
-              p.vx += f * Math.cos(t);
-              p.vy += f * Math.sin(t);
-            }
-
-            p.x += ( p.vx *= DRAG ) + (p.ox - p.x) * EASE;
-            p.y += ( p.vy *= DRAG ) + (p.oy - p.y) * EASE;
-          }
-        }else{
-          b = ( a = ctx.createImageData( w, h ) ).data;
-          
-          for ( i = 0; i < NUM_PARTICLES; i++ ) {
-            p = list[i];
-            b[n = ( ~~p.x + ( ~~p.y * w ) ) * 4] = b[n+1] = b[n+2] = COLOR, b[n+3] = 255;
-          }
-
-          ctx.putImageData( a, 0, 0 );
-        }
-
-        if ( stats ) stats.end();
-
-        requestAnimationFrame( step );
-      }
-
-      init();
-      step();
-    </script>
   </body>
 </html>
