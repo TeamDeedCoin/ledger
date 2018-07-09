@@ -8,6 +8,7 @@
   <link href="style.css?v=2" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
+
   <style type="text/css">
   <?php
     for ($i=5; $i <= 200; $i+=5) { 
@@ -84,6 +85,7 @@
   <script type="text/javascript" src="js/three.js"></script>
   <script src="js/OrbitControls.js"></script>
   <script type="text/javascript" src="js/Detector.js"></script>
+  <script type="text/javascript" src="js/dat.gui.min.js"></script>
   <script id="template" type="notjs">
     <div class="scene"></div>
     <div class="description">$</div>
@@ -105,6 +107,34 @@ var logoLabel = null;
 
 var speed = [0.01, 0.01, 0.01, 0.01, 0.01];
 var selectedPageGeometry;
+
+/*
+window.onload = function() {
+    var gui = new dat.GUI();
+    //gui.add(guiParams, 'Ledger Leap');
+    gui.addColor(text, 'color_0');
+};
+
+var guiParams = function() {
+    this.colors:  '0xFFFFFF',
+    SIZEX: 0,
+    SIZEY: 0,
+    SIZEZ: 0,
+    POSITIONX: 0,
+    POSITIONY: 0,
+    POSITIONZ: 0,
+    cameraCOLOR: '0xFFFFFF',
+    cameraX: 0,
+    cameraY: 0,
+    cameraZ: 0,
+    cameraLOOKAT: (0,0,0),
+    pointLightCOLOR: '0xFFFFFF',
+    pointLightX: 0,
+    pointLightY: 0,
+    pointLightZ: 0,
+    pointLightLOOKAT: (0,0,0),
+};
+ */
 
 init();
 animate();
@@ -468,6 +498,8 @@ function goBack(){
   pageWrap.style.left = '100%';
 
   selectedPage = -1;
+  //destroy all elements and dereference them
+  doDispose(scene2);
 }
 
 function animate(){
@@ -488,6 +520,27 @@ function render(){
   
   }
   renderer.render(scene, camera);
+}
+
+function doDispose(obj){
+    if (obj !== null){
+        for (var i = 0; i < obj.children.length; i++){
+            doDispose(obj.children[i]);
+        }
+        if (obj.geometry){
+            obj.geometry.dispose();
+            obj.geometry = undefined;
+        }
+        if (obj.material){
+            if (obj.material.map){
+                obj.material.map.dispose();
+                obj.material.map = undefined;
+            }
+            obj.material.dispose();
+            obj.material = undefined;
+        }
+    }
+    obj = undefined;
 }
 
 ///////////////SCENE 2, ACTION!!!///////////
@@ -564,40 +617,60 @@ function init2() {
   camera2.add( pointLight2);
   scene2.add( camera2 );
   //var material = new THREE.MeshBasicMaterial( { wireframe: true, wireframeLinewidth: 0,side: THREE.DoubleSide, color: 0x555555 });
-  //var material = new THREE.MeshBasicMaterial( { wireframe: false, wireframeLinewidth: 0,side: THREE.DoubleSide, color: 0x555555 });
   var material2 = new THREE.MeshStandardMaterial( { metalness: 0, roughness: 0, color: 0xffffff, emissive: 0x666666 });
-  //
-  var shapes = ["Box", "Sphere", "Tetra", "Ico", "Octa"];
-  var selected = shapes[4];
 
-  switch(selected){
-    case "Box":
-      geometry = new THREE.BoxGeometry( 1, 1, 1 );
-      break;
-
-    case "Sphere":
-      geometry = new THREE.SphereGeometry( 0.5, 12, 8 );
-      break;
-
-    case "Tetra":
-      geometry = new THREE.TetrahedronGeometry( 0.5, 1 );
-      break;
-
-    case "Ico":
-      geometry = new THREE.IcosahedronGeometry( 0.5, 0);
-      break;
-
-    case "Octa":
+  switch(selectedPageGeometry){
+    case "BoxGeometry":
       var i;
-      for (i=0; i <= 50; i++){
+      for (i=0; i <=20; i++){
+        var boxSize = getRandomInt(200);
+        geometry = new THREE.BoxGeometry( boxSize, boxSize, boxSize );
+        object = new THREE.Mesh(geometry, material2);
+        object.position.set( getRandomInt(1800), getRandomInt(1800), getRandomInt(1800));
+        scene2.add(object);
+      }
+      break;
+
+    case "SphereGeometry":
+      var i;
+      for (i=0; i <=20; i++){
+        geometry = new THREE.SphereGeometry( getRandomInt(200), 12, 12 );
+        object = new THREE.Mesh(geometry, material2);
+        object.position.set( getRandomInt(1800), getRandomInt(1800), getRandomInt(1800));
+        scene2.add(object);
+      }
+      break;
+
+    case "TetrahedronGeometry":
+      var i;
+      for (i=0; i <=20; i++){
+        geometry = new THREE.TetrahedronGeometry( getRandomInt(200), 1 );
+        object = new THREE.Mesh(geometry, material2);
+        object.position.set( getRandomInt(1800), getRandomInt(1800), getRandomInt(1800));
+        scene2.add(object);
+      }
+      break;
+
+    case "IcosahedronGeometry":
+      var i;
+      for (i=0; i <=20; i++){
+        geometry = new THREE.IcosahedronGeometry( getRandomInt(200), 0);
+        object = new THREE.Mesh(geometry, material2);
+        object.position.set( getRandomInt(1800), getRandomInt(1800), getRandomInt(1800));
+        scene2.add(object);
+      } 
+      break;
+
+    case "OctahedronGeometry":
+      var i;
+      for (i=0; i <= 15; i++){
         geometry = new THREE.OctahedronGeometry( getRandomInt(200), 0);
-        object = new THREE.Mesh(geometry, material2); object.position.set( getRandomInt(1800), getRandomInt(1800), getRandomInt(1800));
+        object = new THREE.Mesh(geometry, material2); 
+        object.position.set( getRandomInt(1800), getRandomInt(1800), getRandomInt(1800));
         scene2.add(object);
       }
       break;
   } 
-
-
 }
 
 function getRandomInt(max) {
@@ -615,17 +688,21 @@ function render2() {
   //camera.position.x = Math.cos( timer ) * 800;
   //camera.position.z = Math.sin( timer ) * 800;
   //camera.lookAt( scene.position );
-  scene2.traverse( function( object ) {
-    if ( object.isMesh === true ) {
-      //object.rotation.x = timer * 5;
-      object.rotation.y = timer * 1.5;
-      object.position.y += 0.01;
-      object.position.x += 0.01;
-      object.position.z += 0.01;
-    }
-  } );
+  
+  if (scene2.type === "Scene" && scene2.children[3].geometry !== undefined){
+      scene2.traverse( function( object ) {
+          if ( object.isMesh === true ) {
+              //object.rotation.x = timer * 5;
+              object.rotation.y = timer * 1.5;
+              object.position.y += 0.01;
+              object.position.x += 0.01;
+              object.position.z += 0.01;
+          }
+      } );
 
-  renderer2.render( scene2, camera2 );
+      renderer2.render( scene2, camera2 );
+
+  }
 }
 
 </script>
