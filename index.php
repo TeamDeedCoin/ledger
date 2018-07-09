@@ -159,7 +159,7 @@ function init(){
   //renderer.gammaOutput = true;
   var ambientLight = new THREE.AmbientLight( 0xcccccc, 0.8);
   scene.add(ambientLight);
-  var pointLight = new THREE.PointLight( 0xffffff, o.4);
+  var pointLight = new THREE.PointLight( 0xffffff, 0.4);
   pointLight.name = "pointLight";
   //pointLight.position.y = 100;
   //pointLight.lookAt( new THREE.Vector3(0,0,0));
