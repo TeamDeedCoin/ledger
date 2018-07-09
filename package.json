@@ -1,0 +1,22 @@
+{
+  "name": "ledger",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TeamDeedCoin/ledger.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TeamDeedCoin/ledger/issues"
+  },
+  "homepage": "https://github.com/TeamDeedCoin/ledger#readme",
+  "devDependencies": {
+    "wowjs": "^1.1.3"
+  }
+}
