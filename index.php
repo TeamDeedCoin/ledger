@@ -159,16 +159,16 @@ function init(){
   //renderer.gammaOutput = true;
   var ambientLight = new THREE.AmbientLight( 0xcccccc, 0.8);
   scene.add(ambientLight);
-  var pointLight = new THREE.PointLight( 0xffffff, 1.3);
+  var pointLight = new THREE.PointLight( 0xffffff, o.4);
   pointLight.name = "pointLight";
-  pointLight.position.y = 100;
-  pointLight.lookAt( new THREE.Vector3(0,0,0));
-  scene.add(pointLight);
+  //pointLight.position.y = 100;
+  //pointLight.lookAt( new THREE.Vector3(0,0,0));
+  //scene.add(pointLight);
 
 
   camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.01, 1000);
   camera.position.set(0, 0, 8);
-  //camera.add(pointLight);
+  camera.add(pointLight);
   scene.add(camera);
   
   controlsOrbit = new THREE.OrbitControls( camera, renderer.domElement );
@@ -613,7 +613,7 @@ function init2() {
   var light2, object2;
   var ambientLight2 = new THREE.AmbientLight( 0xcccccc, 0.4 );
   scene2.add( ambientLight2 );
-  var pointLight2 = new THREE.PointLight( 0xffffff, 0.8 );
+  var pointLight2 = new THREE.PointLight( 0xffffff, 0.4 );
   camera2.add( pointLight2);
   scene2.add( camera2 );
   //var material = new THREE.MeshBasicMaterial( { wireframe: true, wireframeLinewidth: 0,side: THREE.DoubleSide, color: 0x555555 });
