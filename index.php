@@ -41,6 +41,9 @@
   ?>
   </style>
 <script type="text/javascript" src="js/wow.js"></script>
+<script type="text/javascript">
+new WOW().init();
+</script>
 </head>
 <body>
   <!-- AIGC Project Modal -->
@@ -606,11 +609,61 @@
           <div class="container-fluid">
             <div class="title orange">HOW<span style="font-size: 28px;"> We Do It</span></div> <!-- HOW -->
             <div class="container">
-              <div class="slidecontent pb60" style="font-size: 19px;">
+              <div class="slidecontent col-md-6 pb60" style="font-size: 19px;">
                 Ledger Leap launches blockchain solutions, not just projects. We only assist projects that make sense and drive the industry forward in a positive direction. Our platform is designed to bring real world support to beneficial projects, providing experience, connections, and software to harvest the benefits. Solid projects need solutions that can bring products to market faster and without prohibitive fiat costs that cripple development funds.
               </div>
-              <div class="text-center">
-                < chart >
+              <div class="text-center col-md-6">
+                <div class="col-md-6">
+                    <div class="wow fadeInLeft" data-wow-duration="1700ms" data-wow-delay="300ms" >
+                        <p class="flowchart-heading">No Cost Consultation</p>
+                    </div>
+                    <div class="wow fadeInLeft" data-wow-duration="1700ms" data-wow-delay="400ms">
+                        <p class="flowchart-heading">Client Onboarding</p>
+                    </div>
+                </div>
+                <div class="col-md-3 tech-platform">
+                    <div class="wow fadeInLeft" data-wow-duration="1700ms" data-wow-delay="500ms">
+                        <p class="flowchart-heading">Workflow Establishment</p>
+                    </div>
+                    <div class="wow fadeInLeft" data-wow-duration="1700ms" data-wow-delay="600ms">
+                        <p class="flowchart-heading">Development</p>
+                    </div>
+                    <div class="wow fadeInLeft" data-wow-duration="1700ms" data-wow-delay="700ms">
+                        <p class="flowchart-heading">Smart Contracts</p>
+                    </div>
+                    <div class="wow fadeInLeft" data-wow-duration="1700ms" data-wow-delay="800ms">
+                        <p class="flowchart-heading">Instal Sales Portal</p>
+                    </div>
+                </div>
+                <div class="col-md-3 pr-content">
+                    <div class="wow fadeInLeft" data-wow-duration="1700ms" data-wow-delay="900ms">
+                        <p class="flowchart-heading">Partnership Creation</p>
+                    </div>
+                    <div class="wow fadeInLeft" data-wow-duration="1700ms" data-wow-delay="1100ms">
+                        <p class="flowchart-heading">Metrics Tracking</p>
+                    </div>
+                    <div class="wow fadeInLeft" data-wow-duration="1700ms" data-wow-delay="1200ms">
+                        <p class="flowchart-heading">Tokenomics</p>
+                    </div>
+                    <div class="wow fadeInLeft" data-wow-duration="1700ms" data-wow-delay="1300ms">
+                        <p class="flowchart-heading">Whitepaper</p>
+                    </div>
+                    <div class="wow fadeInLeft" data-wow-duration="1700ms" data-wow-delay="1400ms">
+                        <p class="flowchart-heading">Community Management</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="wow fadeInLeft" data-wow-duration="1700ms" data-wow-delay="1500ms">
+                        <p class="flowchart-heading">Sale</p>
+                    </div>
+                    <div class="wow fadeInLeft" data-wow-duration="1700ms" data-wow-delay="1600ms">
+                        <p class="flowchart-heading">Sale Management</p>
+                    </div>
+                    <div class="wow fadeInLeft" data-wow-duration="1700ms" data-wow-delay="1700ms">
+                        <p class="flowchart-heading">Post Launch Services</p>
+                    </div>
+                </div>
+
               </div>
             </div>
           </div>
