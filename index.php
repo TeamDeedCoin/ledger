@@ -5,9 +5,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0,
   maximum-scale=1.0">
+  <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet'>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
   <link href="css/style.css?v=2" rel="stylesheet">
   <link href="css/animate.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
 
   <style type="text/css">
@@ -22,58 +23,576 @@
 <script type="text/javascript" src="js/wow.js"></script>
 </head>
 <body>
+    <!-- AIGC Project Modal -->
+  <div class="modal fade" id="tributeModal" tabindex="-1" role="dialog" aria-labelledby="tributeTitle">
+    <div class="modal-dialog wide" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h3 class="modal-title text-center" id="tributeTitle">Project Details</h3>
+        </div><!-- /.modal-header -->
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-xs-12 bg-star-g">
+              <img class="img-responsive center-block hero" src="images/projects/AIGC.png" alt="AIGC Project">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12 text-center">
+              <h2 class="project-title">AIGC</h2>
+              <h4 class="project-subtitle">RWD/PORTAL</h4>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-10 col-sm-offset-1 col-lg-6 col-lg-offset-0">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, veritatis placeat expedita velit debitis fugit aperiam voluptatem soluta sed ea porro dolore ab, itaque possimus tenetur? Temporibus ab, similique esse.</p>
+              <p class="mb-30">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita modi tempore, sit error adipisci, laudantium accusantium rem corporis quam. Beatae laboriosam quaerat fugiat, incidunt voluptatibus eos esse voluptas. Deserunt, quaerat.</p>
+            </div>
+            <div class="col-sm-10 col-sm-offset-1 col-lg-6 col-lg-offset-0 md-center">
+              <p><strong>Technologies Used:</strong></p>
+              <p class="mb-30">
+                <span class="label tag">Bootstrap 3</span>
+                <span class="label tag">Responsive Design</span>
+                <span class="label tag">HTML5</span>
+                <span class="label tag">CSS3</span>
+                <span class="label tag">JavaScript</span>
+                <span class="label tag">jQuery</span>
+              </p>
+              <a class="btn td-btn outline green mb-30" href="http://www.home.aigaming.com/" target="_blank" title="Link to Tribute Page"><span class="glyphicon glyphicon-link"></span> Visit Live Site</a>
+             
+            </div>
+          </div><!-- /.row -->
+          <div class="modal-footer center">
+            <button type="button" class="btn td-btn outline small" data-dismiss="modal">Close Project</button>
+          </div><!-- /.modal-footer -->
+        </div><!-- /.modal-body -->
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+
+  <!-- Deedcoin Project Modal -->
+  <div class="modal fade" id="tmsModal" tabindex="-1" role="dialog" aria-labelledby="tmsTitle">
+    <div class="modal-dialog wide" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h3 class="modal-title text-center" id="tmsTitle">Project Details</h3>
+        </div><!-- /.modal-header -->
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-xs-12 bg-star-g">
+              <img class="img-responsive center-block hero" src="images/projects/deedcoin.png" alt="Deedcoin Hero Image">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12 text-center">
+              <h2 class="project-title">Deedcoin</h2>
+              <h4 class="project-subtitle">RWD/PORTAL</h4>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-10 col-sm-offset-1 col-lg-6 col-lg-offset-0">
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. At aut mollitia sint temporibus nobis iusto nulla, similique beatae quisquam laboriosam debitis maxime minima adipisci quam, deserunt vero labore. Saepe, ratione.
+              </p>
+              <p class="mb-30">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur voluptatem dolores sequi eaque laudantium, sit possimus quisquam praesentium sunt dicta, esse, deleniti doloribus odio atque harum animi voluptate commodi fugit.
+              </p>
+            </div>
+            <div class="col-sm-10 col-sm-offset-1 col-lg-6 col-lg-offset-0 md-center">
+              <p><strong>Technologies Used:</strong></p>
+              <p class="mb-30">
+                <span class="label tag">Bootstrap 4</span>
+                <span class="label tag">Responsive Design</span>
+                <span class="label tag">HTML5</span>
+                <span class="label tag">CSS3</span>
+                <span class="label tag">jQuery</span>
+                <span class="label tag">Gifffer.js</span>
+              </p>
+              <a class="btn td-btn outline green mb-30" href="http://www.deedcoinlaunch.com/" target="_blank" title="Link to Deedcoin"><span class="glyphicon glyphicon-link"></span> Visit Live Site</a>
+              <a class="btn td-btn outline green mb-30" href="http://www.deedcoin.com/" target="_blank" title="Link to Deedcoin"><span class="glyphicon glyphicon-link"></span> Visit Second Site</a>
+            </div>
+          </div><!-- /.row -->
+          <div class="modal-footer center">
+            <button type="button" class="btn td-btn outline small" data-dismiss="modal">Close Project</button>
+          </div><!-- /.modal-footer -->
+        </div><!-- /.modal-body -->
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+
+  <!-- AIRSTAYZ&trade; Project Modal -->
+  <div class="modal fade" id="rbModal" tabindex="-1" role="dialog" aria-labelledby="rbTitle">
+    <div class="modal-dialog wide" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h3 class="modal-title text-center" id="rbTitle">Project Details</h3>
+        </div><!-- /.modal-header -->
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-xs-12 bg-star-g">
+              <img class="img-responsive center-block hero" src="images/projects/airstayz.png" alt="AIRSTAYZ&trade; Hero Image">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12 text-center">
+              <h2 class="project-title">AIRSTAYZ&trade;</h2>
+              <h4 class="project-subtitle">RWD/PORTAL</h4>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-10 col-sm-offset-1 col-lg-6 col-lg-offset-0">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores voluptatem, deleniti, eum rerum rem assumenda, ipsa odit architecto fuga tempore quam? Architecto totam quia accusamus, repellat aperiam praesentium beatae amet.</p>
+              <p class="mb-30">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. At, temporibus! Eligendi sed harum neque voluptatem odit saepe, modi, recusandae dolore excepturi earum nostrum, iure minima eos natus! Quam perspiciatis, cumque!
+              </p>
+            </div>
+            <div class="col-sm-10 col-sm-offset-1 col-lg-6 col-lg-offset-0 md-center">
+              <p><strong>Technologies Used:</strong></p>
+              <p class="mb-30">
+                <span class="label tag">Responsive Design</span>
+                <span class="label tag">HTML5</span>
+                <span class="label tag">CSS3</span>
+                <span class="label tag">PHP</span>
+                <span class="label tag">PHPMailer</span>
+                <span class="label tag">FitVids.js</span>
+              </p>
+              <a class="btn td-btn outline green mb-30" href="http://token.airstayz.com/" target="_blank" title="Link to ryanbechtel.com"><span class="glyphicon glyphicon-link"></span> Visit Live Site</a>
+            </div>
+          </div><!-- /.row -->
+          <div class="modal-footer center">
+            <button type="button" class="btn td-btn outline small" data-dismiss="modal">Close Project</button>
+          </div><!-- /.modal-footer -->
+        </div><!-- /.modal-body -->
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
   <div id="pageWrap"> <!-- Page Wrap Begin !-->
     <div class="innerPage"> <!-- Inner Page Begin !-->
       <div class="page" id="page0">
         <div class="innerPage">
-          <h2>Company</h2>
-          <a class="goback" onclick="goBack()">Go Back</a>
-          <div class="container-fluid">
-            <div class="row pt50">
-              <div class="col-md-6">
-                <h1>TITLE KJAJHAJSDAS</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-              </div>
-              <div class="col-md-6 centered" style="background-color: orange; height: 100vh;">
-                kjh laskjhlk ajs hlakjs hlkj
-              </div>
-            </div>
-          </div>
+          <a class="goback" onclick="goBack()" >Go Back</a>
+          <div class="title">WHO</div> <!-- WHO (TEAM AND ABOUT) -->
+            <section>
+              <div class="container">
+                <div class="row flex-center sm-no-flex">
+
+                  <div class="pull-right sm-no-float col-md-8">
+                    <ul class="team-members list-unstyled">
+                      <!-- single member row starts -->
+                      <li class="clearfix" id="founders">
+                        <div class="member-details">
+                          <div>
+                            <img src="images/team/charles.png" alt="Co-Founder">
+                            <div class="member-info">
+                              <h3>Charles Wismer</h3>
+                              <p>Co-Founder</p>
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <div class="member-details">
+                          <div>
+                            <img src="images/team/thomas.png" alt="Co-Founder">
+                            <div class="member-info">
+                              <h3>Thomas Spangler</h3>
+                              <p>Co-Founder</p>
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <div class="member-details">
+                          <div>
+                            <img src="images/team/matt.png" alt="Co-Founder">
+                            <div class="member-info">
+                              <h3>Matthew Herrick</h3>
+                              <p>Co-Founder</p>
+                            </div>
+                          </div>
+                        </div>
+                      </li><!-- /single member row ends -->
+                      
+                      <!-- single member row starts -->
+                      <li class="clearfix">
+                        <div class="member-details">
+                          <div>
+                            <img src="images/team/emily.png" alt="Project Manager">
+                            <div class="member-info" id="et-pic">
+                              <h3>Emily Thacker</h3>
+                              <p>Project Manager</p>
+                            </div>
+                          </div>
+                        </div>
+
+                        
+                        <div class="member-details">
+                          <div>
+                            <img src="images/team/lawson.png" alt="Content Manager">
+                            <div class="member-info">
+                              <h3>Matt Lawson</h3>
+                              <p>Content Manager</p>
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <div class="member-details">
+                          <div>
+                            <img src="images/team/sam.png" alt="Media Manager" id="sampic">
+                            <div class="member-info">
+                              <h3>Sam Mihal</h3>
+                              <p>Media Manager</p>
+                            </div>
+                          </div>
+                        </div>
+                      </li><!-- /single member row ends -->
+
+                      <!-- single member row starts -->
+                      <li class="clearfix">
+                        <div class="member-details">
+                          <div>
+                            <img src="images/team/tessa.png" alt="Public Relations">
+                            <div class="member-info">
+                              <h3>Tessa Reve</h3>
+                              <p>Public Relations</p>
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <div class="member-details">
+                          <div>
+                            <img src="images/team/phil.png" alt="Media Outreach">
+                            <div class="member-info">
+                              <h3>Phil Mzrglocki</h3>
+                              <p>Media Outreach</p>
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <!-- <div class="member-details">
+                          <div>
+                            <img src="http://gocheckers.com/images/roster/josh_wesley_headshot_1718.png" alt="UI Designer">
+                            <div class="member-info">
+                              <h3>John Doe</h3>
+                              <p>UI Designer</p>
+                            </div>
+                          </div>
+                        </div> -->
+                      </li><!-- /single member row ends -->
+
+                    </ul><!-- /end team-photos -->
+                  </div><!-- /end col-md-8 -->
+                  
+                  <div class="pull-left col-md-4 sm-text-center">
+                    <div class="team-overview">
+                      <h2 class="orange">Who Are We?</h2>
+                      
+                      <p><div>Ledger Leap can support solutions from an atmospheric scope. Our team is comprised of Founder's of launch projects along with specialists in each specific element, all directed by leadership with real world industry experience.</div></p>
+                    </div>
+                  </div><!-- /end col-md-4 -->
+                </div><!-- /end row -->
+              </div><!-- /end container -->
+            </section>
         </div>
       </div>
       <div class="page" id="page1">
         <div class="innerPage">
-          <h2>Platform</h2>
           <a class="goback" onclick="goBack()">Go Back</a>
+          <div class="container-fluid">
+            <div class="title">WHY</div> <!-- WHY WE'RE DIFFERENT/WHY CHOOSE US -->
+            <div class="slidecontent">
+              <ul>
+                <li>Simple Sales Process</li>
+                <li>
+                  Administrator Ease
+                  <ul>
+                    <li> Multiple modes for different phases of the sale</li>
+                    <li> Capability to accept Bitcoin, Ethereum, or Litecoin</li>
+                    <li> Credit card sales (compliance determined in consultation)</li>
+                    <li> On-demand adjustable security features</li>
+                    <li> One-click referral link functionality for marketing</li>
+                    <li> Automated email confirmations and countdown timers</li>
+                    <li>ERC20, ERC223, ERC721, and ERC865 tokens supported</li>
+                    <li class="pb10"> Simple, compliant accredited investor SAFT order system</li>
+                  </ul>
+                </li>
+                <li>Compliance and Security</li>
+              </ul>
+
+              <a class="et-cta" href="mailto:team@ledgerleap.com">Schedule Live Demo</a>
+            </div>
+          </div>
         </div>
       </div>
       <div class="page" id="page2">
         <div class="innerPage"> 
-          <h2>Services</h2>
           <a class="goback" onclick="goBack()">Go Back</a>
+          <div class="title">WHAT</div> <!-- SERVICES -->
+            <section class="intro">
+
+              <div class="intro-block">
+                <div class="centerfold-wrap">
+                  <div class="hex-master-wrap">
+                    <div class="grid-1">
+                      <div class="hex-wrap backend" data-title="Pre-ICO" data-content="about-desc" data-color="#fdae22">
+                          <div class="hex-init" id="consultingserv"></div>
+                          <div class="hex-borders">
+                            <div class="border-1"></div>
+                            <!-- <div class="border-2"></div> -->
+                            <!-- <div class="border-3"></div> -->
+                          </div>
+                        <div class="hexagon">
+                          <div class="hex-inner-1">
+                          </div>
+                        </div>
+                      </div>
+                      <!-- <div class="hex-wrap frontend" data-title="Skills (Admin)" data-content="it-desc" data-color="#fdae22">
+                          <div class="hex-init"></div>
+                          <div class="hex-borders">
+                            <div class="border-1"></div>
+                            <div class="border-2"></div>
+                            <div class="border-3"></div>
+                          </div>
+
+                        <div class="hexagon">
+                          <div class="hex-inner-1">
+                            <div class="hex-inner-2"></div>
+                          </div>
+                        </div>
+                      </div> -->
+                    </div>
+                    <div class="grid-2">
+                      <div class="hex-wrap html sm-hide" data-title="" data-content="" data-color="#fdae22">
+                          <div class="hex-init"></div>
+            <!--              <div class="hex-borders">
+                            <div class="border-1"></div>
+                            <div class="border-2"></div>
+                            <div class="border-3"></div>
+                          </div> -->
+                    
+                        <div class="hexagon">
+                          <div class="hex-inner-1">
+                            <div class="hex-inner-2"></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="hex-wrap css" data-title="ICO Platform" data-content="frontend-desc" data-color="#fdae22">
+                          <div class="hex-init" id="techserv"></div>
+                          <div class="hex-borders">
+                            <div class="border-1"></div>
+                            <!-- <div class="border-2"></div>
+                              <div class="border-3"></div> -->
+                          </div>
+                        
+                        <div class="hexagon">
+                          <div class="hex-inner-1">
+                            <div class="hex-inner-2"></div>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                    <div class="grid-3">
+                      <div class="hex-wrap gui" data-title="Post ICO" data-content="it-desc" data-color="#fdae22">
+                          <div class="hex-init" id="servicesserv"></div>
+                          <div class="hex-borders">
+                            <div class="border-1"></div>
+                            <!-- <div class="border-2"></div>
+                            <div class="border-3"></div> -->
+                          </div>
+
+                        <div class="hexagon">
+                          <div class="hex-inner-1">
+                            <div class="hex-inner-2"></div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                    </div>
+                  </div>
+
+                  <div class="code-display">
+                    <div class="code-description">
+                      <div class="about-desc">
+                        <p class="code-title"></p>
+                        <p>
+                          <ul>
+                            <li>Initial Consulting</li>
+                            <li>Tokenomics Review</li>
+                            <li>Launch Review</li>
+                            <li>Whitepaper Writing</li>
+                            <li>Whitepaper Review</li>
+                            <li>Advisor Sourcing</li>
+
+                          </ul>
+                        </p>
+                      </div>
+                      <div class="frontend-desc">
+                        <p class="code-title"></p>
+                        <p><ul>
+                          <li>Launch Coordination</li>
+                          <li>Smart Contract</li>
+                          <li>Landing Site</li>
+                          <li>Contribution Platform (requires node below)</li>
+                          <li>Secure Node Programming</li>
+                          <li>Complaint Investor Prospectus Platform</li>
+                          <li>B.A.A.S. (Blockchain as a Service)</li>
+                        </ul></p>
+                      </div>
+                      <div class="it-desc">
+                        <p class="code-title"></p>
+                        <p><ul>                          
+                          <li>30x ICO Listing Sites</li>
+                          <li>Exchange Sourcing and Consulting</li>
+                          <li>Press Releases</li>
+                        </ul></p>
+                      </div>
+                      <!-- <div class="backend-desc">
+                        <p class="code-title"></p>
+                        <p><span>Project:</span>Ledger Leap</p>
+                        <p><span>Languages:</span>HTML, CSS, Bootstrap 4, Javascript, jQuery, Three.js</p>
+                        <p><a target="_blank" href="https://www.ledgerleap.com">Live Site</a></p>
+                        <div class="code-icon"></div>
+                      </div>
+                      <div class="uxui-desc">
+                        <p class="code-title"></p>
+                        <p><span>Project:</span>AIRSTAYZ&trade;</p>
+                        <p><span>Languages:</span>HTML, CSS, Bootstrap 4, Javascript, jQuery, three.js</p>
+                        <p><a target="_blank" href="https://token.airstayz.com">Live Site</a></p>
+                        <div class="code-icon"></div>
+                      </div>
+                      <div class="media-desc">
+                        <p class="code-title"></p>
+                        <p><span>Project:</span>Deedcoin</p>
+                        <p><span>Languages:</span>PHP, HTML, CSS, Bootstrap 4</p>
+                        <p><a target="_blank" href="https://www.deedcoinlaunch.com">Live Site</a></p>
+                        <p><a target="_blank" href="https://www.deedcoin.com">Second Deedcoin Site</a></p>-
+                        <div class="code-icon"></div>
+
+                      </div>
+                      <div class="edu-desc">
+                        <p class="code-title"></p>
+                        <p><span>Project:</span>ISS Conference</p>
+                        <p><span>Languages:</span>PHP, CSS, Wordpress, HTML, Flipclock.js</p>
+                        <p><a target="_blank" href="https://www.issconference.org">Live Site</a></p>
+                        <div class="code-icon"></div>
+                      </div> -->
+                    </div>
+
+                  </div>
+                    <div class="hoverblock"></div>
+                </div> <!-- End Centerfold-Wrap -->
+              </div>
+
+            </section>
         </div>
       </div>
       <div class="page" id="page3">
         <div class="innerPage">
-          <h2>Clients</h2>
           <a class="goback" onclick="goBack()">Go Back</a>
+          <div class="title">WHERE</div> <!--WHERE WE ARE (LOCATION)/WHERE WE'VE BEEN (CLIENTS) -->
+          <div class="slidecontent"><p class="mb20">
+            The Ledger Leap team and development office is based in Melbourne, Florida, USA. We build all tech in-house. Many aspects of blockchain benefit from decentralization; however, staff and timetables do not.</p>
+            <p class="mb20">The solutions we create are built of necessity. As unmet needs are discovered by our clients, we build robust solutions in real time and silo these answers for future customers. Ledger Leap has provided its services to a handful of clients already. Every client is treated with above and beyond mentality in delivering rock solid products.</p>
+          </div>
+          <section id="portfolio" class="row">
+            <div class="row">
+              <div id="projects" class="carousel slide col-xs-12" data-ride="carousel" data-interval="false">
+                <div class="row">
+                  <!-- Carousel Prev Button -->
+                  <div class="col-xs-1">
+                    <a class="left carousel-control" href="#projects" role="button" data-slide="prev">
+                      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                  </div>
+                  <div class="col-xs-10">
+                    <div class="carousel-inner" role="listbox">
+                      <div class="item active">
+                        <div class="col-sm-7">
+                          <img class="img-responsive center-block mb-30" src="images/projects/aigcscreen.png" alt="AIGC Project">
+                        </div>
+                        <div class="col-sm-5">
+                          <div class="carousel-caption card">
+                            <h3 class="project-title">AIGC</h3>
+                            <h4 class="project-subtitle">RWD/PORTAL</h4>
+                            <button class="btn td-btn small outline green" data-toggle="modal" data-target="#tributeModal">View Details</button>
+                          </div>
+                        </div>
+                      </div><!-- /.item -->
+                      <div class="item">
+                        <div class="col-sm-7">
+                          <img class="img-responsive center-block mb-30" src="images/projects/deedscreen.png" alt="Deedcoin Project">
+                        </div>
+                        <div class="col-sm-5">
+                          <div class="carousel-caption card">
+                            <h3 class="project-title">Deedcoin</h3>
+                            <h4 class="project-subtitle">RWD/PORTAL</h4>
+                            <button class="btn td-btn small outline green" data-toggle="modal" data-target="#tmsModal">View Details</button>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="item">
+                        <div class="col-sm-7">
+                          <img class="img-responsive center-block mb-30" src="images/projects/airstayzscreen.png" alt="AIRSTAYZ&trade; Project">
+                        </div>
+                        <div class="col-sm-5">
+                          <div class="carousel-caption card">
+                            <h3 class="project-title">AIRSTAYZ&trade;</h3>
+                            <h4 class="project-subtitle">RWD/PORTAL</h4>
+                            <button class="btn td-btn small outline green" data-toggle="modal" data-target="#rbModal">View Details</button>
+                          </div>
+                        </div>
+                      </div><!-- /.item -->
+                    </div><!-- /.carousel-inner -->
+                  </div>
+                  <div class="col-xs-1">
+                    <!-- Carousel Next Button -->
+                    <a class="right carousel-control" href="#projects" role="button" data-slide="next">
+                      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                      <span class="sr-only">Next</span>
+                    </a>
+                  </div><!-- / Next Btn -->
+                  <div class="col-xs-12">
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators mt-30">
+                      <li data-target="#projects" data-slide-to="0" class="active"></li>
+                      <li data-target="#projects" data-slide-to="1"></li>
+                      <li data-target="#projects" data-slide-to="2"></li>
+                    </ol>
+                  </div><!-- /.col -->
+                </div><!-- /.row -->
+              </div><!-- /#projects -->
+            </div><!-- /.row -->
+          </section>
         </div>
       </div>
       <div class="page" id="page4">
         <div class="innerPage">
-          <h2>Ledger Leap</h2>
           <a class="goback" onclick="goBack()">Go Back</a>
+          <div class="title">WHEN</div> <!-- TIMELINE/FLOWCHART? -->
+            <div class="slidecontent">
+              <p class="mt20 mb20">The Ledger Leap process is designed in "parallels" to leverage existing solutions to speed up launch times. Through this concept, the team can reduce a project's time-to-launch by months and let founders focus on their project.</p>
+              <div>
+                
+              </div>
+            </div>
+
         </div>
       </div>
       <div class="page" id="page5">
         <div class="innerPage">
           <h2>Post ICO Service</h2>
           <a class="goback" onclick="goBack()">Go Back</a>
+        </div>
+      </div>
+      <div class="page" id="page6">
+        <div class="innerPage">
+          <a class="goback" onclick="goBack()">Go Back</a>
+          <div class="container-fluid">
+            <div class="title">HOW</div> <!-- HOW -->
+            <div class="slidecontent">Ledger Leap launches blockchain solutions, not just projects. We only assist projects that make sense and drive the industry forward in a positive direction. Our platform is designed to bring real world support to beneficial projects, providing experience, connections, and software to harvest the benefits. Solid projects need solutions that can bring products to market faster and without prohibitive fiat costs that cripple development funds.</div>
+          </div>
         </div>
       </div>
     </div> <!-- Inner Page End !-->
@@ -706,6 +1225,55 @@ function render2() {
   }
 }
 
+  $(document).on('show.bs.modal', '.modal', centerModal);
+  $(window).on('resize', function () {
+    $('.modal:visible').each(centerModal);
+  });
+
+$(document).ready(function () {
+  function hex_initial_animation() {
+    $(".hex-wrap,.hover-notify").velocity("transition.expandIn", { stagger: 150 });
+    $(".hex-wrap").velocity("callout.pulse");
+    $(".hoverblock").velocity("fadeOut", { delay: 3000, duration: 0 });
+    }
+  hex_initial_animation();
+
+var hoverdetect = setInterval(function(){ hovernotify() }, 3000);
+function hovernotify() {
+    $(".hover-notify").velocity("callout.tada");
+}
+function myStopFunction() {
+$(".hover-notify").velocity('stop', true).velocity("fadeOut");
+    clearInterval(hoverdetect);
+}
+
+    $(".hex-init").mouseenter(function () {
+      
+      myStopFunction();
+
+      var title_color =  $(this).parent().attr("data-color");
+      var title_name = $(this).parent().attr("data-title");
+      var desc_name = $(this).parent().attr("data-content");
+
+        function hex_description() {
+          $('.code-description').velocity('stop', true).velocity("transition.slideRightBigIn");
+          $('.' + desc_name).siblings().removeClass('desc-active');
+            setTimeout(function() {
+              $('.' + desc_name).addClass('desc-active');
+              $('.code-descriptopn > div, .desc-active').children().velocity('stop', true).velocity("transition.slideRightBigIn", { stagger: 300 });
+              $('.code-title, .desc-active span').velocity({color: title_color}, { queue: false });
+              $('.code-title').text(title_name)
+            }, 0);
+          }
+          hex_description();
+
+        $(this).parent().addClass('hexactive'); 
+        $('.hexactive').velocity({scaleX:"1.1",scaleY:"1.1"}, { duration: 200 });
+
+      }).mouseleave(function () {
+         $('.hexactive').velocity('stop', true).velocity('reverse').removeClass('hexactive');
+      });
+});
 </script>
   </body>
 </html>
