@@ -141,7 +141,7 @@ div.innerPage{
   }
 
   .title {
-    font-size: 60px;
+    font-size: 50px;
     margin-left: 20%;
     width: 60%;
     padding-top: 20px;
@@ -865,13 +865,13 @@ transform: rotate(60deg);
 }
 
 .hex-init#consultingserv::before {
-  content: "Pre-ICO";
+  content: "Pre-Sale";
 }
 .hex-init#techserv::before {
-  content: "ICO";
+  content: "SALE";
 }
 .hex-init#servicesserv::before {
-  content: "Post-ICO";
+  content: "Post-Sale";
 }
 
 .hex-master-wrap {
@@ -942,7 +942,7 @@ transform: rotate(60deg);
 
 #page1 .slidecontent{
   text-align: left;
-    width: 60%;
+    width: 80%;
     font-size: 24px;
     padding-top:  2vh;
     margin-right: auto;

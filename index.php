@@ -1,29 +1,49 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Leadger Leap</title>
+  <title>Leadger Leap - Blockchain Enterprise</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0,
   maximum-scale=1.0">
-  <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet'>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/style.css?v=2" rel="stylesheet">
-  <link href="css/animate.css" rel="stylesheet">
+  <link rel="apple-touch-icon" sizes="180x180" href="web/icons/apple-touch-icon.png?v=2"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="web/icons/favicon-32x32.png?v=2"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="web/icons/favicon-16x16.png?v=2"/>
+  <link rel="manifest" href="web/icons/manifest.json"/>
+  <link rel="mask-icon" href="web/icons/safari-pinned-tab.svg?v=2" color="#e7803cb"/>
+  <meta name="description" content="We build blockchain from concept to execution."/>
+  <meta name="keywords" content="ledgerleap, ledger, ledger leap, cryptocurrency, crypto, cryptocurrencies, ico, blockchain, technology, token, ethereum"/>
 
+  <meta property="og:title" content="Leadger Leap - Blockchain Enterprise">
+  <meta property="og:description" content="We build blockchain from concept to execution.">
+  <meta property="og:image" content="https://www.ledgerleap.com/web/images/og.jpg">
+  <meta property="og:site_name" content="Ledger Leap">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@">
+  <meta name="twitter:title" content="Leadger Leap - Blockchain Enterprise">
+  <meta name="twitter:description" content="We build blockchain from concept to execution.">
+  <meta name="twitter:image" content="https://www.ledgerleap.com/web/images/og.jpg">
+  <meta name="twitter:image:alt" content="Ledger Leap Inc.">
+  <link href="css/animate.css" rel="stylesheet">
+  <link href="css/style.css?v=3" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
   <style type="text/css">
+  @charset "UTF-8";
   <?php
     for ($i=5; $i <= 200; $i+=5) { 
     echo '.pt'.(string)$i.'{padding-top:'.(string)$i.'px;}';
     echo '.pb'.(string)$i.'{padding-bottom:'.(string)$i.'px;}';
     echo '.p'.(string)$i.'{padding:'.(string)$i.'px;}';
   }
+
+  $rand = rand(1,2);
   ?>
   </style>
 <script type="text/javascript" src="js/wow.js"></script>
 </head>
 <body>
-    <!-- AIGC Project Modal -->
+  <!-- AIGC Project Modal -->
   <div class="modal fade" id="tributeModal" tabindex="-1" role="dialog" aria-labelledby="tributeTitle">
     <div class="modal-dialog wide" role="document">
       <div class="modal-content">
@@ -168,17 +188,14 @@
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
   </div><!-- /.modal -->
-
-
-
   <div id="pageWrap"> <!-- Page Wrap Begin !-->
     <div class="innerPage"> <!-- Inner Page Begin !-->
       <div class="page" id="page0">
         <div class="innerPage">
-          <a class="goback" onclick="goBack()" >Go Back</a>
-          <div class="title">WHO</div> <!-- WHO (TEAM AND ABOUT) -->
-            <section>
-              <div class="container">
+          <h2>Company</h2>
+          <a class="goback" onclick="goBack()">Go Back</a>
+          <section style="height: 100%; width: 100%; overflow-y: scroll; overflow-x: hidden;">
+              <div class="container pt100 pb60">
                 <div class="row flex-center sm-no-flex">
 
                   <div class="pull-right sm-no-float col-md-8">
@@ -241,7 +258,7 @@
                         
                         <div class="member-details">
                           <div>
-                            <img src="images/team/sam.png" alt="Media Manager" id="sampic">
+                            <img src="images/team/sam.png" alt="Media Manager">
                             <div class="member-info">
                               <h3>Sam Mihal</h3>
                               <p>Media Manager</p>
@@ -288,9 +305,8 @@
                   
                   <div class="pull-left col-md-4 sm-text-center">
                     <div class="team-overview">
-                      <h2 class="orange">Who Are We?</h2>
-                      
-                      <p><div>Ledger Leap can support solutions from an atmospheric scope. Our team is comprised of Founder's of launch projects along with specialists in each specific element, all directed by leadership with real world industry experience.</div></p>
+                      <h2 class="orange"><span style="font-size: 42px;">Who</span> Are We?</h2>
+                      <p style="font-size: 18px;" class="pt10">Ledger Leap can support solutions from an atmospheric scope. Our team is comprised of Founder's of launch projects along with specialists in each specific element, all directed by leadership with real world industry experience.</p>
                     </div>
                   </div><!-- /end col-md-4 -->
                 </div><!-- /end row -->
@@ -300,10 +316,11 @@
       </div>
       <div class="page" id="page1">
         <div class="innerPage">
+          <h2>Platform</h2>
           <a class="goback" onclick="goBack()">Go Back</a>
           <div class="container-fluid">
-            <div class="title">WHY</div> <!-- WHY WE'RE DIFFERENT/WHY CHOOSE US -->
-            <div class="slidecontent">
+            <div class="title orange">WHY<span style="font-size: 28px;">we're different</span></div> <!-- WHY WE'RE DIFFERENT/WHY CHOOSE US -->
+            <div class="slidecontent" style="font-size: 19px;">
               <ul>
                 <li>Simple Sales Process</li>
                 <li>
@@ -315,29 +332,37 @@
                     <li> On-demand adjustable security features</li>
                     <li> One-click referral link functionality for marketing</li>
                     <li> Automated email confirmations and countdown timers</li>
-                    <li>ERC20, ERC223, ERC721, and ERC865 tokens supported</li>
+                    <li> ERC20, ERC223, ERC721, ERC725, and ERC865 tokens supported</li>
+                    <li> Comprehensive airdrop service</li>
                     <li class="pb10"> Simple, compliant accredited investor SAFT order system</li>
                   </ul>
                 </li>
-                <li>Compliance and Security</li>
+                <li>
+                  Compliance and Security
+                  <ul>
+                    <li>Penetration tested</li>
+                  </ul>
+                </li>
               </ul>
 
               <a class="et-cta" href="mailto:team@ledgerleap.com">Schedule Live Demo</a>
             </div>
           </div>
+          <div style="height: 60px;"></div>
+          <button style="position: absolute; left: 0; right: 0; margin: 0 auto; height: 50px; width: 240px; font-size: 20px;"><a href="mailto:team@ledgerleap.com">Schedule Live Demo</a></button>
         </div>
       </div>
       <div class="page" id="page2">
         <div class="innerPage"> 
+          <h2>Services</h2>
           <a class="goback" onclick="goBack()">Go Back</a>
-          <div class="title">WHAT</div> <!-- SERVICES -->
-            <section class="intro">
+          <section class="intro">
 
               <div class="intro-block">
                 <div class="centerfold-wrap">
                   <div class="hex-master-wrap">
                     <div class="grid-1">
-                      <div class="hex-wrap backend" data-title="Pre-ICO" data-content="about-desc" data-color="#fdae22">
+                      <div class="hex-wrap backend" data-title="Pre-Sale" data-content="about-desc" data-color="#fdae22">
                           <div class="hex-init" id="consultingserv"></div>
                           <div class="hex-borders">
                             <div class="border-1"></div>
@@ -365,7 +390,7 @@
                       </div> -->
                     </div>
                     <div class="grid-2">
-                      <div class="hex-wrap html sm-hide" data-title="" data-content="" data-color="#fdae22">
+                      <div class="hex-wrap html sm-hide" data-title="Sale" data-content="" data-color="#fdae22">
                           <div class="hex-init"></div>
             <!--              <div class="hex-borders">
                             <div class="border-1"></div>
@@ -379,7 +404,7 @@
                           </div>
                         </div>
                       </div>
-                      <div class="hex-wrap css" data-title="ICO Platform" data-content="frontend-desc" data-color="#fdae22">
+                      <div class="hex-wrap css" data-title="Sales Platform" data-content="frontend-desc" data-color="#fdae22">
                           <div class="hex-init" id="techserv"></div>
                           <div class="hex-borders">
                             <div class="border-1"></div>
@@ -396,7 +421,7 @@
 
                     </div>
                     <div class="grid-3">
-                      <div class="hex-wrap gui" data-title="Post ICO" data-content="it-desc" data-color="#fdae22">
+                      <div class="hex-wrap gui" data-title="Post Sale" data-content="it-desc" data-color="#fdae22">
                           <div class="hex-init" id="servicesserv"></div>
                           <div class="hex-borders">
                             <div class="border-1"></div>
@@ -436,9 +461,9 @@
                           <li>Launch Coordination</li>
                           <li>Smart Contract</li>
                           <li>Landing Site</li>
-                          <li>Contribution Platform (requires node below)</li>
+                          <li>Contribution Platform</li>
                           <li>Secure Node Programming</li>
-                          <li>Complaint Investor Prospectus Platform</li>
+                          <li>Compliant Investor Prospectus Platform</li>
                           <li>B.A.A.S. (Blockchain as a Service)</li>
                         </ul></p>
                       </div>
@@ -492,12 +517,16 @@
       </div>
       <div class="page" id="page3">
         <div class="innerPage">
+          <h2>Clients</h2>
           <a class="goback" onclick="goBack()">Go Back</a>
-          <div class="title">WHERE</div> <!--WHERE WE ARE (LOCATION)/WHERE WE'VE BEEN (CLIENTS) -->
-          <div class="slidecontent"><p class="mb20">
-            The Ledger Leap team and development office is based in Melbourne, Florida, USA. We build all tech in-house. Many aspects of blockchain benefit from decentralization; however, staff and timetables do not.</p>
-            <p class="mb20">The solutions we create are built of necessity. As unmet needs are discovered by our clients, we build robust solutions in real time and silo these answers for future customers. Ledger Leap has provided its services to a handful of clients already. Every client is treated with above and beyond mentality in delivering rock solid products.</p>
+          <div class="container">
+
+          <div class="title orange">WHERE<span style="font-size: 28px;"> we've been</span></div> <!--WHERE WE ARE (LOCATION)/WHERE WE'VE BEEN (CLIENTS) -->
+          <div class="slidecontent pb50">
+            <p style="font-size: 18px;">The Ledger Leap team and development office is based in Melbourne, Florida, USA. We build all tech in-house. Many aspects of blockchain benefit from decentralization; however, staff and timetables do not.</p>
+            <p style="font-size: 18px;">The solutions we create are built of necessity. As unmet needs are discovered by our clients, we build robust solutions in real time and silo these answers for future customers. Ledger Leap has provided its services to a handful of clients already. Every client is treated with above and beyond mentality in delivering rock solid products.</p>
           </div>
+        </div>
           <section id="portfolio" class="row">
             <div class="row">
               <div id="projects" class="carousel slide col-xs-12" data-ride="carousel" data-interval="false">
@@ -572,15 +601,19 @@
       </div>
       <div class="page" id="page4">
         <div class="innerPage">
+          <h2>Ledger Leap</h2>
           <a class="goback" onclick="goBack()">Go Back</a>
-          <div class="title">WHEN</div> <!-- TIMELINE/FLOWCHART? -->
-            <div class="slidecontent">
-              <p class="mt20 mb20">The Ledger Leap process is designed in "parallels" to leverage existing solutions to speed up launch times. Through this concept, the team can reduce a project's time-to-launch by months and let founders focus on their project.</p>
-              <div>
-                
+          <div class="container-fluid">
+            <div class="title orange">HOW<span style="font-size: 28px;"> We Do It</span></div> <!-- HOW -->
+            <div class="container">
+              <div class="slidecontent pb60" style="font-size: 19px;">
+                Ledger Leap launches blockchain solutions, not just projects. We only assist projects that make sense and drive the industry forward in a positive direction. Our platform is designed to bring real world support to beneficial projects, providing experience, connections, and software to harvest the benefits. Solid projects need solutions that can bring products to market faster and without prohibitive fiat costs that cripple development funds.
+              </div>
+              <div class="text-center">
+                < chart >
               </div>
             </div>
-
+          </div>
         </div>
       </div>
       <div class="page" id="page5">
@@ -670,7 +703,7 @@ function rotateObjects(){
 function init(){
   container = document.getElementById( 'boxes' );
   scene = new THREE.Scene();
-  scene.background = new THREE.Color( 0x111111);
+  scene.background = new THREE.Color( 0x0a0a0a);
 
   renderer = new THREE.WebGLRenderer({antialias: true, alpha: true});
   renderer.setPixelRatio( window.devicePixelRatio );
@@ -680,17 +713,12 @@ function init(){
   
   //renderer.gammaInput = true;
   //renderer.gammaOutput = true;
-  var ambientLight = new THREE.AmbientLight( 0xcccccc, 0.8);
+  var ambientLight = new THREE.AmbientLight( 0xcccccc, 0.9);
   scene.add(ambientLight);
-  var pointLight = new THREE.PointLight( 0xffffff, 0.4);
-  pointLight.name = "pointLight";
-  //pointLight.position.y = 100;
-  //pointLight.lookAt( new THREE.Vector3(0,0,0));
-  //scene.add(pointLight);
-
+  var pointLight = new THREE.PointLight( 0xe7803c, 0.8);
 
   camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.01, 1000);
-  camera.position.set(0, 0, 8);
+  camera.position.set(0, 0, 10);
   camera.add(pointLight);
   scene.add(camera);
   
@@ -728,8 +756,8 @@ function init(){
       index = (index + 1) % 5;
 
     var geometry;
-    //var material = new THREE.MeshBasicMaterial({color: 0xcccccc, wireframe: true, side: THREE.DoubleSide});
-    var material = new THREE.MeshStandardMaterial({ metalness: 1, roughness: 0.7, color: 0xffffff });
+    var material = new THREE.MeshBasicMaterial({color: 0xcccccc, wireframe: true, side: THREE.DoubleSide});
+    //var material = new THREE.MeshStandardMaterial({ metalness: 0, roughness: 0, color: 0xfbfbfb });
 
     switch(index){
       case 0: // Box
@@ -1136,7 +1164,7 @@ function init2() {
   var light2, object2;
   var ambientLight2 = new THREE.AmbientLight( 0xcccccc, 0.4 );
   scene2.add( ambientLight2 );
-  var pointLight2 = new THREE.PointLight( 0xffffff, 0.4 );
+  var pointLight2 = new THREE.PointLight( 0xffffff, 0.8 );
   camera2.add( pointLight2);
   scene2.add( camera2 );
   //var material = new THREE.MeshBasicMaterial( { wireframe: true, wireframeLinewidth: 0,side: THREE.DoubleSide, color: 0x555555 });
@@ -1327,7 +1355,6 @@ function centerModal() {
 
       }).mouseleave(function () {
           $('.hexactive').velocity('stop', true).velocity('reverse').removeClass('hexactive');
-      });
   });
   </script>
   </body>
