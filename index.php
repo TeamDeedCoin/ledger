@@ -1263,40 +1263,12 @@ function render2() {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.1.0/velocity.ui.js"></script>
 <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript">
+$(document).ready(function () {
+  var $body = $('body');
+  var $modalBackdropDiv = $('<div class="modal-backdrop fade in"></div>');
 
-
-  // Mobile Menu functions
-  function openMenu() {
-    $menuIcon.removeClass('glyphicon-menu-hamburger').addClass('glyphicon-remove active');
-    $modalBackdropDiv.css('z-index', 900);
-    $body.append($modalBackdropDiv);
-    if (!$navbar.hasClass('menu-fixed')) {
-      $navbar.css('background-color', 'rgba(255,254,253,0.97)');
-    }
-    // Close menu after clicking modal-backdrop
-    $modalBackdropDiv.on('click', function () {
-      $('.navbar-toggle').click();
-      closeMenu();
-    });
-  }
-  function closeMenu() {
-    $menuIcon.removeClass('glyphicon-remove active').addClass('glyphicon-menu-hamburger');
-    $modalBackdropDiv.css('z-index', 1025).remove();
-    if (!$navbar.hasClass('menu-fixed')) {
-      $navbar.css('background-color', 'transparent');
-    }
-  }
-
-  // Fixed Nav after scroll
-  function scroll() {
-    if ($(window).scrollTop() >= $offsetY) {
-      $navbar.addClass('menu-fixed').css('background-color', 'rgba(255,254,253,0.97)');
-    } else {
-      closeMenu();
-    }
-  }
-
-function centerModal() {
+  // Center modals vertically
+  function centerModal() {
     $(this).css('display', 'block');
     var $dialog = $(this).find('.modal-dialog');
     var $offset = ($(window).height() - $dialog.height()) / 2;
@@ -1308,54 +1280,55 @@ function centerModal() {
     }
     $dialog.css('margin-top', $offset);
   }
-  /*jslint browser:true */
 
-  $(document).ready(function () {
+  $(document).on('show.bs.modal', '.modal', centerModal);
+  $(window).on('resize', function () {
+    $('.modal:visible').each(centerModal);
+  });
+  function hex_initial_animation() {
+    $(".hex-wrap,.hover-notify").velocity("transition.expandIn", { stagger: 150 });
+    $(".hex-wrap").velocity("callout.pulse");
+    $(".hoverblock").velocity("fadeOut", { delay: 3000, duration: 0 });
+    }
+  hex_initial_animation();
 
-      var $body = $('body');
-      var $modalBackdropDiv = $('<div class="modal-backdrop fade in"></div>');
+var hoverdetect = setInterval(function(){ hovernotify() }, 3000);
+function hovernotify() {
+    $(".hover-notify").velocity("callout.tada");
+}
+function myStopFunction() {
+$(".hover-notify").velocity('stop', true).velocity("fadeOut");
+    clearInterval(hoverdetect);
+}
 
-      document.onscroll = scroll;
+    $(".hex-init").mouseenter(function () {
+      
+      myStopFunction();
 
-      $(document).on('show.bs.modal', '.modal', centerModal);
-      $(window).on('resize', function () {
-          $('.modal:visible').each(centerModal);
-      });
+      var title_color =  $(this).parent().attr("data-color");
+      var title_name = $(this).parent().attr("data-title");
+      var desc_name = $(this).parent().attr("data-content");
 
-      function hex_initial_animation() {
-          $(".hex-wrap,.hover-notify").velocity("transition.expandIn", { stagger: 150 });
-          $(".hex-wrap").velocity("callout.pulse");
-          $(".hoverblock").velocity("fadeOut", { delay: 3000, duration: 0 });
-      }
-
-      hex_initial_animation();
-
-      $(".hex-init").mouseenter(function () {
-
-          myStopFunction();
-
-          var title_color =  $(this).parent().attr("data-color");
-          var title_name = $(this).parent().attr("data-title");
-          var desc_name = $(this).parent().attr("data-content");
-
-          function hex_description() {
-              $('.code-description').velocity('stop', true).velocity("transition.slideRightBigIn");
-              $('.' + desc_name).siblings().removeClass('desc-active');
-              setTimeout(function() {
-                  $('.' + desc_name).addClass('desc-active');
-                  $('.code-descriptopn > div, .desc-active').children().velocity('stop', true).velocity("transition.slideRightBigIn", { stagger: 300 });
-                  $('.code-title, .desc-active span').velocity({color: title_color}, { queue: false });
-                  $('.code-title').text(title_name)
-              }, 0);
+        function hex_description() {
+          $('.code-description').velocity('stop', true).velocity("transition.slideRightBigIn");
+          $('.' + desc_name).siblings().removeClass('desc-active');
+            setTimeout(function() {
+              $('.' + desc_name).addClass('desc-active');
+              $('.code-descriptopn > div, .desc-active').children().velocity('stop', true).velocity("transition.slideRightBigIn", { stagger: 300 });
+              $('.code-title, .desc-active span').velocity({color: title_color}, { queue: false });
+              $('.code-title').text(title_name)
+            }, 0);
           }
           hex_description();
 
-          $(this).parent().addClass('hexactive'); 
-          $('.hexactive').velocity({scaleX:"1.1",scaleY:"1.1"}, { duration: 200 });
+        $(this).parent().addClass('hexactive'); 
+        $('.hexactive').velocity({scaleX:"1.1",scaleY:"1.1"}, { duration: 200 });
 
       }).mouseleave(function () {
-          $('.hexactive').velocity('stop', true).velocity('reverse').removeClass('hexactive');
-  });
+         $('.hexactive').velocity('stop', true).velocity('reverse').removeClass('hexactive');
+      });
+});
+
   </script>
   </body>
 </html>
