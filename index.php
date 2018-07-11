@@ -787,15 +787,49 @@ function init(){
   raycaster = new THREE.Raycaster();
 
   /* Logo */
+
+  var loader = new THREE.ObjectLoader();
+  loader.load("js/noLights.json",function ( obj ) {
+    obj.scale.set(4,4,4);
+    scene.add( obj );
+  });
+
+/*
+  var manager = new THREE.LoadingManager();
+  manager.onProgress = function ( item, loaded, total ) {
+      console.log( item, loaded, total );
+  };
+
+  var onProgress = function ( xhr ) {
+      if ( xhr.lengthComputable ) {
+          var percentComplete = xhr.loaded / xhr.total * 100;
+          console.log( Math.round(percentComplete, 2) + '% downloaded' );
+      }
+  };
+  var onError = function ( xhr ) {
+  };
+
+  var loader = new THREE.OBJLoader( manager );
+  loader.load( '/LLlogo.obj', function ( object ) {
+      object.traverse( function ( child ) {
+          if ( child instanceof THREE.Mesh ) {
+              child.material.map = texture;
+          }
+      } );
+      object.position.y = - 95;
+      scene.add( object );
+  }, onProgress, onError );
+ */
+
   var spriteMap = new THREE.TextureLoader().load("images/logo.png");
   var spriteMaterial = new THREE.SpriteMaterial({map: spriteMap, color: 0xcccccc});
   logo = new THREE.Sprite(spriteMaterial);
-  scene.add(logo);
+  //scene.add(logo);
 
   spriteMap = new THREE.TextureLoader().load("images/logoLabel1.png");
   spriteMaterial = new THREE.SpriteMaterial({map: spriteMap, color: 0xcccccc});
   logoLabel = new THREE.Sprite(spriteMaterial);
-  scene.add(logoLabel);
+  //scene.add(logoLabel);
 
   var index = -1;
 
