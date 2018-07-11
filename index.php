@@ -9,7 +9,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="web/icons/favicon-32x32.png?v=2"/>
   <link rel="icon" type="image/png" sizes="16x16" href="web/icons/favicon-16x16.png?v=2"/>
   <link rel="manifest" href="web/icons/manifest.json"/>
-  <link rel="mask-icon" href="web/icons/safari-pinned-tab.svg?v=2" color="#e7803cb"/>
+  <link rel="mask-icon" href="web/icons/safari-pinned-tab.svg?v=2" color="#e7803c"/>
   <meta name="description" content="We build blockchain from concept to execution."/>
   <meta name="keywords" content="ledgerleap, ledger, ledger leap, cryptocurrency, crypto, cryptocurrencies, ico, blockchain, technology, token, ethereum"/>
 
@@ -18,7 +18,7 @@
   <meta property="og:image" content="https://www.ledgerleap.com/web/images/og.jpg">
   <meta property="og:site_name" content="Ledger Leap">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:site" content="@">
+  <meta name="twitter:site" content="">
   <meta name="twitter:title" content="Leadger Leap - Blockchain Enterprise">
   <meta name="twitter:description" content="We build blockchain from concept to execution.">
   <meta name="twitter:image" content="https://www.ledgerleap.com/web/images/og.jpg">
@@ -68,8 +68,7 @@ new WOW().init();
           </div>
           <div class="row">
             <div class="col-sm-10 col-sm-offset-1 col-lg-6 col-lg-offset-0">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, veritatis placeat expedita velit debitis fugit aperiam voluptatem soluta sed ea porro dolore ab, itaque possimus tenetur? Temporibus ab, similique esse.</p>
-              <p class="mb-30">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita modi tempore, sit error adipisci, laudantium accusantium rem corporis quam. Beatae laboriosam quaerat fugiat, incidunt voluptatibus eos esse voluptas. Deserunt, quaerat.</p>
+              <p class="mb-30">Businesses that have real-world problems that may be solved by AI can submit these problems on the platform, for users to solve. If you choose to participate in a crowdsourcing challenge, you’ll be rewarded in token. The crowdsourcing customer makes micropayments to each developer that helps to solve the problem.</p>
             </div>
             <div class="col-sm-10 col-sm-offset-1 col-lg-6 col-lg-offset-0 md-center">
               <p><strong>Technologies Used:</strong></p>
@@ -116,10 +115,10 @@ new WOW().init();
           <div class="row">
             <div class="col-sm-10 col-sm-offset-1 col-lg-6 col-lg-offset-0">
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. At aut mollitia sint temporibus nobis iusto nulla, similique beatae quisquam laboriosam debitis maxime minima adipisci quam, deserunt vero labore. Saepe, ratione.
+                Deedcoin customers use DEED to decide what to pay in commission costs when purchasing or selling a home, lowering the traditional 6% fee to 1%.
               </p>
               <p class="mb-30">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur voluptatem dolores sequi eaque laudantium, sit possimus quisquam praesentium sunt dicta, esse, deleniti doloribus odio atque harum animi voluptate commodi fugit.
+                By simplifying the transaction process and streamlining real estate to run on 1%, DEED users are able to decide their future commission costs based on the free market price of DEED.
               </p>
             </div>
             <div class="col-sm-10 col-sm-offset-1 col-lg-6 col-lg-offset-0 md-center">
@@ -130,7 +129,6 @@ new WOW().init();
                 <span class="label tag">HTML5</span>
                 <span class="label tag">CSS3</span>
                 <span class="label tag">jQuery</span>
-                <span class="label tag">Gifffer.js</span>
               </p>
               <a class="btn td-btn outline green mb-30" href="http://www.deedcoinlaunch.com/" target="_blank" title="Link to Deedcoin"><span class="glyphicon glyphicon-link"></span> Visit Live Site</a>
               <a class="btn td-btn outline green mb-30" href="http://www.deedcoin.com/" target="_blank" title="Link to Deedcoin"><span class="glyphicon glyphicon-link"></span> Visit Second Site</a>
@@ -166,9 +164,9 @@ new WOW().init();
           </div>
           <div class="row">
             <div class="col-sm-10 col-sm-offset-1 col-lg-6 col-lg-offset-0">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores voluptatem, deleniti, eum rerum rem assumenda, ipsa odit architecto fuga tempore quam? Architecto totam quia accusamus, repellat aperiam praesentium beatae amet.</p>
+              <p>AIRSTAYZ&trade; is the next generation of booking that pays you to STAY with a blockchain currently useful for travelers and hotels</p>
               <p class="mb-30">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. At, temporibus! Eligendi sed harum neque voluptatem odit saepe, modi, recusandae dolore excepturi earum nostrum, iure minima eos natus! Quam perspiciatis, cumque!
+                STAY allows travelers to be automatically rewarded with a currency that has actual industry demand. STAY is given to the travelers as rewards, and they can choose to redeem the token for a multitude of offered goods and services.  
               </p>
             </div>
             <div class="col-sm-10 col-sm-offset-1 col-lg-6 col-lg-offset-0 md-center">
@@ -179,7 +177,6 @@ new WOW().init();
                 <span class="label tag">CSS3</span>
                 <span class="label tag">PHP</span>
                 <span class="label tag">PHPMailer</span>
-                <span class="label tag">FitVids.js</span>
               </p>
               <a class="btn td-btn outline green mb-30" href="http://token.airstayz.com/" target="_blank" title="Link to ryanbechtel.com"><span class="glyphicon glyphicon-link"></span> Visit Live Site</a>
             </div>
@@ -198,169 +195,194 @@ new WOW().init();
           <h2>Company</h2>
           <a class="goback" onclick="goBack()">Go Back</a>
           <section style="height: 100%; width: 100%; overflow-y: scroll; overflow-x: hidden;">
-              <div class="container pt100 pb60">
-                <div class="row flex-center sm-no-flex">
+            <div class="container pt100 pb100">
+              <div class="row flex-center sm-no-flex">
 
-                  <div class="pull-right sm-no-float col-md-8">
-                    <ul class="team-members list-unstyled">
-                      <!-- single member row starts -->
-                      <li class="clearfix" id="founders">
-                        <div class="member-details">
-                          <div>
-                            <img src="images/team/charles.png" alt="Co-Founder">
-                            <div class="member-info">
-                              <h3>Charles Wismer</h3>
-                              <p>Co-Founder</p>
-                            </div>
+                <div class="sm-no-float col-md-8">
+                  <ul class="team-members list-unstyled" style="pointer-events: none;">
+                    <!-- single member row starts -->
+                    <li class="clearfix" id="founders">
+                      <div class="member-details">
+                        <div>
+                          <img src="images/team/charles.png" alt="Co-Founder">
+                          <div class="member-info">
+                            <h3>Charles Wismer</h3>
+                            <p>Co-Founder</p>
                           </div>
                         </div>
-                        
-                        <div class="member-details">
-                          <div>
-                            <img src="images/team/thomas.png" alt="Co-Founder">
-                            <div class="member-info">
-                              <h3>Thomas Spangler</h3>
-                              <p>Co-Founder</p>
-                            </div>
-                          </div>
-                        </div>
-                        
-                        <div class="member-details">
-                          <div>
-                            <img src="images/team/matt.png" alt="Co-Founder">
-                            <div class="member-info">
-                              <h3>Matthew Herrick</h3>
-                              <p>Co-Founder</p>
-                            </div>
-                          </div>
-                        </div>
-                      </li><!-- /single member row ends -->
+                      </div>
                       
-                      <!-- single member row starts -->
-                      <li class="clearfix">
-                        <div class="member-details">
-                          <div>
-                            <img src="images/team/emily.png" alt="Project Manager">
-                            <div class="member-info" id="et-pic">
-                              <h3>Emily Thacker</h3>
-                              <p>Project Manager</p>
-                            </div>
+                      <div class="member-details">
+                        <div>
+                          <img src="images/team/thomas.png" alt="Co-Founder">
+                          <div class="member-info">
+                            <h3>Thomas Spangler</h3>
+                            <p>Co-Founder</p>
                           </div>
                         </div>
+                      </div>
+                      
+                      <div class="member-details">
+                        <div>
+                          <img src="images/team/matt.png" alt="Co-Founder">
+                          <div class="member-info">
+                            <h3>Matthew Herrick</h3>
+                            <p>Co-Founder</p>
+                          </div>
+                        </div>
+                      </div>
+                    </li><!-- /single member row ends -->
+                    
+                    <!-- single member row starts -->
+                    <li class="clearfix">
+                      <div class="member-details">
+                        <div>
+                          <img src="images/team/emily.png" alt="Project Manager">
+                          <div class="member-info" id="et-pic">
+                            <h3>Emily Thacker</h3>
+                            <p>Project Manager</p>
+                          </div>
+                        </div>
+                      </div>
 
-                        
-                        <div class="member-details">
-                          <div>
-                            <img src="images/team/lawson.png" alt="Content Manager">
-                            <div class="member-info">
-                              <h3>Matt Lawson</h3>
-                              <p>Content Manager</p>
-                            </div>
+                      
+                      <div class="member-details">
+                        <div>
+                          <img src="images/team/lawson.png" alt="Content Manager">
+                          <div class="member-info">
+                            <h3>Matt Lawson</h3>
+                            <p>Content Manager</p>
                           </div>
                         </div>
-                        
-                        <div class="member-details">
-                          <div>
-                            <img src="images/team/sam.png" alt="Media Manager">
-                            <div class="member-info">
-                              <h3>Sam Mihal</h3>
-                              <p>Media Manager</p>
-                            </div>
+                      </div>
+                      
+                      <div class="member-details">
+                        <div>
+                          <img src="images/team/sam.png" alt="Media Manager">
+                          <div class="member-info">
+                            <h3>Sam Mihal</h3>
+                            <p>Media Manager</p>
                           </div>
                         </div>
-                      </li><!-- /single member row ends -->
+                      </div>
+                    </li><!-- /single member row ends -->
 
-                      <!-- single member row starts -->
-                      <li class="clearfix">
-                        <div class="member-details">
-                          <div>
-                            <img src="images/team/tessa.png" alt="Public Relations">
-                            <div class="member-info">
-                              <h3>Tessa Reve</h3>
-                              <p>Public Relations</p>
-                            </div>
+                    <!-- single member row starts -->
+                    <li class="clearfix">
+                      <div class="member-details">
+                        <div>
+                          <img src="images/team/tessa.png" alt="Public Relations">
+                          <div class="member-info">
+                            <h3>Tessa Reve</h3>
+                            <p>Public Relations</p>
                           </div>
                         </div>
-                        
-                        <div class="member-details">
-                          <div>
-                            <img src="images/team/phil.png" alt="Media Outreach">
-                            <div class="member-info">
-                              <h3>Phil Mzrglocki</h3>
-                              <p>Media Outreach</p>
-                            </div>
+                      </div>
+                      
+                     
+                      
+                      <div class="member-details">
+                        <div>
+                          <img src="images/team/joe.png" alt="Community Manager">
+                          <div class="member-info">
+                            <h3>Joe Davies</h3>
+                            <p>Community Manager</p>
                           </div>
                         </div>
-                        
-                        <!-- <div class="member-details">
-                          <div>
-                            <img src="http://gocheckers.com/images/roster/josh_wesley_headshot_1718.png" alt="UI Designer">
-                            <div class="member-info">
-                              <h3>John Doe</h3>
-                              <p>UI Designer</p>
-                            </div>
-                          </div>
-                        </div> -->
-                      </li><!-- /single member row ends -->
+                      </div> 
+                    </li><!-- /single member row ends -->
 
-                    </ul><!-- /end team-photos -->
-                  </div><!-- /end col-md-8 -->
-                  
-                  <div class="pull-left col-md-4 sm-text-center">
-                    <div class="team-overview">
-                      <h2 class="orange"><span style="font-size: 42px;">Who</span> Are We?</h2>
-                      <p style="font-size: 18px;" class="pt10">Ledger Leap can support solutions from an atmospheric scope. Our team is comprised of Founder's of launch projects along with specialists in each specific element, all directed by leadership with real world industry experience.</p>
-                    </div>
-                  </div><!-- /end col-md-4 -->
-                </div><!-- /end row -->
-              </div><!-- /end container -->
-            </section>
+                  </ul><!-- /end team-photos -->
+                </div><!-- /end col-md-8 -->
+                
+                <div class="pull-left col-md-4 sm-text-center pt50">
+                  <div class="team-overview">
+                    <h2 class="orange"><span style="font-size: 42px;">Who</span> Are We?</h2>
+                    <p style="font-size: 18px;" class="pt10">Ledger Leap can support solutions from an atmospheric scope. Our team is comprised of founders of launch projects along with specialists in each specific element, all directed by leadership with real world industry experience.</p>
+                  </div>
+                </div><!-- /end col-md-4 -->
+              </div><!-- /end row -->
+            </div><!-- /end container -->
+            <div style="bottom: 100px; left: 0; right: 0; margin: 0 auto; width: 300px; height: 60px; text-align: center;">
+              <a href="https://www.facebook.com/Ledger-Leap-2104950239762462/" target="_blank">
+                <img src="web/images/facebook.png" class="socialicon">
+              </a>
+              <a href="https://instagram.com/ledgerleap/" target="_blank">
+                <img src="web/images/instagram.png" class="socialicon">
+              </a>
+              <a href="https://www.linkedin.com/company/ledgerleap/" target="_blank">
+                <img src="web/images/linkedin.png" class="socialicon">
+              </a>
+              <a href="mailto:team@ledgerleap.com">
+                <img src="web/images/mail.png" class="socialicon">
+              </a><!--
+              <a href="https://t.me/" target="_blank">
+                <img src="web/images/telegram.png" class="socialicon">
+              </a>
+              <a href="https://twitter.com/" target="_blank">
+                <img src="web/images/twitter.png" class="socialicon">
+              </a>-->
+            </div>
+          </section>
         </div>
       </div>
       <div class="page" id="page1">
-        <div class="innerPage">
+        <div class="innerPage" style="overflow-y: scroll; overflow-x: hidden;">
           <h2>Platform</h2>
           <a class="goback" onclick="goBack()">Go Back</a>
-          <div class="container-fluid">
-            <div class="title orange">WHY<span style="font-size: 28px;">we're different</span></div> <!-- WHY WE'RE DIFFERENT/WHY CHOOSE US -->
-            <div class="slidecontent" style="font-size: 19px;">
-              <ul>
-                <li>Simple Sales Process</li>
-                <li>
-                  Administrator Ease
-                  <ul>
-                    <li> Multiple modes for different phases of the sale</li>
-                    <li> Capability to accept Bitcoin, Ethereum, or Litecoin</li>
-                    <li> Credit card sales (compliance determined in consultation)</li>
-                    <li> On-demand adjustable security features</li>
-                    <li> One-click referral link functionality for marketing</li>
-                    <li> Automated email confirmations and countdown timers</li>
-                    <li> ERC20, ERC223, ERC721, ERC725, and ERC865 tokens supported</li>
-                    <li> Comprehensive airdrop service</li>
-                    <li class="pb10"> Simple, compliant accredited investor SAFT order system</li>
-                  </ul>
-                </li>
-                <li>
-                  Compliance and Security
-                  <ul>
-                    <li>Penetration tested</li>
-                  </ul>
-                </li>
-              </ul>
+          <div class="container-fluid pt20" style="width: 100%;">
+            <div class="title orange" style="line-height: 30px;">WHY<span style="font-size: 28px; line-height: 30px;">we're different</span></div> <!-- WHY WE'RE DIFFERENT -->
 
-              <a class="et-cta" href="mailto:team@ledgerleap.com">Schedule Live Demo</a>
+            <div class="row row-eq-height pt30" style="width: 100%;">
+              <div class="col-md-6" style="font-size: 19px;">
+                <ul class="whytable">
+                  <li>Simple Sales Process</li>
+                  <li>
+                    Administrator Ease
+                    <ul>
+                      <li> Multiple modes for different phases of the sale</li>
+                      <li> Capability to accept Bitcoin, Ethereum, Litecoin, Monero, Dash, Credit Cards (if applicable)</li>
+                      <li> Credit card sales (compliance determined in consultation)</li>
+                      <li> On-demand adjustable security features</li>
+                      <li> One-click referral link functionality for marketing</li>
+                      <li> Automated email confirmations and countdown timers</li>
+                      <li> ERC20, ERC223, ERC721, ERC725, and ERC865 tokens supported</li>
+                      <li> Comprehensive airdrop service</li>
+                      <li class="pb10"> Simple, compliant accredited investor SAFT order system</li>
+                    </ul>
+                  </li>
+                  <li>
+                    Compliance and Security
+                    <ul>
+                      <li>Penetration tested</li>
+                      <li>OWASP top ten</li>
+                      <li>Industry standard compliance and encryption</li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-md-6 text-center vcenter">
+                <img src="web/images/widelogo.png" style="max-width: 320px;">
+              </div>
             </div>
           </div>
           <div style="height: 60px;"></div>
-          <button style="position: absolute; left: 0; right: 0; margin: 0 auto; height: 50px; width: 240px; font-size: 20px;"><a href="mailto:team@ledgerleap.com">Schedule Live Demo</a></button>
+          <a href="mailto:team@ledgerleap.com"><button style="position: absolute;left: 0;right: 0;margin: 0 auto;height: 50px;width: 240px;font-size: 20px;background-color: rgba(231,128,60,.7);border: outset transparent 3px;border-radius: 4px;box-shadow: 5px 5px 10px #aaa;color: white;">Schedule Live Demo</button></a>
         </div>
       </div>
       <div class="page" id="page2">
-        <div class="innerPage"> 
+        <div class="innerPage" style="overflow-y: scroll; overflow-x: hidden;"> 
           <h2>Services</h2>
           <a class="goback" onclick="goBack()">Go Back</a>
+          <div class="container pt30">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="title orange" style="line-height: 30px;">WHAT<span style="font-size: 28px; line-height: 30px;"> we do</span></div>
+                <p style="font-size: 19px;">We offer a range of token sale, blockchain, and development services. Most are broken down into three main categories. Highly customizable options available that are not listed here. Contact us to see how we can create a solution tailored to your needs.</p>
+              </div>
+            </div>
+          </div>
           <section class="intro">
-
               <div class="intro-block">
                 <div class="centerfold-wrap">
                   <div class="hex-master-wrap">
@@ -512,6 +534,7 @@ new WOW().init();
 
                   </div>
                     <div class="hoverblock"></div>
+                    <div style="height: 60px;"></div>
                 </div> <!-- End Centerfold-Wrap -->
               </div>
 
@@ -519,18 +542,18 @@ new WOW().init();
         </div>
       </div>
       <div class="page" id="page3">
-        <div class="innerPage">
+        <div class="innerPage" style="overflow-y: scroll; overflow-x: hidden; ">
           <h2>Clients</h2>
           <a class="goback" onclick="goBack()">Go Back</a>
-          <div class="container">
+          <div class="container pt20">
 
-          <div class="title orange">WHERE<span style="font-size: 28px;"> we've been</span></div> <!--WHERE WE ARE (LOCATION)/WHERE WE'VE BEEN (CLIENTS) -->
-          <div class="slidecontent pb50">
-            <p style="font-size: 18px;">The Ledger Leap team and development office is based in Melbourne, Florida, USA. We build all tech in-house. Many aspects of blockchain benefit from decentralization; however, staff and timetables do not.</p>
-            <p style="font-size: 18px;">The solutions we create are built of necessity. As unmet needs are discovered by our clients, we build robust solutions in real time and silo these answers for future customers. Ledger Leap has provided its services to a handful of clients already. Every client is treated with above and beyond mentality in delivering rock solid products.</p>
+          <div class="title orange" style="line-height: 30px;">WHERE<span style="font-size: 28px; line-height: 30px;"> we've been</span></div> <!--WHERE WE ARE (LOCATION)/WHERE WE'VE BEEN (CLIENTS) -->
+            <div class="slidecontent pb50 pt30">
+              <p style="font-size: 18px;">The Ledger Leap team and development office is based in Melbourne, Florida, USA. We build all tech in-house. Many aspects of blockchain benefit from decentralization; however, staff and timetables do not.</p>
+              <p style="font-size: 18px;">The solutions we create are built of necessity. As unmet needs are discovered by our clients, we build robust solutions in real time and silo these answers for future customers. Ledger Leap has provided its services to a handful of clients already. Every client is treated with above and beyond mentality in delivering rock solid products.</p>
+            </div>
           </div>
-        </div>
-          <section id="portfolio" class="row">
+          <section id="portfolio">
             <div class="row">
               <div id="projects" class="carousel slide col-xs-12" data-ride="carousel" data-interval="false">
                 <div class="row">
@@ -543,12 +566,13 @@ new WOW().init();
                   </div>
                   <div class="col-xs-10">
                     <div class="carousel-inner" role="listbox">
-                      <div class="item active">
+                      <div class="item">
                         <div class="col-sm-7">
                           <img class="img-responsive center-block mb-30" src="images/projects/aigcscreen.png" alt="AIGC Project">
                         </div>
                         <div class="col-sm-5">
                           <div class="carousel-caption card">
+                            <img src="web/images/aig.png" class="clientlogos" style="height: 80px; width: auto; float: right;">
                             <h3 class="project-title">AIGC</h3>
                             <h4 class="project-subtitle">RWD/PORTAL</h4>
                             <button class="btn td-btn small outline green" data-toggle="modal" data-target="#tributeModal">View Details</button>
@@ -561,18 +585,20 @@ new WOW().init();
                         </div>
                         <div class="col-sm-5">
                           <div class="carousel-caption card">
+                            <img src="web/images/deedcoin.png" class="clientlogos" style="height: 80px; width: auto; float: right;">
                             <h3 class="project-title">Deedcoin</h3>
                             <h4 class="project-subtitle">RWD/PORTAL</h4>
                             <button class="btn td-btn small outline green" data-toggle="modal" data-target="#tmsModal">View Details</button>
                           </div>
                         </div>
                       </div>
-                      <div class="item">
+                      <div class="item active">
                         <div class="col-sm-7">
                           <img class="img-responsive center-block mb-30" src="images/projects/airstayzscreen.png" alt="AIRSTAYZ&trade; Project">
                         </div>
                         <div class="col-sm-5">
                           <div class="carousel-caption card">
+                            <img src="web/images/airstayz.png" class="clientlogos" style="height: 80px; width: auto; float: right;">
                             <h3 class="project-title">AIRSTAYZ&trade;</h3>
                             <h4 class="project-subtitle">RWD/PORTAL</h4>
                             <button class="btn td-btn small outline green" data-toggle="modal" data-target="#rbModal">View Details</button>
@@ -603,87 +629,96 @@ new WOW().init();
         </div>
       </div>
       <div class="page" id="page4">
-        <div class="innerPage">
+        <div class="innerPage" style="overflow-y: scroll; overflow-x: hidden; ">
           <h2>Ledger Leap</h2>
           <a class="goback" onclick="goBack()">Go Back</a>
-          <div class="container-fluid">
-            <div class="title orange">HOW<span style="font-size: 28px;"> We Do It</span></div> <!-- HOW -->
+          <div class="container-fluid pt20">
+            <div class="title orange" style="line-height: 30px;">HOW<span style="font-size: 28px; line-height: 30px;"> We Do It</span></div> <!-- HOW -->
             <div class="container">
-              <div class="slidecontent col-md-6 pb60" style="font-size: 19px;">
+              <div class="slidecontent pb60 pt40" style="font-size: 19px;">
                 Ledger Leap launches blockchain solutions, not just projects. We only assist projects that make sense and drive the industry forward in a positive direction. Our platform is designed to bring real world support to beneficial projects, providing experience, connections, and software to harvest the benefits. Solid projects need solutions that can bring products to market faster and without prohibitive fiat costs that cripple development funds.
               </div>
-              <div class="text-center col-md-6">
-                <div class="col-md-6">
-                    <div class="wow fadeInLeft" data-wow-duration="1700ms" data-wow-delay="300ms" >
-                        <p class="flowchart-heading">No Cost Consultation</p>
-                    </div>
-                    <div class="wow fadeInLeft" data-wow-duration="1700ms" data-wow-delay="400ms">
-                        <p class="flowchart-heading">Client Onboarding</p>
-                    </div>
+              <div class="row pb10 text-center sidearrows">
+                <div class="col-md-3 col-sm-3">
+                  <div class="arrowline1">&xrarr;</div>
                 </div>
-                <div class="col-md-3 tech-platform">
-                    <div class="wow fadeInLeft" data-wow-duration="1700ms" data-wow-delay="500ms">
-                        <p class="flowchart-heading">Workflow Establishment</p>
-                    </div>
-                    <div class="wow fadeInLeft" data-wow-duration="1700ms" data-wow-delay="600ms">
-                        <p class="flowchart-heading">Development</p>
-                    </div>
-                    <div class="wow fadeInLeft" data-wow-duration="1700ms" data-wow-delay="700ms">
-                        <p class="flowchart-heading">Smart Contracts</p>
-                    </div>
-                    <div class="wow fadeInLeft" data-wow-duration="1700ms" data-wow-delay="800ms">
-                        <p class="flowchart-heading">Instal Sales Portal</p>
-                    </div>
+                <div class="col-md-3 col-sm-3">
+                  <div class="arrowline2">&xrarr;</div>
                 </div>
-                <div class="col-md-3 pr-content">
-                    <div class="wow fadeInLeft" data-wow-duration="1700ms" data-wow-delay="900ms">
-                        <p class="flowchart-heading">Partnership Creation</p>
-                    </div>
-                    <div class="wow fadeInLeft" data-wow-duration="1700ms" data-wow-delay="1100ms">
-                        <p class="flowchart-heading">Metrics Tracking</p>
-                    </div>
-                    <div class="wow fadeInLeft" data-wow-duration="1700ms" data-wow-delay="1200ms">
-                        <p class="flowchart-heading">Tokenomics</p>
-                    </div>
-                    <div class="wow fadeInLeft" data-wow-duration="1700ms" data-wow-delay="1300ms">
-                        <p class="flowchart-heading">Whitepaper</p>
-                    </div>
-                    <div class="wow fadeInLeft" data-wow-duration="1700ms" data-wow-delay="1400ms">
-                        <p class="flowchart-heading">Community Management</p>
-                    </div>
+                <div class="col-md-3 col-sm-3">
+                  <div class="arrowline3">&xrarr;</div>
                 </div>
-                <div class="col-md-6">
-                    <div class="wow fadeInLeft" data-wow-duration="1700ms" data-wow-delay="1500ms">
-                        <p class="flowchart-heading">Sale</p>
-                    </div>
-                    <div class="wow fadeInLeft" data-wow-duration="1700ms" data-wow-delay="1600ms">
-                        <p class="flowchart-heading">Sale Management</p>
-                    </div>
-                    <div class="wow fadeInLeft" data-wow-duration="1700ms" data-wow-delay="1700ms">
-                        <p class="flowchart-heading">Post Launch Services</p>
-                    </div>
+                <div class="col-md-3 col-sm-3">
+                  <div class="arrowline4">&xrarr;</div>
                 </div>
-
               </div>
+              <div class="row pb40">
+                <div class="col-xs-1 downarrow"></div>
+                <div class="text-center col-md-12 col-sm-12 col-xs-10" style="font-size: 19px; padding: 0;">
+                  <div class="col-md-3 col-sm-3">
+                      <div class="wow fadeInLeft" data-wow-duration="1700ms" data-wow-delay="300ms" >
+                          <p class="flowchart-heading">No Cost Consultation</p>
+                      </div>
+                      <div class="wow fadeInLeft" data-wow-duration="1700ms" data-wow-delay="400ms">
+                          <p class="flowchart-heading">Client Onboarding</p>
+                      </div>
+                  </div>
+                  <div class="col-md-3 col-sm-3 tech-platform">
+                      <div class="wow fadeInLeft" data-wow-duration="1700ms" data-wow-delay="500ms">
+                          <p class="flowchart-heading">Workflow Establishment</p>
+                      </div>
+                      <div class="wow fadeInLeft" data-wow-duration="1700ms" data-wow-delay="600ms">
+                          <p class="flowchart-heading">Development</p>
+                      </div>
+                      <div class="wow fadeInLeft" data-wow-duration="1700ms" data-wow-delay="700ms">
+                          <p class="flowchart-heading">Smart Contracts</p>
+                      </div>
+                      <div class="wow fadeInLeft" data-wow-duration="1700ms" data-wow-delay="800ms">
+                          <p class="flowchart-heading">Instal Sales Portal</p>
+                      </div>
+                  </div>
+                  <div class="col-md-3 col-sm-3 pr-content">
+                      <div class="wow fadeInLeft" data-wow-duration="1700ms" data-wow-delay="900ms">
+                          <p class="flowchart-heading">Partnership Creation</p>
+                      </div>
+                      <div class="wow fadeInLeft" data-wow-duration="1700ms" data-wow-delay="1100ms">
+                          <p class="flowchart-heading">Metrics Tracking</p>
+                      </div>
+                      <div class="wow fadeInLeft" data-wow-duration="1700ms" data-wow-delay="1200ms">
+                          <p class="flowchart-heading">Tokenomics</p>
+                      </div>
+                      <div class="wow fadeInLeft" data-wow-duration="1700ms" data-wow-delay="1300ms">
+                          <p class="flowchart-heading">Whitepaper</p>
+                      </div>
+                      <div class="wow fadeInLeft" data-wow-duration="1700ms" data-wow-delay="1400ms">
+                          <p class="flowchart-heading">Community Management</p>
+                      </div>
+                  </div>
+                  <div class="col-md-3 col-sm-3">
+                      <div class="wow fadeInLeft" data-wow-duration="1700ms" data-wow-delay="1500ms">
+                          <p class="flowchart-heading">Sale</p>
+                      </div>
+                      <div class="wow fadeInLeft" data-wow-duration="1700ms" data-wow-delay="1600ms">
+                          <p class="flowchart-heading">Sale Management</p>
+                      </div>
+                      <div class="wow fadeInLeft" data-wow-duration="1700ms" data-wow-delay="1700ms">
+                          <p class="flowchart-heading">Post Launch Services</p>
+                      </div>
+                  </div>
+                </div>
+              </div><!-- row -->
             </div>
           </div>
         </div>
       </div>
+<!-- PAGE OFF -->
       <div class="page" id="page5">
         <div class="innerPage">
           <h2>Post ICO Service</h2>
           <a class="goback" onclick="goBack()">Go Back</a>
         </div>
       </div>
-      <div class="page" id="page6">
-        <div class="innerPage">
-          <a class="goback" onclick="goBack()">Go Back</a>
-          <div class="container-fluid">
-            <div class="title">HOW</div> <!-- HOW -->
-            <div class="slidecontent">Ledger Leap launches blockchain solutions, not just projects. We only assist projects that make sense and drive the industry forward in a positive direction. Our platform is designed to bring real world support to beneficial projects, providing experience, connections, and software to harvest the benefits. Solid projects need solutions that can bring products to market faster and without prohibitive fiat costs that cripple development funds.</div>
-          </div>
-        </div>
-      </div>
+<!-- PAGE OFF END -->
     </div> <!-- Inner Page End !-->
   </div> <!-- Page Wrap End !-->
 
@@ -931,7 +966,7 @@ function loadDesktopPosition(){
     labels[i].position.set(labelPositions[i].x, labelPositions[i].y, labelPositions[i].z);
 
     if(i == 4)
-      labels[i].scale.set(1.4, 0.15, 1);
+      labels[i].scale.set(1.9, 0.2, 1);
     else if(i == 5)
       labels[i].scale.set(1.575, 0.15, 1);
     else
@@ -1051,6 +1086,7 @@ function onTouchStart(event){
   
   if(intersects.length > 0){
     selectedPage = intersects[0].object.name;
+    selectedPageGeometry = intersects[0].object.geometry.type;
   }
 }
 
@@ -1309,16 +1345,89 @@ function render2() {
 
 </script>
 <!--ET -->
-<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/color/jquery.color-2.1.2.js" integrity="sha256-1Cn7TdfHiMcEbTuku97ZRSGt2b3SvZftEIn68UMgHC8=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.1.0/velocity.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.1.0/velocity.ui.js"></script>
-<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+  <script
+  src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+  integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
+  crossorigin="anonymous"></script>
+  <script
+  src="https://code.jquery.com/color/jquery.color-2.1.2.js"
+  integrity="sha256-1Cn7TdfHiMcEbTuku97ZRSGt2b3SvZftEIn68UMgHC8="
+  crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.1.0/velocity.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.1.0/velocity.ui.js"></script>
+  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript">
+  /*jslint browser:true */
 $(document).ready(function () {
   var $body = $('body');
+  var $navbar = $('.navbar-default');
+  var $offsetY = $navbar.offset().top + 10;
+  var $menuButton = $('button.navbar-toggle');
+  var $menuIcon = $('.navbar-toggle .glyphicon');
+  var $collapsedMenuItem = $('.navbar-collapse.collapse li');
   var $modalBackdropDiv = $('<div class="modal-backdrop fade in"></div>');
+  var $scrollButton = $('.scroll');
+  var $socialIcon = $('.social');
+
+  // Fixed Nav after scroll
+  function scroll() {
+    if ($(window).scrollTop() >= $offsetY) {
+      $navbar.addClass('menu-fixed').css('background-color', 'rgba(255,254,253,0.97)');
+    } else {
+      $navbar.removeClass('menu-fixed').css('background-color', 'transparent');
+    }
+  }
+  document.onscroll = scroll;
+
+  // Mobile Menu functions
+  function openMenu() {
+    $menuIcon.removeClass('glyphicon-menu-hamburger').addClass('glyphicon-remove active');
+    $modalBackdropDiv.css('z-index', 900);
+    $body.append($modalBackdropDiv);
+    if (!$navbar.hasClass('menu-fixed')) {
+      $navbar.css('background-color', 'rgba(255,254,253,0.97)');
+    }
+    // Close menu after clicking modal-backdrop
+    $modalBackdropDiv.on('click', function () {
+      $('.navbar-toggle').click();
+      closeMenu();
+    });
+  }
+  function closeMenu() {
+    $menuIcon.removeClass('glyphicon-remove active').addClass('glyphicon-menu-hamburger');
+    $modalBackdropDiv.css('z-index', 1025).remove();
+    if (!$navbar.hasClass('menu-fixed')) {
+      $navbar.css('background-color', 'transparent');
+    }
+  }
+  // Mobile Menu Icon Toggle
+  $menuButton.on('click', function () {
+    if ($menuIcon.hasClass('glyphicon-menu-hamburger')) {
+      openMenu();
+      // Close menu after clicking a link
+      $collapsedMenuItem.on('click', function () {
+        $('.navbar-toggle').click(); // Trigger collapse animation
+        closeMenu();
+      });
+    } else {
+      closeMenu();
+    }
+  });
+  // Collapse menu on resize
+  $(window).resize(closeMenu());
+
+  // Smooth scroll to content
+  $scrollButton.on('click', function (e) {
+    e.preventDefault();
+    var $link = $(this).attr('href');
+    $('html, body').animate({
+      scrollTop: $($link).offset().top - 60
+    }, 900);
+  });
 
   // Center modals vertically
   function centerModal() {
@@ -1338,6 +1447,9 @@ $(document).ready(function () {
   $(window).on('resize', function () {
     $('.modal:visible').each(centerModal);
   });
+});
+
+$(document).ready(function () {
   function hex_initial_animation() {
     $(".hex-wrap,.hover-notify").velocity("transition.expandIn", { stagger: 150 });
     $(".hex-wrap").velocity("callout.pulse");
@@ -1381,7 +1493,7 @@ $(".hover-notify").velocity('stop', true).velocity("fadeOut");
          $('.hexactive').velocity('stop', true).velocity('reverse').removeClass('hexactive');
       });
 });
+</script>
 
-  </script>
   </body>
 </html>
