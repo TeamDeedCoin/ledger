@@ -262,6 +262,7 @@ div.innerPage{
 .member-details > div:after {
   cursor: pointer;
   transition: all .4s ease;
+  pointer-events: all;
 }
 
 .member-details:hover *,
@@ -369,6 +370,16 @@ div.innerPage{
   }
 }
 
+.arrowline1,.arrowline2,.arrowline3,.arrowline4 {
+  width: 60%; margin-left: 20%;
+  font-size: 60px;
+}
+
+.arrowline1 { color: rgba(231, 128, 60, .7); }
+.arrowline2 { color: rgba(181, 150, 60, .7); }
+.arrowline3 { color: rgba(100, 178, 60, .7); }
+.arrowline4 { color: rgba(2, 208, 60, .7); }
+
 
 a, .orange{
   color: rgba(231, 128, 60, .7) !important;
@@ -376,9 +387,11 @@ a, .orange{
 }
  a:hover {
   color: rgba(231,128,60,1);
-  text-decoration: none;
+  text-decoration: none !important;
  }
 
+ .socialicon { width: 30px; height: auto; cursor: pointer; }
+ .socialicon:hover { filter: brightness(0.9); }
 
  /* portfolio*/
  #projects .carousel-control {
@@ -412,6 +425,7 @@ a, .orange{
   text-align: left;
   text-shadow: none;
 }
+#projects { max-width: 100%; }
 .card {
   background-color: #fff;
   box-shadow: 0 1px 3px rgba(8,33,30,0.5);
@@ -421,6 +435,7 @@ a, .orange{
 .card h3 {
   margin-top: 0;
 }
+
 #portfolio .carousel-indicators {
   bottom: 0;
   position: relative;
@@ -456,10 +471,11 @@ a, .orange{
 .card .project-subtitle {
   font-size: 30px;
   margin-bottom: 10vh;
+  color: #555;
 }
 
 .card .project-title {
-  font-size: 60px;
+  font-size: 54px;
   color: rgba(231,128,60,.7);
 }
 
@@ -478,14 +494,27 @@ a, .orange{
   color: white !important;
 }
 
-@media (max-width: 1000px){
-    .card .project-title {
-        font-size: 30px;
+@media (max-width: 1200px) {
+  .card .project-title {
+        font-size: 32px;
     }
     .card .project-subtitle {
         font-size: 20px;
-        margin-bottom: 10px
     }
+}
+
+@media (max-width: 1000px){
+    .card .project-title {
+        font-size: 26px;
+    }
+    .card .project-subtitle {
+        font-size: 18px;
+    }
+    .clientlogos { height: 54px !important; width: auto !important; }
+}
+
+@media (max-width: 991px) {
+  .vcenter { left: 0; right: 0; margin: 0 auto; max-width: 250px; }
 }
 
 .mt-30 {
@@ -493,6 +522,21 @@ a, .orange{
 }
 .mb-30 {
   margin-bottom: 30px;
+}
+
+.row-eq-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.vcenter {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
 }
 
 
@@ -714,7 +758,7 @@ margin-top: -50px;
 
 .hex-wrap {
 position: relative;
-width: 150px;
+width: 200px;
 height: 190px;
 margin: 0 1em 0 0;
 border-top-left-radius: 100%;
@@ -860,7 +904,7 @@ margin: auto;
 content: "";
 text-align: center;
 padding: 10%;
-font-size: 20px;
+font-size: 36px;
 transform: rotate(60deg);
 }
 
@@ -916,9 +960,10 @@ transform: rotate(60deg);
 
   .grid-1, .grid-2, .grid-3 {
     display: inline-block !important;
+    /*width: 30% !important;*/
     width: 30% !important;
     margin: 0 !important;
-    padding: 0 8%;
+    padding: 0 3%;
     text-align: center;
   }
   .sm-hide {
@@ -931,7 +976,9 @@ transform: rotate(60deg);
   .grid-1,.grid-2, .grid-3 {
     width: 95% !important;
     margin: auto 2% !important;
+    padding: 0 8%;
   }
+  .whytable { margin-left: -50px; }
 }
 
 @media(min-width: 1440px){
@@ -961,3 +1008,41 @@ transform: rotate(60deg);
 .mb20 {
   margin-bottom: 20px;
 }
+
+
+
+.flowchart-heading {
+  border: 1px solid gray;
+  border-radius: 4px;
+  padding: 4px;
+  background: #f1f1f1;
+}
+
+
+.downarrow {
+  display: none;
+  border-left: 4px solid rgba(231,128,60,.7);
+  border-image-source: linear-gradient(rgba(231,128,60,.7), rgba(31,228,60,.7));
+  border-image-slice: 4;
+  height: 620px;
+  margin-top: 10px;
+}
+
+
+@media all and (max-width: 767px) {
+  .sidearrows { display: none; }
+  .downarrow { display: block; }
+}
+
+@media (max-width: 450px) {
+  .flowchart-heading { font-size: 16px; }
+}
+
+
+.card button {
+    background-color: rgba(231,128,60,.7);
+    border: outset transparent 3px;
+    border-radius: 4px;
+    box-shadow: 5px 5px 10px #aaa;
+    color: white;
+    }

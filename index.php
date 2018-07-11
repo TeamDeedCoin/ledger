@@ -500,36 +500,6 @@ new WOW().init();
                           <li>Press Releases</li>
                         </ul></p>
                       </div>
-                      <!-- <div class="backend-desc">
-                        <p class="code-title"></p>
-                        <p><span>Project:</span>Ledger Leap</p>
-                        <p><span>Languages:</span>HTML, CSS, Bootstrap 4, Javascript, jQuery, Three.js</p>
-                        <p><a target="_blank" href="https://www.ledgerleap.com">Live Site</a></p>
-                        <div class="code-icon"></div>
-                      </div>
-                      <div class="uxui-desc">
-                        <p class="code-title"></p>
-                        <p><span>Project:</span>AIRSTAYZ&trade;</p>
-                        <p><span>Languages:</span>HTML, CSS, Bootstrap 4, Javascript, jQuery, three.js</p>
-                        <p><a target="_blank" href="https://token.airstayz.com">Live Site</a></p>
-                        <div class="code-icon"></div>
-                      </div>
-                      <div class="media-desc">
-                        <p class="code-title"></p>
-                        <p><span>Project:</span>Deedcoin</p>
-                        <p><span>Languages:</span>PHP, HTML, CSS, Bootstrap 4</p>
-                        <p><a target="_blank" href="https://www.deedcoinlaunch.com">Live Site</a></p>
-                        <p><a target="_blank" href="https://www.deedcoin.com">Second Deedcoin Site</a></p>-
-                        <div class="code-icon"></div>
-
-                      </div>
-                      <div class="edu-desc">
-                        <p class="code-title"></p>
-                        <p><span>Project:</span>ISS Conference</p>
-                        <p><span>Languages:</span>PHP, CSS, Wordpress, HTML, Flipclock.js</p>
-                        <p><a target="_blank" href="https://www.issconference.org">Live Site</a></p>
-                        <div class="code-icon"></div>
-                      </div> -->
                     </div>
 
                   </div>
@@ -550,7 +520,7 @@ new WOW().init();
           <div class="title orange" style="line-height: 30px;">WHERE<span style="font-size: 28px; line-height: 30px;"> we've been</span></div> <!--WHERE WE ARE (LOCATION)/WHERE WE'VE BEEN (CLIENTS) -->
             <div class="slidecontent pb50 pt30">
               <p style="font-size: 18px;">The Ledger Leap team and development office is based in Melbourne, Florida, USA. We build all tech in-house. Many aspects of blockchain benefit from decentralization; however, staff and timetables do not.</p>
-              <p style="font-size: 18px;">The solutions we create are built of necessity. As unmet needs are discovered by our clients, we build robust solutions in real time and silo these answers for future customers. Ledger Leap has provided its services to a handful of clients already. Every client is treated with above and beyond mentality in delivering rock solid products.</p>
+              <p style="font-size: 18px;">The solutions we create are built out of necessity. As unmet needs are discovered by our clients, we build robust solutions in real time and silo these answers for future customers. Ledger Leap has provided its services to a handful of clients already. Every client is treated with above and beyond mentality in delivering rock solid products.</p>
             </div>
           </div>
           <section id="portfolio">
@@ -1364,70 +1334,7 @@ function render2() {
   /*jslint browser:true */
 $(document).ready(function () {
   var $body = $('body');
-  var $navbar = $('.navbar-default');
-  var $offsetY = $navbar.offset().top + 10;
-  var $menuButton = $('button.navbar-toggle');
-  var $menuIcon = $('.navbar-toggle .glyphicon');
-  var $collapsedMenuItem = $('.navbar-collapse.collapse li');
   var $modalBackdropDiv = $('<div class="modal-backdrop fade in"></div>');
-  var $scrollButton = $('.scroll');
-  var $socialIcon = $('.social');
-
-  // Fixed Nav after scroll
-  function scroll() {
-    if ($(window).scrollTop() >= $offsetY) {
-      $navbar.addClass('menu-fixed').css('background-color', 'rgba(255,254,253,0.97)');
-    } else {
-      $navbar.removeClass('menu-fixed').css('background-color', 'transparent');
-    }
-  }
-  document.onscroll = scroll;
-
-  // Mobile Menu functions
-  function openMenu() {
-    $menuIcon.removeClass('glyphicon-menu-hamburger').addClass('glyphicon-remove active');
-    $modalBackdropDiv.css('z-index', 900);
-    $body.append($modalBackdropDiv);
-    if (!$navbar.hasClass('menu-fixed')) {
-      $navbar.css('background-color', 'rgba(255,254,253,0.97)');
-    }
-    // Close menu after clicking modal-backdrop
-    $modalBackdropDiv.on('click', function () {
-      $('.navbar-toggle').click();
-      closeMenu();
-    });
-  }
-  function closeMenu() {
-    $menuIcon.removeClass('glyphicon-remove active').addClass('glyphicon-menu-hamburger');
-    $modalBackdropDiv.css('z-index', 1025).remove();
-    if (!$navbar.hasClass('menu-fixed')) {
-      $navbar.css('background-color', 'transparent');
-    }
-  }
-  // Mobile Menu Icon Toggle
-  $menuButton.on('click', function () {
-    if ($menuIcon.hasClass('glyphicon-menu-hamburger')) {
-      openMenu();
-      // Close menu after clicking a link
-      $collapsedMenuItem.on('click', function () {
-        $('.navbar-toggle').click(); // Trigger collapse animation
-        closeMenu();
-      });
-    } else {
-      closeMenu();
-    }
-  });
-  // Collapse menu on resize
-  $(window).resize(closeMenu());
-
-  // Smooth scroll to content
-  $scrollButton.on('click', function (e) {
-    e.preventDefault();
-    var $link = $(this).attr('href');
-    $('html, body').animate({
-      scrollTop: $($link).offset().top - 60
-    }, 900);
-  });
 
   // Center modals vertically
   function centerModal() {
