@@ -644,7 +644,7 @@ new WOW().init();
                           <p class="flowchart-heading">Smart Contracts</p>
                       </div>
                       <div class="wow fadeInLeft" data-wow-duration="1700ms" data-wow-delay="800ms">
-                          <p class="flowchart-heading">Instal Sales Portal</p>
+                          <p class="flowchart-heading">Install Sales Portal</p>
                       </div>
                   </div>
                   <div class="col-md-3 col-sm-3 pr-content">
