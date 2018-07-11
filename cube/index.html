@@ -1,0 +1,420 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Ledger Leap</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+	<script src="jsnew/three.min.js?v=1"></script>
+	<script src="jsnew/OrbitControls.js?v=1"></script>
+	<script src="jsnew/DragControls.js"></script>
+	<!--<script src="jsnew/TrackballControls.js"></script>!-->
+	<script src="jsnew/tween.min.js"></script>
+
+	<style>
+		body {
+			font-family: Monospace;
+			background-color: #0c0c0c;
+			margin: 0px;
+			overflow: hidden;
+		}
+		canvas{
+			transition: .5s ease-in-out;
+			position: absolute;
+			top: 0;
+			left: 0;
+			transition-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+			background-color: red;
+			/* Safari 4, Chrome 1-9, iOS 3.2-4.3, Android 2.1-3.0 */
+			background-image: -webkit-gradient(linear, left top, right top, from(red), to(#f06d06));
+			  
+			/* Safari 5.1, iOS 5.0-6.1, Chrome 10-25, Android 4.0-4.3 */
+			background-image: -webkit-linear-gradient(left, red, #f06d06);
+			  
+			/* Firefox 3.6 - 15 */
+			background-image: -moz-linear-gradient(left, red, #f06d06);
+			  
+			/* Opera 11.1 - 12 */
+			background-image: -o-linear-gradient(left, red, #f06d06);
+			  
+			/* Opera 15+, Chrome 25+, IE 10+, Firefox 16+, Safari 6.1+, iOS 7+, Android 4.4+ */
+			background-image: linear-gradient(to right, red, #f06d06);
+		}
+
+		#content{
+			transition-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+			transition: .5s ease-in-out;
+			position: absolute;
+			left: 0;
+			z-index: 99;
+			background: #0c0c0c;
+			overflow: hidden;
+			width: 100%;
+			height: 50vh;
+			min-height: 400px;
+			display: none;
+		}
+		#wrapper{
+			position: relative;
+			width: 100%;
+			height: 100%;
+		}
+		#contentClose{
+			position: absolute;
+			display: block;
+			width: 50px;
+			height: 50px;
+			top: 0;
+			right: 30px;
+			background: white;
+			cursor: pointer;
+		}
+		#contentClose img{
+			display: block;
+			width: 100%;
+			height: 100%;
+		}
+		.contentBox{
+			display: none;
+			padding: 70px 30px 30px 30px;
+			box-sizing: border-box;
+		}
+		.contentBox h2{
+			color: white;
+			font-size: 30px;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+<div id="content">
+	<div id="wrapper">
+		<div id="contentClose" touchstart="hideContent(true)" onclick="hideContent(true)"><img src="images/close.png" alt=""/></div>
+
+		<div id="contentcube" class="contentBox">
+			<h2>Content Main</h2>
+		</div>
+		<div id="contentscube1" class="contentBox">
+			<h2>Content Clients</h2>
+		</div>
+		<div id="contentscube2" class="contentBox">
+			<h2>Content Company</h2>
+		</div>
+		<div id="contentscube3" class="contentBox">
+			<h2>Content Platform</h2>
+		</div>
+		<div id="contentscube4" class="contentBox">
+			<h2>Content Services</h2>
+		</div>
+	</div> 
+</div>
+
+<script type="x-shader/x-vertex" id="vertexShader">
+	varying vec3 vWorldPosition;
+
+	void main() {
+
+		vec4 worldPosition = modelMatrix * vec4( position, 1.0 );
+		vWorldPosition = worldPosition.xyz;
+
+		gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
+	}
+</script>
+
+<script type="x-shader/x-fragment" id="fragmentShader">
+	uniform vec3 topColor;
+	uniform vec3 bottomColor;
+	uniform float offset;
+	uniform float exponent;
+
+	varying vec3 vWorldPosition;
+
+	void main() {
+		float h = normalize( vWorldPosition + offset ).y;
+		gl_FragColor = vec4( mix( bottomColor, topColor, max( pow( max( h, 0.0 ), exponent ), 0.0 ) ), 1.0 );
+
+	}
+</script>
+
+<script>
+var objects = [];
+var camera, controlsOrbit, scene, renderer, raycaster, content;
+
+var mouse = new THREE.Vector2();
+
+init();
+animate();
+
+function init(){
+	content = document.getElementById('content');
+	content.style.top = window.innerHeight + 'px';
+	content.style.display = 'none';
+
+	scene = new THREE.Scene();
+
+	renderer = new THREE.WebGLRenderer({antialias: true});
+	renderer.setPixelRatio( window.devicePixelRatio );
+	renderer.setSize( window.innerWidth, window.innerHeight );
+	document.body.appendChild( renderer.domElement );
+
+	renderer.gammaInput = true;
+	renderer.gammaOutput = true;
+
+	camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 0.01, 1000);
+	camera.position.set(-3, 1, 3);
+
+	controlsOrbit = new THREE.OrbitControls( camera, renderer.domElement );
+	controlsOrbit.minDistance = 3;
+	controlsOrbit.maxDistance = 10;
+	controlsOrbit.maxPolarAngle = Math.PI / 2;
+
+	raycaster = new THREE.Raycaster();
+
+	// LIGHT
+	var light = new THREE.DirectionalLight( 0x9999ff, 0.3 );
+	light.position.x = 3;
+	light.position.y = 2.5;
+	light.position.z = -5;
+	scene.add( light );
+
+	// Sky
+	var vertexShader = document.getElementById( 'vertexShader' ).textContent;
+	var fragmentShader = document.getElementById( 'fragmentShader' ).textContent;
+	var uniforms = {
+		topColor: 	 { type: "c", value: new THREE.Color( 0x0077ff ) },
+		bottomColor: { type: "c", value: new THREE.Color( 0xffffff ) },
+		offset:		 { type: "f", value: 400 },
+		exponent:	 { type: "f", value: 0.6 }
+	};
+	uniforms.topColor.value.copy( light.color );
+
+	var skyGeo = new THREE.SphereBufferGeometry( 400, 0.32, 0.15 );
+	var skyMat = new THREE.ShaderMaterial( {
+		uniforms: uniforms,
+		vertexShader: vertexShader,
+		fragmentShader: fragmentShader,
+		side: THREE.BackSide
+	} );
+
+	var sky = new THREE.Mesh( skyGeo, skyMat );
+	scene.add(sky);
+
+	// Center Cube
+	var cubeGeometry = new THREE.BoxGeometry( 1, 1, 1 );
+	var cubeMaterial = new THREE.MeshNormalMaterial();
+	cube = new THREE.Mesh( cubeGeometry, cubeMaterial );
+	cube.position.set(0,0.5,0);
+	cube.name = 'cube';
+	scene.add(cube);
+	objects.push(cube);
+
+	var scubeGeometry = new THREE.BoxGeometry(0.7, 0.7, 0.7);
+	var loader = new THREE.TextureLoader();
+
+	// SCube 1
+	var scubeMaterial1 = new THREE.MeshBasicMaterial( { map: loader.load( 'images/material/1.png', render ) } );
+	scube1 = new THREE.Mesh( scubeGeometry, scubeMaterial1);
+	scube1.position.set(1.2, 0.35, 0);
+	scube1.name = 'scube1';
+	scene.add(scube1);
+	objects.push(scube1);
+
+	// SCube 2
+	var scubeMaterial2 = new THREE.MeshBasicMaterial( { map: loader.load( 'images/material/2.png', render ) } );
+	scube2 = new THREE.Mesh( scubeGeometry, scubeMaterial2);
+	scube2.position.set(-1.2, 0.35, 0);
+	scube2.name = 'scube2';
+	scene.add(scube2);
+	objects.push(scube2);
+
+	// SCube 3
+	var scubeMaterial3 = new THREE.MeshBasicMaterial( { map: loader.load( 'images/material/3.png', render ) } );
+	scube3 = new THREE.Mesh( scubeGeometry, scubeMaterial3);
+	scube3.position.set(0, 0.35, -1.2);
+	scube3.name = 'scube3';
+	scene.add(scube3);
+	objects.push(scube3);
+
+	// SCube 4
+	var scubeMaterial4 = new THREE.MeshBasicMaterial( { map: loader.load( 'images/material/4.png', render ) } );
+	scube4 = new THREE.Mesh( scubeGeometry, scubeMaterial4);
+	scube4.position.set(0, 0.35, 1.2);
+	scube4.name = 'scube4';
+	scene.add(scube4);
+	objects.push(scube4);
+
+	var dragControls = new THREE.DragControls( objects, camera, renderer.domElement );
+	dragControls.addEventListener('dragstart', function (event){ 
+		controlsOrbit.enabled = false;
+	});
+
+	dragControls.addEventListener('dragend', function (event){ 
+		controlsOrbit.enabled = true; 
+	});
+
+	renderer.domElement.addEventListener('mousedown', onDocumentMouseDown, false);
+	renderer.domElement.addEventListener('mouseup', onDocumentMouseUp, false);
+	
+	renderer.domElement.addEventListener('touchstart', onTouchStart, false);
+	renderer.domElement.addEventListener('touchend', onTouchEnd, false);
+
+	window.addEventListener( 'resize', onWindowResize, false );
+}
+
+function onWindowResize() {
+	camera.aspect = window.innerWidth / window.innerHeight;
+	camera.updateProjectionMatrix();
+
+	renderer.setSize( window.innerWidth, window.innerHeight );
+
+	if(name == ''){	
+		content.style.top = window.innerHeight + 'px';
+		content.style.display = 'none';
+	}else{
+		var topContent = window.innerHeight - content.offsetHeight;
+		if(topContent < 0)
+			topContent = 0;
+
+		content.style.top = topContent + 'px';
+	}
+}
+
+var startX = 0;
+var startY = 0;
+var name = '';
+var tname = '';
+var topCanvas = 0; // Canvas Top
+
+function onDocumentMouseDown(event){
+	event.preventDefault();
+
+	mouse.x = (event.clientX / renderer.domElement.clientWidth) * 2 - 1;
+	mouse.y = -( (event.clientY + topCanvas) / renderer.domElement.clientHeight) * 2 + 1
+
+	raycaster.setFromCamera( mouse, camera );
+
+	var intersects = raycaster.intersectObjects(objects);
+
+	if(intersects.length > 0){ // Drag start or click
+		startX = mouse.x;
+		startY = mouse.y;
+	
+		tname = intersects[0].object.name;
+	}
+}
+
+function onTouchStart(e){
+	e.preventDefault();
+
+ 	mouse.x = ( e.touches[0].clientX / window.innerWidth ) * 2 - 1;
+	mouse.y = - ( (e.touches[0].clientY + topCanvas) / window.innerHeight ) * 2 + 1;
+
+	raycaster.setFromCamera( mouse, camera );
+
+	var intersects = raycaster.intersectObjects(objects);
+
+	if(intersects.length > 0){ // Drag start or click
+		startX = mouse.x;
+		startY = mouse.y;
+	
+		tname = intersects[0].object.name;
+	}
+}
+
+function onDocumentMouseUp(event){
+	event.preventDefault();
+
+	if(tname != ''){ // Object is clicked
+		var endX = (event.clientX / window.innerWidth) * 2 - 1;
+		var endY = -( (event.clientY + topCanvas) / window.innerHeight) * 2 + 1;
+	
+		if(startX == endX && startY == endY){ // Just clicked
+			if(name != '')
+				hideContent(false);
+			else
+				changeCamera();
+
+			showContent();
+		}else{ // Dragged
+			// Do something here	
+		}
+	}
+}
+
+function onTouchEnd(e){
+	e.preventDefault();
+
+	if(tname != ''){ // Object is clicked
+		var endX = ( e.changedTouches[0].clientX / window.innerWidth ) * 2 - 1;
+		var endY = - ( (e.changedTouches[0].clientY + topCanvas) / window.innerHeight ) * 2 + 1;
+
+		if(startX == endX && startY == endY){ // Just clicked
+			if(name != '')
+				hideContent(false);
+			else
+				changeCamera();
+
+			showContent();
+		}else{ // Dragged
+			// Do something here	
+		}
+	}
+}
+
+function animate(){
+	requestAnimationFrame( animate );
+	controlsOrbit.update();
+	render();
+}
+
+function changeCamera(){
+	var tween = new TWEEN.Tween(camera.position).to({x:camera.position.x, y:0, z:camera.position.z}, 500);
+	tween.onComplete(function(){
+		//camera.lookAt(cube.position);
+	});
+	tween.start();
+}
+
+function render() {
+	TWEEN.update();
+	renderer.render( scene, camera );
+}
+
+function hideContent(flag){
+	if(flag){ // Hide completely	
+		var canvas = document.getElementsByTagName('canvas');
+		canvas[0].style.top = '0px';
+		topCanvas = 0;
+
+		content.style.top = window.innerHeight + 'px';
+		
+		setTimeout(function(){
+			content.style.display = 'none';
+		}, 500);
+	}
+	
+	var id = 'content' + name;
+	document.getElementById(id).style.display = 'none';
+
+	name = '';
+}
+function showContent(){
+	content.style.display = 'block';
+	name = tname;
+	tname = '';
+
+	var id = 'content' + name;
+	document.getElementById(id).style.display = 'block';
+
+	var canvas = document.getElementsByTagName('canvas');
+	canvas[0].style.top = '-200px';
+	topCanvas = 200;
+
+	var topContent = window.innerHeight - content.offsetHeight;
+	if(topContent < 0)
+		topContent = 0;
+
+	content.style.top = topContent + 'px';
+}
+</script>
+</body>
+</html>
