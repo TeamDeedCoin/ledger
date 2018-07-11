@@ -776,10 +776,10 @@ function init(){
   //renderer.gammaOutput = true;
   var ambientLight = new THREE.AmbientLight( 0xcccccc, 0.9);
   scene.add(ambientLight);
-  var pointLight = new THREE.PointLight( 0xe7803c, 0.8);
+  var pointLight = new THREE.PointLight( 0xffffff, 0.6);
 
   camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.01, 1000);
-  camera.position.set(0, 0, 10);
+  camera.position.set(0, 0, 11);
   camera.add(pointLight);
   scene.add(camera);
   
