@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Leadger Leap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0,
+  maximum-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <style type="text/css">
+    @charset "UTF-8";
+    @import url(https://fonts.googleapis.com/css?family=Quantico);
+    html, body { padding: 0; margin: 0; }
+    body { font-family:Monospace; font-size:14px; background-color: #fff; margin: 0px; position: relative; overflow: hidden;}
+    * { box-sizing: border-box; -moz-box-sizing: border-box;}
+    #container {
+      background: #000 ;
+      z-index: 1000;
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
+    }
+    div#boxes{
+      position: absolute;
+      top: 0;
+      left:0;
+      width: 100%;
+      height: 100%;
+      background:transparent;
+    }
+    div#pageWrap{
+      position: absolute;
+      width: 100%;
+      min-height: 100vh;
+      height: 100%;
+      top: 0;
+      left: 100%;
+      transition-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+      transition: .5s ease-in-out;
+      overflow: hidden;
+      z-index: 1001;
+    }
+    div.page{
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background: rgba(255, 255, 255, 1);
+      padding: 20px;
+      box-sizing: border-box;
+      display: none;
+    }
+    div.page h2{
+      margin: 0; padding: 0;
+    }
+    div.innerPage{
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+    .goback{
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      cursor: pointer;
+    }
+    .centered { text-align: center; }
+    .pt50 { padding-top: 50px; }
+  </style>
+</head>
+<body>
+  <div id="pageWrap"> <!-- Page Wrap Begin !-->
+    <div class="innerPage"> <!-- Inner Page Begin !-->
+      <div class="page" id="page0">
+        <div class="innerPage">
+          <h2>Company</h2>
+          <a class="goback" onclick="goBack()">Go Back</a>
+        </div>
+      </div>
+      <div class="page" id="page1">
+        <div class="innerPage">
+          <h2>Platform</h2>
+          <a class="goback" onclick="goBack()">Go Back</a>
+          <div class="container-fluid">
+            <div class="row pt50">
+              <div class="col-md-6">
+                <h1>TITLE KJAJHAJSDAS</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+              </div>
+              <div class="col-md-6 centered" style="background-color: orange; height: 100vh;">
+                kjh laskjhlk ajs hlakjs hlkj
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="page" id="page2">
+        <div class="innerPage"> 
+          <h2>Services</h2>
+          <a class="goback" onclick="goBack()">Go Back</a>
+        </div>
+      </div>
+      <div class="page" id="page3">
+        <div class="innerPage">
+          <h2>Clients</h2>
+          <a class="goback" onclick="goBack()">Go Back</a>
+        </div>
+      </div>
+      <div class="page" id="page4">
+        <div class="innerPage">
+          <h2>Ledger Leap</h2>
+          <a class="goback" onclick="goBack()">Go Back</a>
+        </div>
+      </div>
+      <div class="page" id="page5">
+        <div class="innerPage">
+          <h2>Post ICO Service</h2>
+          <a class="goback" onclick="goBack()">Go Back</a>
+        </div>
+      </div>
+    </div> <!-- Inner Page End !-->
+  </div> <!-- Page Wrap End !-->
+
+  <div id='container'>
+    <div id="boxes"></div>
+  </div> <!-- Container End !-->
+
+  <script type="text/javascript" src="js/three.js"></script>
+  <script src="js/OrbitControls.js"></script>
+  <script type="text/javascript" src="js/Detector.js"></script>
+  <script id="template" type="notjs">
+    <div class="scene"></div>
+    <div class="description">$</div>
+  </script>
+  <script type="text/javascript">
+    if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
+    var container, canvas, camera, raycaster, controlsOrbit;
+    var renderer, scene;
+    var mouse = new THREE.Vector2();
+
+    var objects = [];
+    var pages = [];
+    var labels = [];
+    var pageWrap = null;
+
+    var logo = null;
+    var logoLabel = null;
+
+    var speed = [0.01, 0.01, 0.01, 0.01, 0.01];
+
+    init();
+    animate();
+
+    function rotateObjects(){
+      for(var i in objects)
+        objects[i].rotation.y += speed[i];
+    }
+
+    function init(){
+      container = document.getElementById( 'boxes' );
+      scene = new THREE.Scene();
+
+      renderer = new THREE.WebGLRenderer({antialias: true, alpha: true});
+      renderer.setPixelRatio( window.devicePixelRatio );
+      renderer.setSize( window.innerWidth, window.innerHeight );
+      
+      container.appendChild( renderer.domElement );
+      
+      renderer.gammaInput = true;
+      renderer.gammaOutput = true;
+
+      camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.01, 1000);
+      camera.position.set(0, 0, 8);
+      
+      controlsOrbit = new THREE.OrbitControls( camera, renderer.domElement );
+      controlsOrbit.minDistance = 5;
+      controlsOrbit.maxDistance = 12;
+      controlsOrbit.minPolarAngle = Math.PI / 2;
+      controlsOrbit.maxPolarAngle = Math.PI / 2;
+      controlsOrbit.enableKeys = false;
+      controlsOrbit.enablePan = false;
+      controlsOrbit.enableRotate = true;
+
+      raycaster = new THREE.Raycaster();
+
+      /* Logo */
+      var spriteMap = new THREE.TextureLoader().load("images/logo.png");
+      var spriteMaterial = new THREE.SpriteMaterial({map: spriteMap, color: 0xffffff});
+      logo = new THREE.Sprite(spriteMaterial);
+      scene.add(logo);
+
+      spriteMap = new THREE.TextureLoader().load("images/logoLabel1.png");
+      spriteMaterial = new THREE.SpriteMaterial({map: spriteMap, color: 0xffffff});
+      logoLabel = new THREE.Sprite(spriteMaterial);
+      scene.add(logoLabel);
+
+      var index = -1;
+
+      pageWrap = document.getElementById('pageWrap');
+      for(var i = 0; i < 6; i++){
+        pages.push(document.getElementById('page'+i));
+
+        if(index == -1)
+          index = Math.floor(Math.random() * 5);
+        else
+          index = (index + 1) % 5;
+
+        var geometry;
+        var material = new THREE.MeshBasicMaterial({color: 0xffffff, wireframe: true, side: THREE.DoubleSide});
+
+        switch(index){
+          case 0: // Box
+            geometry = new THREE.BoxGeometry(1, 1, 1);
+          break;
+          case 1: // Sphere
+            geometry = new THREE.SphereGeometry(0.5, 12, 8);
+          break;
+          case 2:
+            geometry = new THREE.TetrahedronGeometry(0.5, 1);
+          break;
+          /*case 3: // Cylinder
+            geometry = new THREE.CylinderGeometry(0.5, 0.5, 1, 12);
+          break;*/
+          case 3:
+            geometry = new THREE.IcosahedronGeometry(0.5, 0);
+          break;
+          case 4:
+            geometry = new THREE.OctahedronGeometry(0.5, 0);
+          break;
+        }
+
+        var labelMap = new THREE.TextureLoader().load("images/label"+i+".png");
+        var labelMat = new THREE.SpriteMaterial({map: labelMap, color: 0xffffff});
+        var labelObject = new THREE.Sprite(labelMat);
+
+        var object = new THREE.Mesh(geometry, material);
+        object.name = i;
+
+        scene.add(labelObject);
+        scene.add(object);
+
+        objects.push(object);
+        labels.push(labelObject);
+      }
+
+      setPosition();
+      renderer.domElement.addEventListener('mousemove', onDocumentMouseMove, false);
+      renderer.domElement.addEventListener('mousedown', onDocumentMouseDown, false);
+      renderer.domElement.addEventListener('mouseup', onDocumentMouseUp, false);
+
+      renderer.domElement.addEventListener('touchstart', onTouchStart, false);
+      renderer.domElement.addEventListener('touchend', onDocumentMouseUp, false);
+
+      window.addEventListener( 'resize', onWindowResize, false );
+    }
+
+    function onWindowResize(event){
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize( window.innerWidth, window.innerHeight );
+      
+      setPosition();
+    }
+
+    function setPosition(){
+      var width = window.innerWidth;
+
+      if(width >= 1000)
+        loadDesktopPosition();
+      else if(width >= 600)
+        loadTabletPosition();
+      else
+        loadMobilePosition();
+    }
+
+    function loadDesktopPosition(){
+      logo.scale.set(2, 2, 1);
+      logoLabel.scale.set(6.3, 0.4, 1);
+
+      logo.position.set(0, 1.7, 0);
+      logoLabel.position.set(0, 0, 0);
+
+      var objectPositions = [
+        {x: -4, y: -1.5, z: 0},
+        {x: -2, y: -1.5, z: 0},
+        {x: 0, y: -1.5, z: 0},
+        {x: 2, y: -1.5, z: 0},
+        {x: 4, y: -1.5, z: 0}
+        // {x: 5, y: -1.5, z: 0}
+      ];
+
+      var labelPositions = [
+        {x: -4, y: -2.3, z: 0},
+        {x: -2, y: -2.3, z: 0},
+        {x: 0, y: -2.3, z: 0},
+        {x: 2, y: -2.3, z: 0},
+        {x: 4, y: -2.3, z: 0}
+        // {x: 5, y: -2.3, z: 0}
+      ];
+
+      for(var i = 0; i < 5; i++){
+        objects[i].position.set(objectPositions[i].x, objectPositions[i].y, objectPositions[i].z);
+        labels[i].position.set(labelPositions[i].x, labelPositions[i].y, labelPositions[i].z);
+
+        if(i == 4)
+          labels[i].scale.set(1.4, 0.15, 1);
+        else if(i == 5)
+          labels[i].scale.set(1.575, 0.15, 1);
+        else
+          labels[i].scale.set(0.95, 0.2, 1);
+        
+        objects[i].scale.set(1, 1, 1);
+      }
+    }
+
+    function loadTabletPosition(){
+      logo.scale.set(1, 1, 1);
+      logoLabel.scale.set(3.15, 0.2, 1);
+
+      logo.position.set(0, 2.5, 0);
+      logoLabel.position.set(0, 1.5, 0);
+
+      var objectPositions = [
+        {x: -2, y: 0.2, z: 0},
+        {x: 0, y: 0.2, z: 0},
+        {x: 2, y: 0.2, z: 0},
+        {x: -1, y: -1.5, z: 0},
+        {x: 1, y: -1.5, z: 0}
+        // {x: 2, y: -1.5, z: 0}
+      ];
+
+      var labelPositions = [
+        {x: -2, y: -0.4, z: 0},
+        {x: 0, y: -0.4, z: 0},
+        {x: 2, y: -0.4, z: 0},
+        {x: -1, y: -2.2, z: 0},
+        {x: 1, y: -2.2, z: 0}
+        // {x: 2, y: -2.2, z: 0}
+      ];
+
+      for(var i = 0; i < 5; i++){
+        objects[i].position.set(objectPositions[i].x, objectPositions[i].y, objectPositions[i].z);
+        labels[i].position.set(labelPositions[i].x, labelPositions[i].y, labelPositions[i].z);
+
+        if(i == 4)
+          labels[i].scale.set(1.4, 0.13, 1);
+        else if(i == 5)
+          labels[i].scale.set(1.26, 0.12, 1);
+        else
+          labels[i].scale.set(0.8, 0.16, 1);
+
+        objects[i].scale.set(0.8, 0.8, 0.8);
+      }
+    }
+
+    function loadMobilePosition(){
+      logo.scale.set(0.8, 0.8, 0.8);
+      logoLabel.scale.set(2.3625, 0.15, 1);
+
+      logo.position.set(0, 2.6, 0);
+      logoLabel.position.set(0, 1.8, 0);
+
+      var objectPositions = [
+        {x: -0.8, y: 1, z: 0},
+        {x: 0.8, y: 1, z: 0},
+        {x: -0.8, y: -0.5, z: 0},
+        {x: 0.8, y: -0.5, z: 0},
+        {x: 0, y: -2, z: 0}
+        // {x: 0.8, y: -2, z: 0}
+      ];
+
+      var labelPositions = [
+        {x: -0.8, y: 0.45, z: 0},
+        {x: 0.8, y: 0.45, z: 0},
+        {x: -0.8, y: -1.05, z: 0},
+        {x: 0.8, y: -1.05, z: 0},
+        {x: 0, y: -2.6, z: 0}
+        // {x: 0.8, y: -2.6, z: 0}
+      ];
+
+      for(var i = 0; i < 5; i++){
+        objects[i].position.set(objectPositions[i].x, objectPositions[i].y, objectPositions[i].z);
+        labels[i].position.set(labelPositions[i].x, labelPositions[i].y, labelPositions[i].z);
+
+        if(i == 4)
+          labels[i].scale.set(1.2, 0.12, 1);
+        else if(i == 5)
+          labels[i].scale.set(1.26, 0.12, 1);
+        else
+          labels[i].scale.set(0.8, 0.16, 1);
+
+        objects[i].scale.set(0.7, 0.7, 0.7);
+      }
+    }
+
+    var selectedPage = -1;
+    function onDocumentMouseUp(event){
+      event.preventDefault();
+
+      for(var i in pages){
+        if(i == selectedPage)
+          pages[i].style.display = 'block';
+        else
+          pages[i].style.display = 'none';
+      }
+
+      if(selectedPage != -1)
+        pageWrap.style.left = '0';
+    }
+
+    function onTouchStart(event){
+      event.preventDefault();
+
+      mouse.x = (event.touches[0].clientX / window.innerWidth ) * 2 - 1;
+      mouse.y = -(event.touches[0].clientY / window.innerHeight ) * 2 + 1;
+      
+      raycaster.setFromCamera( mouse, camera );
+
+      var intersects = raycaster.intersectObjects(objects);
+      
+      if(intersects.length > 0){
+        selectedPage = intersects[0].object.name;
+      }
+    }
+
+    function onDocumentMouseDown(event){
+      event.preventDefault();
+
+      mouse.x = (event.clientX / renderer.domElement.clientWidth) * 2 - 1;
+      mouse.y = -(event.clientY / renderer.domElement.clientHeight) * 2 + 1
+
+      raycaster.setFromCamera( mouse, camera );
+
+      var intersects = raycaster.intersectObjects(objects);
+      
+      if(intersects.length > 0){
+        selectedPage = intersects[0].object.name;
+      }
+    }
+
+    function onDocumentMouseMove(event){
+      event.preventDefault();
+
+      mouse.x = (event.clientX / renderer.domElement.clientWidth) * 2 - 1;
+      mouse.y = -(event.clientY / renderer.domElement.clientHeight) * 2 + 1
+
+      raycaster.setFromCamera( mouse, camera );
+
+      var intersects = raycaster.intersectObjects(objects);
+
+      document.getElementById('boxes').style.cursor = 'inherit';
+      
+      if(intersects.length > 0){
+        var selectedIndex = intersects[0].object.name;
+        for(var i in speed){
+          if(i != selectedIndex) {
+            speed[i] = 0.01;
+          } else
+            speed[i] = 0.05;
+            document.getElementById('boxes').style.cursor = 'pointer';
+        }
+      }else{
+        speed = [0.01, 0.01, 0.01, 0.01, 0.01];
+      }
+    }
+
+    function goBack(){
+      pageWrap.style.left = '100%';
+
+      selectedPage = -1;
+    }
+
+    function animate(){
+      requestAnimationFrame(animate);
+      controlsOrbit.update();
+      rotateObjects();
+      render();
+    }
+
+    function render(){
+      renderer.render(scene, camera);
+    }
+    </script>
+
+    <script type="text/javascript">
+      var NUM_PARTICLES = ( ( ROWS = 200 ) * ( COLS = 300 ) ),
+        THICKNESS = Math.pow( 80, 2 ),
+        SPACING = 7,
+        MARGIN = 0,
+        COLOR = 255,
+        DRAG = 0.95,
+        EASE = 0.25,  
+        container,
+        particle,
+        canvas,
+        mouse,
+        stats,
+        list,
+        ctx,
+        tog,
+        man,
+        dx, dy,
+        mx, my,
+        d, t, f,
+        a, b,
+        i, n,
+        w, h,
+        p, s,
+        r, c;
+
+        particle = {
+          vx: 0,
+          vy: 0,
+          x: 0,
+          y: 0
+        };
+
+      function init() {
+        container = document.getElementById( 'container' );
+        canvas = document.createElement( 'canvas' );
+
+        ctx = canvas.getContext( '2d' );
+        man = false;
+        tog = true;
+        
+        list = [];
+
+        w = canvas.width = COLS * SPACING + MARGIN * 2;
+        //w = window.innerWidth; 
+        h = canvas.height = ROWS * SPACING + MARGIN * 2;
+        //h = window.innerHeight; 
+
+        //canvas.width = document.body.clientWidth;
+        //canvas.height = document.body.clientHeight;
+        
+        //container.style.marginLeft = Math.round( w * -0.5 ) + 'px';
+        //container.style.marginTop = Math.round( h * -0.5 ) + 'px';
+
+        for ( i = 0; i < NUM_PARTICLES; i++ ){
+          p = Object.create( particle );
+          p.x = p.ox = MARGIN + SPACING * ( i % COLS );
+          p.y = p.oy = MARGIN + SPACING * Math.floor( i / COLS );
+
+          list[i] = p;
+        }
+
+        container.addEventListener( 'mousemove', function(e) {
+
+          bounds = container.getBoundingClientRect();
+          mx = e.clientX - bounds.left;
+          my = e.clientY - bounds.top;
+          man = true;
+
+        });
+
+        if ( typeof Stats === 'function' ) {
+          document.body.appendChild( ( stats = new Stats() ).domElement );
+        }
+
+        container.appendChild( canvas );
+      }
+
+      function step() {
+        if(stats) stats.begin();
+
+        if(tog = !tog){
+          if (!man){
+            t = +new Date() * 0.001;
+            mx = w * 0.5 + ( Math.cos( t * 2.1 ) * Math.cos( t * 0.9 ) * w * 0.45 );
+            my = h * 0.5 + ( Math.sin( t * 3.2 ) * Math.tan( Math.sin( t * 0.8 ) ) * h * 0.45 );
+          }
+
+          for ( i = 0; i < NUM_PARTICLES; i++ ){
+            p = list[i];
+
+            d = ( dx = mx - p.x ) * dx + ( dy = my - p.y ) * dy;
+            f = -THICKNESS / d;
+
+            if ( d < THICKNESS ) {
+              t = Math.atan2( dy, dx );
+              p.vx += f * Math.cos(t);
+              p.vy += f * Math.sin(t);
+            }
+
+            p.x += ( p.vx *= DRAG ) + (p.ox - p.x) * EASE;
+            p.y += ( p.vy *= DRAG ) + (p.oy - p.y) * EASE;
+          }
+        }else{
+          b = ( a = ctx.createImageData( w, h ) ).data;
+          
+          for ( i = 0; i < NUM_PARTICLES; i++ ) {
+            p = list[i];
+            b[n = ( ~~p.x + ( ~~p.y * w ) ) * 4] = b[n+1] = b[n+2] = COLOR, b[n+3] = 255;
+          }
+
+          ctx.putImageData( a, 0, 0 );
+        }
+
+        if ( stats ) stats.end();
+
+        requestAnimationFrame( step );
+      }
+
+      init();
+      step();
+    </script>
+  </body>
+</html>

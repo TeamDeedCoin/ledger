@@ -1,0 +1,91 @@
+@font-face{
+	font-family:'Dejavu';
+	src:url("/assets/fonts/DejaVuSansMono.ttf");
+	font-weight:400;
+	font-style:normal
+}
+
+@font-face{
+	font-family:'Dejavu';
+	src:url("/assets/fonts/DejaVuSansMono-Bold.ttf");
+	font-weight:500;
+	font-style:normal
+}
+
+@font-face{
+	font-family:'Dejavu';
+	src:url("/assets/fonts/DejaVuSansMono-Oblique.ttf");
+	font-weight:400;
+	font-style:italic
+}
+
+@font-face{
+	font-family:'Dejavu';
+	src:url("/assets/fonts/DejaVuSansMono-BoldOblique.ttf");
+	font-weight:500;
+	font-style:italic
+}
+
+/* @font-face {
+	font-family: 'PoiretOne';
+	font-style: normal;
+	font-weight: 400;
+	src: url('/assets/fonts/PoiretOne.ttf') format('truetype');
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+	font-family: 'Futura';
+	font-style: normal;
+	font-weight: 400;
+	src: url('/assets/fonts/Futura.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'coreldraw';
+	font-style: normal;
+	font-weight: 400;
+	src: url('/assets/fonts/coreldraw.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'gembira';
+	font-style: normal;
+	font-weight: 400;
+	src: url('/assets/fonts/gembira.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'windows';
+	font-style: normal;
+	font-weight: 400;
+	src: url('/assets/fonts/windows.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'timeburner';
+	font-style: normal;
+	font-weight: 400;
+	src: url('/assets/fonts/timeburner.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'timeburnerbold';
+	font-style: normal;
+	font-weight: 400;
+	src: url('/assets/fonts/timeburnerbold.ttf') format('truetype');
+} */
+
+/*@font-face{
+	font-family:'ObjektivMk3';
+	src:url("/assets/fonts/ObjektivMk3_W_Rg.eot");
+	src:url("/assets/fonts/ObjektivMk3_W_Rg.eot?#iefix") format("embedded-opentype"),
+	url("/assets/fonts/ObjektivMk3_W_Rg.woff2") format("woff2"),
+	url("/assets/fonts/ObjektivMk3_W_Rg.woff") format("woff");
+	font-weight:400;
+	font-style:normal
+}
+
+@font-face{
+	font-family:'ObjektivMk3';
+	src:url("/assets/fonts/ObjektivMk3_W_Md.eot");
+	src:url("/assets/fonts/ObjektivMk3_W_Md.eot?#iefix") format("embedded-opentype"),
+	url("/assets/fonts/ObjektivMk3_W_Md.woff2") format("woff2"),
+	url("/assets/fonts/ObjektivMk3_W_Md.woff") format("woff");
+	font-weight:500;
+	font-style:normal
+}*/
