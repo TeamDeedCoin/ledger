@@ -5,7 +5,6 @@ html, body {
     margin: 0; 
 }
 body { 
-    font-family:Monospace; 
     font-size:14px; 
     background-color: #fff; 
     margin: 0px; 
@@ -127,7 +126,7 @@ div.innerPage{
       body {
     margin: 0;
     padding: 0;
-    font-family: Abel, sans-serif;
+    font-family: Abel, sans-serif !important;
   }
   .content {
     background-repeat: no-repeat;
@@ -233,14 +232,14 @@ div.innerPage{
 
 .member-info h3 {
   text-transform: uppercase;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 400;
   top: -100px;
 }
 
 .member-info p {
   font-weight: 300;
-  font-size: 12px;
+  font-size: 10px;
   bottom: -150px;
 }
 
@@ -339,7 +338,6 @@ div.innerPage{
   .team-members li > div {
     float: none;
     display: inline-block;
-    width: 30%;
     margin: 0 !important;
   }
   .team-members {
@@ -355,10 +353,6 @@ div.innerPage{
 }
 
 @media only screen and (max-width : 399px) {
-  .team-members li > div {
-     width: 32% !important;
-       height: 108px !important;
-  }
   #founders .member-info {
   position: absolute;
   top: 50%;
