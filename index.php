@@ -799,7 +799,18 @@ function init(){
 
   var loader = new THREE.ObjectLoader();
   loader.load("js/noLights.json",function ( obj ) {
-    obj.scale.set(4,4,4);
+    var width = window.innerWidth;
+
+    if(width >= 1100){
+        obj.scale.set(4,4,4);
+    } else if(width >= 600) {
+        obj.position.set( -0.08, 1.3, 0 );
+        obj.scale.set( 2.8, 2.8, 2.8 );
+    } else {
+        obj.position.y = 2;
+        obj.scale.set( 1.6, 1.6, 1.6 );
+    }
+
     scene.add( obj );
   });
 
