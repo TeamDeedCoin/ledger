@@ -799,10 +799,20 @@ function init(){
   
   //renderer.gammaInput = true;
   //renderer.gammaOutput = true;
-  var ambientLight = new THREE.AmbientLight( 0xcccccc, 0.9);
-  scene.add(ambientLight);
+  //var ambientLight = new THREE.AmbientLight( 0xcccccc, 0.9);
+  //scene.add(ambientLight);
 
   var pointLight = new THREE.PointLight( 0xffffff, 0.6);
+  var redLightLeft = new THREE.DirectionalLight( 0xffb6b6, 3.2 );
+  redLightLeft.position.set( -1.26, 1.0, 0,0  );
+  redLightLeft.name = "redLightLeft";
+  scene.add( redLightLeft );
+
+  var blueLightRight= new THREE.DirectionalLight( 0xcafeff, 0.5 );
+  blueLightRight.position.set( 3.0, 1.94, -3.72 );
+  blueLightRight.name = "blueLightRight";
+  scene.add( blueLightRight );
+
 
   camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.01, 1000);
   camera.position.set(0, 0, 11);
@@ -940,9 +950,9 @@ function init(){
     wireframe: false, 
     metalness: 1, 
     roughness: 0.6, 
-    color: 0xffffff,
+    color: 0x727272,
     transparent: true,
-    opacity: 0.7
+    opacity: 0.16
   });
 
   var i;

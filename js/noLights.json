@@ -196,13 +196,13 @@
         "depthWrite": true,
         "vertexColors": false,
         "blending": "NormalBlending",
-        "shininess": 50,
+        "shininess": 10,
         "emissive": 0,
         "uuid": "BAA12A36-7C84-3F45-BBC9-C98F423700AF",
         "name": "Physical",
         "depthTest": true,
         "type": "MeshPhongMaterial",
-        "specular": 131586
+        "specular": 16770481 
     }],
     "textures": [],
     "images": [],
