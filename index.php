@@ -30,7 +30,6 @@
 
   <style type="text/css">
   @charset "UTF-8";
-
   <?php
     for ($i=5; $i <= 200; $i+=5) { 
     echo '.pt'.(string)$i.'{padding-top:'.(string)$i.'px;}';
@@ -40,6 +39,31 @@
 
   $rand = rand(1,2);
   ?>
+
+  /* ET ADDED STYLES 7/12*/
+  .goback {
+    padding-right: 15px;
+  }
+
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 5px grey; 
+        border-radius: 10px;
+        background: rgba(100,100,100,.3)
+    }
+     
+    ::-webkit-scrollbar-thumb {
+        background: rgba(231,128,60,.5); 
+        border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: rgba(231,128,60,.7); 
+    }
+    /* END ET STYLES */
   </style>
 <script type="text/javascript" src="js/wow.js"></script>
 <script type="text/javascript">
@@ -81,7 +105,7 @@ new WOW().init();
                 <span class="label tag">JavaScript</span>
                 <span class="label tag">jQuery</span>
               </p>
-              <a class="btn td-btn outline green mb-30" href="http://www.home.aigaming.com/" target="_blank" title="Link to Tribute Page"><span class="glyphicon glyphicon-link"></span> Visit Live Site</a>
+              <a class="btn td-btn outline green mb-30" href="http://home.aigaming.com/" target="_blank" title="Link to aigmaing.com"><span class="glyphicon glyphicon-link"></span> Visit Live Site</a>
              
             </div>
           </div><!-- /.row -->
@@ -179,7 +203,7 @@ new WOW().init();
                 <span class="label tag">PHP</span>
                 <span class="label tag">PHPMailer</span>
               </p>
-              <a class="btn td-btn outline green mb-30" href="http://token.airstayz.com/" target="_blank" title="Link to ryanbechtel.com"><span class="glyphicon glyphicon-link"></span> Visit Live Site</a>
+              <a class="btn td-btn outline green mb-30" href="http://token.airstayz.com/" target="_blank" title="Link to token.airstayz.com"><span class="glyphicon glyphicon-link"></span> Visit Live Site</a>
             </div>
           </div><!-- /.row -->
           <div class="modal-footer center">
@@ -336,13 +360,13 @@ new WOW().init();
 
             <div class="row row-eq-height pt30" style="width: 100%;">
               <div class="col-md-6" style="font-size: 19px;">
-                <ul class="whytable">
+                <ul class="whytable list-unstyled">
                   <li>Simple Sales Process</li>
                   <li>
                     Administrator Ease
-                    <ul>
+                    <ul class="">
                       <li> Multiple modes for different phases of the sale</li>
-                      <li> Capability to accept Bitcoin, Ethereum, Litecoin, Monero, Dash, Credit Cards (if applicable)</li>
+                      <li> Capability to accept Bitcoin, Ethereum, Litecoin, Monero, Dash, Tezos, etc</li>
                       <li> Credit card sales (compliance determined in consultation)</li>
                       <li> On-demand adjustable security features</li>
                       <li> One-click referral link functionality for marketing</li>
@@ -353,8 +377,8 @@ new WOW().init();
                     </ul>
                   </li>
                   <li>
-                    Compliance & Security
-                    <ul>
+                    Compliance and Security
+                    <ul class="">
                       <li>Penetration tested</li>
                       <li>OWASP top ten</li>
                       <li>Industry standard compliance and encryption</li>
@@ -720,7 +744,7 @@ var pageWrap = null;
 var logo = null;
 var logoLabel = null;
 
-var speed = [0.01, 0.01, 0.01, 0.01, 0.01];
+var speed = [0.01, 0.01, 0.01, 0.01, 0.01, 0.01];
 var selectedPageGeometry;
 
 /*
@@ -755,8 +779,11 @@ init();
 animate();
 
 function rotateObjects(){
-  for(var i in objects)
+  for(var i in objects) {
+    // let multiplier = Math.floor((Math.random() * 50)) / 10;
     objects[i].rotation.y += speed[i];
+    objects[i].rotation.x += speed[i] / 4;
+  }
 }
 
 function init(){
@@ -774,10 +801,11 @@ function init(){
   //renderer.gammaOutput = true;
   var ambientLight = new THREE.AmbientLight( 0xcccccc, 0.9);
   scene.add(ambientLight);
-  var pointLight = new THREE.PointLight( 0xe7803c, 0.8);
+
+  var pointLight = new THREE.PointLight( 0xffffff, 0.6);
 
   camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.01, 1000);
-  camera.position.set(0, 0, 10);
+  camera.position.set(0, 0, 11);
   camera.add(pointLight);
   scene.add(camera);
   
@@ -844,9 +872,9 @@ function init(){
     pages.push(document.getElementById('page'+i));
 
     if(index == -1)
-      index = Math.floor(Math.random() * 5);
+      index = Math.floor(Math.random() * 6);
     else
-      index = (index + 1) % 5;
+      index = (index + 1) % 6;
 
     var geometry;
     var material = new THREE.MeshBasicMaterial({color: 0xcccccc, wireframe: true, side: THREE.DoubleSide});
@@ -854,7 +882,7 @@ function init(){
 
     switch(index){
       case 0: // Box
-        geometry = new THREE.BoxGeometry(1, 1, 1);
+        geometry = new THREE.BoxGeometry(0.8, 0.8, 0.8);
       break;
       case 1: // Sphere
         geometry = new THREE.SphereGeometry(0.5, 12, 8);
@@ -867,6 +895,9 @@ function init(){
       break;
       case 4:
         geometry = new THREE.OctahedronGeometry(0.5, 0);
+      break;
+      case 5:
+        geometry = new THREE.TetrahedronGeometry(0.7, 0);
       break;
     }
 
@@ -933,7 +964,7 @@ function onWindowResize(event){
 function setPosition(){
   var width = window.innerWidth;
 
-  if(width >= 1000)
+  if(width >= 1100)
     loadDesktopPosition();
   else if(width >= 600)
     loadTabletPosition();
@@ -949,24 +980,24 @@ function loadDesktopPosition(){
   logoLabel.position.set(0, 0, 0);
 
   var objectPositions = [
-    {x: -4, y: -1.5, z: 0},
-    {x: -2, y: -1.5, z: 0},
-    {x: 0, y: -1.5, z: 0},
-    {x: 2, y: -1.5, z: 0},
-    {x: 4, y: -1.5, z: 0}
-    // {x: 5, y: -1.5, z: 0}
+    {x: -5, y: -1.5, z: 0},
+    {x: -3, y: -1.5, z: 0},
+    {x: -1, y: -1.5, z: 0},
+    {x: 1, y: -1.5, z: 0},
+    {x: 3, y: -1.5, z: 0},
+    {x: 5, y: -1.5, z: 0}
   ];
 
   var labelPositions = [
-    {x: -4, y: -2.3, z: 0},
-    {x: -2, y: -2.3, z: 0},
-    {x: 0, y: -2.3, z: 0},
-    {x: 2, y: -2.3, z: 0},
-    {x: 4, y: -2.3, z: 0}
-    // {x: 5, y: -2.3, z: 0}
+    {x: -5, y: -2.3, z: 0},
+    {x: -3, y: -2.3, z: 0},
+    {x: -1, y: -2.3, z: 0},
+    {x: 1, y: -2.3, z: 0},
+    {x: 3, y: -2.3, z: 0},
+    {x: 5, y: -2.3, z: 0}
   ];
 
-  for(var i = 0; i < 5; i++){
+  for(var i = 0; i < 6; i++){
     objects[i].position.set(objectPositions[i].x, objectPositions[i].y, objectPositions[i].z);
     labels[i].position.set(labelPositions[i].x, labelPositions[i].y, labelPositions[i].z);
 
@@ -992,21 +1023,21 @@ function loadTabletPosition(){
     {x: -2, y: 0.2, z: 0},
     {x: 0, y: 0.2, z: 0},
     {x: 2, y: 0.2, z: 0},
-    {x: -1, y: -1.5, z: 0},
-    {x: 1, y: -1.5, z: 0}
-    // {x: 2, y: -1.5, z: 0}
+    {x: -2, y: -1.5, z: 0},
+    {x: 0, y: -1.5, z: 0},
+    {x: 2, y: -1.5, z: 0}
   ];
 
   var labelPositions = [
     {x: -2, y: -0.4, z: 0},
     {x: 0, y: -0.4, z: 0},
     {x: 2, y: -0.4, z: 0},
-    {x: -1, y: -2.2, z: 0},
-    {x: 1, y: -2.2, z: 0}
-    // {x: 2, y: -2.2, z: 0}
+    {x: -2, y: -2.2, z: 0},
+    {x: 0, y: -2.2, z: 0},
+    {x: 2, y: -2.2, z: 0}
   ];
 
-  for(var i = 0; i < 5; i++){
+  for(var i = 0; i < 6; i++){
     objects[i].position.set(objectPositions[i].x, objectPositions[i].y, objectPositions[i].z);
     labels[i].position.set(labelPositions[i].x, labelPositions[i].y, labelPositions[i].z);
 
@@ -1033,8 +1064,8 @@ function loadMobilePosition(){
     {x: 0.8, y: 1, z: 0},
     {x: -0.8, y: -0.5, z: 0},
     {x: 0.8, y: -0.5, z: 0},
-    {x: 0, y: -2, z: 0}
-    // {x: 0.8, y: -2, z: 0}
+    {x: -0.8, y: -2, z: 0},
+    {x: 0.8, y: -2, z: 0}
   ];
 
   var labelPositions = [
@@ -1042,11 +1073,11 @@ function loadMobilePosition(){
     {x: 0.8, y: 0.45, z: 0},
     {x: -0.8, y: -1.05, z: 0},
     {x: 0.8, y: -1.05, z: 0},
-    {x: 0, y: -2.6, z: 0}
-    // {x: 0.8, y: -2.6, z: 0}
+    {x: 0.8, y: -2.6, z: 0},
+    {x: 0.8, y: -2.6, z: 0}
   ];
 
-  for(var i = 0; i < 5; i++){
+  for(var i = 0; i < 6; i++){
     objects[i].position.set(objectPositions[i].x, objectPositions[i].y, objectPositions[i].z);
     labels[i].position.set(labelPositions[i].x, labelPositions[i].y, labelPositions[i].z);
 
@@ -1135,7 +1166,7 @@ function onDocumentMouseMove(event){
         document.getElementById('boxes').style.cursor = 'pointer';
     }
   }else{
-    speed = [0.01, 0.01, 0.01, 0.01, 0.01];
+    speed = [0.01, 0.01, 0.01, 0.01, 0.01, 0.01];
   }
 }
 
@@ -1204,6 +1235,7 @@ function makeNextScene() {
   var page2 = document.getElementById("page2");
   var page3 = document.getElementById("page3");
   var page4 = document.getElementById("page4");
+  var page5 = document.getElementById("page5");
 
 
   if(selectedPage != -1) {
@@ -1239,6 +1271,12 @@ function makeNextScene() {
       case 4:
         page4.appendChild( renderer2.domElement);
         document.getElementById('page4').children[1].id = "canvas4";
+        init2();
+        animate2();
+      break;
+      case 5:
+        page5.appendChild( renderer2.domElement);
+        document.getElementById('page5').children[1].id = "canvas5";
         init2();
         animate2();
       break;
