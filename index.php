@@ -30,6 +30,7 @@
 
   <style type="text/css">
   @charset "UTF-8";
+
   <?php
     for ($i=5; $i <= 200; $i+=5) { 
     echo '.pt'.(string)$i.'{padding-top:'.(string)$i.'px;}';
@@ -352,7 +353,7 @@ new WOW().init();
                     </ul>
                   </li>
                   <li>
-                    Compliance and Security
+                    Compliance & Security
                     <ul>
                       <li>Penetration tested</li>
                       <li>OWASP top ten</li>
