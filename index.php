@@ -410,6 +410,45 @@ new WOW().init();
           <section class="intro">
               <div class="intro-block">
                 <div class="centerfold-wrap">
+                  <div class="code-display">
+                    <div class="code-description">
+                      <div class="about-desc">
+                        <p class="code-title"></p>
+                        <p>
+                          <ul>
+                            <li>Initial Consulting</li>
+                            <li>Tokenomics Review</li>
+                            <li>Launch Review</li>
+                            <li>Whitepaper Writing</li>
+                            <li>Whitepaper Review</li>
+                            <li>Advisor Sourcing</li>
+
+                          </ul>
+                        </p>
+                      </div>
+                      <div class="frontend-desc">
+                        <p class="code-title"></p>
+                        <p><ul>
+                          <li>Launch Coordination</li>
+                          <li>Smart Contract</li>
+                          <li>Landing Site</li>
+                          <li>Contribution Platform</li>
+                          <li>Secure Node Programming</li>
+                          <li>Compliant Investor Prospectus Platform</li>
+                          <li>B.A.A.S. (Blockchain as a Service)</li>
+                        </ul></p>
+                      </div>
+                      <div class="it-desc">
+                        <p class="code-title"></p>
+                        <p><ul>                          
+                          <li>30x ICO Listing Sites</li>
+                          <li>Exchange Sourcing and Consulting</li>
+                          <li>Press Releases</li>
+                        </ul></p>
+                      </div>
+                    </div>
+
+                  </div>
                   <div class="hex-master-wrap">
                     <div class="grid-1">
                       <div class="hex-wrap backend" data-title="Pre-Sale" data-content="about-desc" data-color="#fdae22">
@@ -487,46 +526,6 @@ new WOW().init();
                       </div>
                       
                     </div>
-                  </div>
-
-                  <div class="code-display">
-                    <div class="code-description">
-                      <div class="about-desc">
-                        <p class="code-title"></p>
-                        <p>
-                          <ul>
-                            <li>Initial Consulting</li>
-                            <li>Tokenomics Review</li>
-                            <li>Launch Review</li>
-                            <li>Whitepaper Writing</li>
-                            <li>Whitepaper Review</li>
-                            <li>Advisor Sourcing</li>
-
-                          </ul>
-                        </p>
-                      </div>
-                      <div class="frontend-desc">
-                        <p class="code-title"></p>
-                        <p><ul>
-                          <li>Launch Coordination</li>
-                          <li>Smart Contract</li>
-                          <li>Landing Site</li>
-                          <li>Contribution Platform</li>
-                          <li>Secure Node Programming</li>
-                          <li>Compliant Investor Prospectus Platform</li>
-                          <li>B.A.A.S. (Blockchain as a Service)</li>
-                        </ul></p>
-                      </div>
-                      <div class="it-desc">
-                        <p class="code-title"></p>
-                        <p><ul>                          
-                          <li>30x ICO Listing Sites</li>
-                          <li>Exchange Sourcing and Consulting</li>
-                          <li>Press Releases</li>
-                        </ul></p>
-                      </div>
-                    </div>
-
                   </div>
                     <div class="hoverblock"></div>
                     <div style="height: 60px;"></div>
@@ -824,7 +823,18 @@ function init(){
 
   var loader = new THREE.ObjectLoader();
   loader.load("js/noLights.json",function ( obj ) {
-    obj.scale.set(4,4,4);
+    var width = window.innerWidth;
+
+    if(width >= 1100){
+        obj.scale.set(4,4,4);
+    } else if(width >= 600) {
+        obj.position.set( -0.08, 1.3, 0 );
+        obj.scale.set( 2.8, 2.8, 2.8 );
+    } else {
+        obj.position.y = 2;
+        obj.scale.set( 1.6, 1.6, 1.6 );
+    }
+
     scene.add( obj );
   });
 
