@@ -41,6 +41,11 @@
   ?>
 
   /* ET ADDED STYLES 7/12*/
+
+  .title.orange {
+    font-size: 40px;
+    text-align: left;
+  }
   .goback {
     padding-right: 15px;
   }
@@ -322,7 +327,7 @@ new WOW().init();
                 
                 <div class="pull-left col-md-4 sm-text-center pt50">
                   <div class="team-overview">
-                    <h2 class="orange"><span style="font-size: 42px;">Who</span> Are We?</h2>
+                    <h2 class="orange"><span style="font-size: 42px;">Who Are We?</span></h2>
                     <p style="font-size: 18px;" class="pt10">Ledger Leap can support solutions from an atmospheric scope. Our team is comprised of founders of launch projects along with specialists in each specific element, all directed by leadership with real world industry experience.</p>
                   </div>
                 </div><!-- /end col-md-4 -->
@@ -356,7 +361,7 @@ new WOW().init();
           <h2>Platform</h2>
           <a class="goback" onclick="goBack()">Go Back</a>
           <div class="container-fluid pt20" style="width: 100%;">
-            <div class="title orange" style="line-height: 30px;">WHY<span style="font-size: 28px; line-height: 30px;">we're different</span></div> <!-- WHY WE'RE DIFFERENT -->
+            <div class="title orange">WHY WE'RE DIFFERENT</div> <!-- WHY WE'RE DIFFERENT -->
 
             <div class="row row-eq-height pt30" style="width: 100%;">
               <div class="col-md-6" style="font-size: 19px;">
@@ -402,7 +407,7 @@ new WOW().init();
           <div class="container pt30">
             <div class="row">
               <div class="col-md-12">
-                <div class="title orange" style="line-height: 30px;">WHAT<span style="font-size: 28px; line-height: 30px;"> we do</span></div>
+                <div class="title orange">WHAT WE DO</div>
                 <p style="font-size: 19px;">We offer a range of token sale, blockchain, and development services. Most are broken down into three main categories. Highly customizable options available that are not listed here. Contact us to see how we can create a solution tailored to your needs.</p>
               </div>
             </div>
@@ -541,7 +546,7 @@ new WOW().init();
           <a class="goback" onclick="goBack()">Go Back</a>
           <div class="container pt20">
 
-          <div class="title orange" style="line-height: 30px;">WHERE<span style="font-size: 28px; line-height: 30px;"> we've been</span></div> <!--WHERE WE ARE (LOCATION)/WHERE WE'VE BEEN (CLIENTS) -->
+          <div class="title orange">WHERE WE'VE BEEN</div> <!--WHERE WE ARE (LOCATION)/WHERE WE'VE BEEN (CLIENTS) -->
             <div class="slidecontent pb50 pt30">
               <p style="font-size: 18px;">The Ledger Leap team and development office is based in Melbourne, Florida, USA. We build all tech in-house. Many aspects of blockchain benefit from decentralization; however, staff and timetables do not.</p>
               <p style="font-size: 18px;">The solutions we create are built out of necessity. As unmet needs are discovered by our clients, we build robust solutions in real time and silo these answers for future customers. Ledger Leap has provided its services to a handful of clients already. Every client is treated with above and beyond mentality in delivering rock solid products.</p>
@@ -627,7 +632,7 @@ new WOW().init();
           <h2>Ledger Leap</h2>
           <a class="goback" onclick="goBack()">Go Back</a>
           <div class="container-fluid pt20">
-            <div class="title orange" style="line-height: 30px;">HOW<span style="font-size: 28px; line-height: 30px;"> We Do It</span></div> <!-- HOW -->
+            <div class="title orange">HOW WE DO IT</div> <!-- HOW -->
             <div class="container">
               <div class="slidecontent pb60 pt40" style="font-size: 19px;">
                 Ledger Leap launches blockchain solutions, not just projects. We only assist projects that make sense and drive the industry forward in a positive direction. Our platform is designed to bring real world support to beneficial projects, providing experience, connections, and software to harvest the benefits. Solid projects need solutions that can bring products to market faster and without prohibitive fiat costs that cripple development funds.
