@@ -39,6 +39,31 @@
 
   $rand = rand(1,2);
   ?>
+
+  /* ET ADDED STYLES 7/12*/
+  .goback {
+    padding-right: 15px;
+  }
+
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 5px grey; 
+        border-radius: 10px;
+        background: rgba(100,100,100,.3)
+    }
+     
+    ::-webkit-scrollbar-thumb {
+        background: rgba(231,128,60,.5); 
+        border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: rgba(231,128,60,.7); 
+    }
+    /* END ET STYLES */
   </style>
 <script type="text/javascript" src="js/wow.js"></script>
 <script type="text/javascript">
@@ -335,11 +360,11 @@ new WOW().init();
 
             <div class="row row-eq-height pt30" style="width: 100%;">
               <div class="col-md-6" style="font-size: 19px;">
-                <ul class="whytable">
+                <ul class="whytable list-unstyled">
                   <li>Simple Sales Process</li>
                   <li>
                     Administrator Ease
-                    <ul>
+                    <ul class="">
                       <li> Multiple modes for different phases of the sale</li>
                       <li> Capability to accept Bitcoin, Ethereum, Litecoin, Monero, Dash, Tezos, etc</li>
                       <li> Credit card sales (compliance determined in consultation)</li>
@@ -353,7 +378,7 @@ new WOW().init();
                   </li>
                   <li>
                     Compliance and Security
-                    <ul>
+                    <ul class="">
                       <li>Penetration tested</li>
                       <li>OWASP top ten</li>
                       <li>Industry standard compliance and encryption</li>
