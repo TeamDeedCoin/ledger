@@ -721,7 +721,7 @@ new WOW().init();
         }
         
 
-        .et-input{border: 0; padding: 7px 0; border: 1px solid #555; background: transparent; width: 250px; color: #555; transition: 0.4s;}
+        .et-input{border: 0; padding: 7px 7px; border: 1px solid #555; background: transparent; width: 250px; color: #555; transition: 0.4s;}
         .et-input:focus {
           border-color: rgba(231,128,60,.7);
           transition: 0.4s;
@@ -760,7 +760,7 @@ new WOW().init();
           transform: skewX(-20deg);
           background-image: linear-gradient(to right, transparent, rgba(255,255,255,0.3), transparent);
         }
-        input[type="submit"]:hover:after {
+        .submit_button:hover:after {
           animation: shine 1.6s ease;
         }
         input[type="submit"]:active {
@@ -796,6 +796,27 @@ new WOW().init();
         .et-bold {
           font-weight: 600;
         }
+
+        #message, input, select {
+          height: 50px;
+          bottom: 0;
+          vertical-align: top;
+          display: block;
+          margin: 1%;
+          padding: 1%;
+          width: 250px;
+        }
+
+        #message:focus, input:focus, select:focus, #message:hover, input:hover, input:not[type="submit"]{
+          height: 100px;
+          border-color: rgba(231,128,60,.7);
+        }
+
+        form {
+          width: 20%;
+          margin: auto;
+          box-sizing: border-box;
+        }
       </style>
       <div class="page" id="page5">
         <div class="innerPage">
@@ -815,17 +836,18 @@ new WOW().init();
           </div> 
           <a class="goback" onclick="goBack()">Go Back</a>
           <form action="" method="post" id="ledger_contact_form">
-            <input type="text" class="wbcontactform"  name="name" autocomplete="name" placeholder="Enter Your Name" >
-            <input type="tel" class="wbcontactform" name="phone" autocomplete="tel-national" placeholder="Enter Your Phone Number" >
-            <input type="email" class="wbcontactform"  name="email" autocomplete="email" placeholder="What Is Your Email Address" >
+            <input type="text" class="et-input"  name="name" autocomplete="name" placeholder="Enter Your Name" >
+            <input type="tel" class="et-input" name="phone" autocomplete="tel-national" placeholder="Enter Your Phone Number" >
+            <input type="email" class="et-input"  name="email" autocomplete="email" placeholder="What Is Your Email Address" >
 
             <select name="subjects">
+              <option value="">--PLEASE SELECT TOPIC--</option>
               <option value="Portals" class="select_option" >Portals</option>
               <option value="Smart" class="select_option" >Smart Contracts</option>
               <option value="Advisory" class="select_option" >Advisory</option>
               <option value="Get A Quote" class="select_option" >Get A Quote</option>
             </select>
-            <textarea rows="4" cols="50" class="contactform" name="message" placeholder="Enter a Message" ></textarea>
+            <textarea class="et-input" name="message" id="message" placeholder="Enter a Message" ></textarea>
             <input type="submit" class="submit_button" value="Submit" name="submit">
           </form>
         </div>
