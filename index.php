@@ -1183,9 +1183,9 @@ function animate(){
 
 function render(){
 
-  if (scene.children[16].name === "octa0"){
+  if (scene.children[15].name === "octa0"){
     var j;
-    for (j=16; j <= 26; j++){
+    for (j=16; j <= 25; j++){
       scene.children[j].position.y += Math.random() * 0.01;
       scene.children[j].rotation.y += Math.random() * 0.01;
     }
