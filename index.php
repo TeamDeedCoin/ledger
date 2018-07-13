@@ -745,9 +745,6 @@ var pages = [];
 var labels = [];
 var pageWrap = null;
 
-var logo = null;
-var logoLabel = null;
-
 var speed = [0.01, 0.01, 0.01, 0.01, 0.01, 0.01];
 var selectedPageGeometry;
 
@@ -880,16 +877,6 @@ function init(){
   }, onProgress, onError );
  */
 
-  var spriteMap = new THREE.TextureLoader().load("images/logo.png");
-  var spriteMaterial = new THREE.SpriteMaterial({map: spriteMap, color: 0xcccccc});
-  logo = new THREE.Sprite(spriteMaterial);
-  //scene.add(logo);
-
-  spriteMap = new THREE.TextureLoader().load("images/logoLabel1.png");
-  spriteMaterial = new THREE.SpriteMaterial({map: spriteMap, color: 0xcccccc});
-  logoLabel = new THREE.Sprite(spriteMaterial);
-  //scene.add(logoLabel);
-
   var index = -1;
 
   pageWrap = document.getElementById('pageWrap');
@@ -929,11 +916,12 @@ function init(){
     var labelMap = new THREE.TextureLoader().load("images/label"+i+".png");
     var labelMat = new THREE.SpriteMaterial({map: labelMap, color: 0xcccccc});
     var labelObject = new THREE.Sprite(labelMat);
+    labelObject.name = "label" + i.toString();
+    scene.add(labelObject);
 
     var object = new THREE.Mesh(geometry, material);
     object.name = i;
 
-    scene.add(labelObject);
     scene.add(object);
 
     objects.push(object);
@@ -998,11 +986,6 @@ function setPosition(){
 }
 
 function loadDesktopPosition(){
-  logo.scale.set(2, 2, 1);
-  logoLabel.scale.set(6.3, 0.4, 1);
-
-  logo.position.set(0, 1.7, 0);
-  logoLabel.position.set(0, 0, 0);
 
   var objectPositions = [
     {x: -5, y: -1.5, z: 0},
@@ -1038,11 +1021,7 @@ function loadDesktopPosition(){
 }
 
 function loadTabletPosition(){
-  logo.scale.set(1, 1, 1);
-  logoLabel.scale.set(3.15, 0.2, 1);
 
-  logo.position.set(0, 2.5, 0);
-  logoLabel.position.set(0, 1.5, 0);
 
   var objectPositions = [
     {x: -2, y: 0.2, z: 0},
@@ -1078,11 +1057,7 @@ function loadTabletPosition(){
 }
 
 function loadMobilePosition(){
-  logo.scale.set(0.8, 0.8, 0.8);
-  logoLabel.scale.set(2.3625, 0.15, 1);
 
-  logo.position.set(0, 2.6, 0);
-  logoLabel.position.set(0, 1.8, 0);
 
   var objectPositions = [
     {x: -0.8, y: 1, z: 0},
@@ -1212,9 +1187,9 @@ function animate(){
 
 function render(){
 
-  if (scene.children[16].name === "octa0"){
+  if (scene.children[15].name === "octa0"){
     var j;
-    for (j=16; j <= 26; j++){
+    for (j=16; j <= 25; j++){
       scene.children[j].position.y += Math.random() * 0.01;
       scene.children[j].rotation.y += Math.random() * 0.01;
     }
