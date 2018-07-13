@@ -709,8 +709,22 @@ new WOW().init();
 <!-- PAGE OFF -->
       <div class="page" id="page5">
         <div class="innerPage">
-          <h2>Post ICO Service</h2>
+          <h2>Contact Us</h2>
           <a class="goback" onclick="goBack()">Go Back</a>
+          <form action="" method="post" id="ledger_contact_form">
+            <input type="text" class="wbcontactform"  name="name" autocomplete="name" placeholder="Enter Your Name" >
+            <input type="tel" class="wbcontactform" name="phone" autocomplete="tel-national" placeholder="Enter Your Phone Number" >
+            <input type="email" class="wbcontactform"  name="email" autocomplete="email" placeholder="What Is Your Email Address" >
+
+            <select name="subjects">
+              <option value="Portals" class="select_option" >Portals</option>
+              <option value="Smart" class="select_option" >Smart Contracts</option>
+              <option value="Advisory" class="select_option" >Advisory</option>
+              <option value="Get A Quote" class="select_option" >Get A Quote</option>
+            </select>
+            <textarea rows="4" cols="50" class="contactform" name="message" placeholder="Enter a Message" ></textarea>
+            <input type="submit" class="submit_button" value="Submit" name="submit">
+          </form>
         </div>
       </div>
 <!-- PAGE OFF END -->
@@ -1011,7 +1025,7 @@ function loadDesktopPosition(){
       labels[i].scale.set(1.575, 0.15, 1);
     else
       labels[i].scale.set(0.95, 0.2, 1);
-    
+
     objects[i].scale.set(1, 1, 1);
   }
 }
