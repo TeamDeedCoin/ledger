@@ -876,16 +876,6 @@ function init(){
   }, onProgress, onError );
  */
 
-  var spriteMap = new THREE.TextureLoader().load("images/logo.png");
-  var spriteMaterial = new THREE.SpriteMaterial({map: spriteMap, color: 0xcccccc});
-  logo = new THREE.Sprite(spriteMaterial);
-  //scene.add(logo);
-
-  spriteMap = new THREE.TextureLoader().load("images/logoLabel1.png");
-  spriteMaterial = new THREE.SpriteMaterial({map: spriteMap, color: 0xcccccc});
-  logoLabel = new THREE.Sprite(spriteMaterial);
-  //scene.add(logoLabel);
-
   var index = -1;
 
   pageWrap = document.getElementById('pageWrap');
@@ -925,11 +915,12 @@ function init(){
     var labelMap = new THREE.TextureLoader().load("images/label"+i+".png");
     var labelMat = new THREE.SpriteMaterial({map: labelMap, color: 0xcccccc});
     var labelObject = new THREE.Sprite(labelMat);
+    labelObject.name = "label" + i.toString();
+    scene.add(labelObject);
 
     var object = new THREE.Mesh(geometry, material);
     object.name = i;
 
-    scene.add(labelObject);
     scene.add(object);
 
     objects.push(object);
