@@ -68,6 +68,10 @@
     ::-webkit-scrollbar-thumb:hover {
         background: rgba(231,128,60,.7); 
     }
+
+    .et-normal {
+      font-weight: 400;
+    }
     /* END ET STYLES */
   </style>
 <script type="text/javascript" src="js/wow.js"></script>
@@ -228,7 +232,7 @@ new WOW().init();
             <div class="container pt100 pb100">
               <div class="row flex-center sm-no-flex">
 
-                <div class="sm-no-float col-md-8">
+                <div class="pull-right sm-no-float col-md-8">
                   <ul class="team-members list-unstyled" style="pointer-events: none;">
                     <!-- single member row starts -->
                     <li class="clearfix" id="founders">
@@ -328,7 +332,7 @@ new WOW().init();
                 <div class="pull-left col-md-4 sm-text-center pt50">
                   <div class="team-overview">
                     <h2 class="orange"><span style="font-size: 42px;">Who Are We?</span></h2>
-                    <p style="font-size: 18px;" class="pt10">Ledger Leap can support solutions from an atmospheric scope. Our team is comprised of founders of launch projects along with specialists in each specific element, all directed by leadership with real world industry experience.</p>
+                    <p style="font-size: 18px;" class="pt10">Ledger Leap can support solutions from an atmospheric scope. Our team is comprised of founders of launch projects along with specialists in each specific element, all directed by leadership with real world industry experience. Our centralized team works in-office in Melbourne, Florida.</p>
                   </div>
                 </div><!-- /end col-md-4 -->
               </div><!-- /end row -->
@@ -366,10 +370,10 @@ new WOW().init();
             <div class="row row-eq-height pt30" style="width: 100%;">
               <div class="col-md-6" style="font-size: 19px;">
                 <ul class="whytable list-unstyled">
-                  <li>Simple Sales Process</li>
-                  <li>
+                  <li class="et-bold">Simple Sales Process</li>
+                  <li class="et-bold">
                     Administrator Ease
-                    <ul class="">
+                    <ul class="et-normal">
                       <li> Multiple modes for different phases of the sale</li>
                       <li> Capability to accept Bitcoin, Ethereum, Litecoin, Monero, Dash, Tezos, etc</li>
                       <li> Credit card sales (compliance determined in consultation)</li>
@@ -381,9 +385,9 @@ new WOW().init();
                       <li class="pb10"> Simple, compliant accredited investor SAFT order system</li>
                     </ul>
                   </li>
-                  <li>
+                  <li class="et-bold">
                     Compliance and Security
-                    <ul class="">
+                    <ul class="et-normal">
                       <li>Penetration tested</li>
                       <li>OWASP top ten</li>
                       <li>Industry standard compliance and encryption</li>
@@ -392,7 +396,7 @@ new WOW().init();
                 </ul>
               </div>
               <div class="col-md-6 text-center vcenter">
-                <img src="web/images/widelogo.png" style="max-width: 320px;">
+                <img src="web/images/widelogo.png" style="width: 75%; margin: auto;">
               </div>
             </div>
           </div>
@@ -711,9 +715,104 @@ new WOW().init();
         </div>
       </div>
 <!-- PAGE OFF -->
+      <style>
+        :focus {
+          outline: none;
+        }
+        
+
+        .et-input{border: 0; padding: 7px 0; border: 1px solid #555; background: transparent; width: 250px; color: #555; transition: 0.4s;}
+        .et-input:focus {
+          border-color: rgba(231,128,60,.7);
+          transition: 0.4s;
+        }
+
+        .et-input ~ .etfocusborder{position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background-color: #555; transition: 0.4s;}
+        .et-input:focus ~ .etfocusborder{width: 250px; transition: 0.4s;}
+        .etwrap {
+          position: relative;
+          margin: 1%;
+        }
+
+        input[type="submit"] {
+          position: relative;
+          background: #000;
+          border: 0;
+          padding: 14px 42px;
+          border-radius: 3px;
+          cursor: pointer;
+          overflow: hidden;
+          outline: none;
+          font-weight: 400;
+          font-size: 12px;
+          color: #fff;
+          letter-spacing: 0.2em;
+          box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+          transition: all 0.2s ease;
+        }
+        input[type="submit"]:after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -200%;
+          width: 200%;
+          height: 100%;
+          transform: skewX(-20deg);
+          background-image: linear-gradient(to right, transparent, rgba(255,255,255,0.3), transparent);
+        }
+        input[type="submit"]:hover:after {
+          animation: shine 1.6s ease;
+        }
+        input[type="submit"]:active {
+          transform: translateY(1px);
+          box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+        }
+        .cntr {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+        @-moz-keyframes shine {
+          100% {
+            left: 200%;
+          }
+        }
+        @-webkit-keyframes shine {
+          100% {
+            left: 200%;
+          }
+        }
+        @-o-keyframes shine {
+          100% {
+            left: 200%;
+          }
+        }
+        @keyframes shine {
+          100% {
+            left: 200%;
+          }
+        }
+        .et-bold {
+          font-weight: 600;
+        }
+      </style>
       <div class="page" id="page5">
         <div class="innerPage">
-          <h2>Contact Us</h2>
+          <div class="title" style="margin: 0">CONTACT US <div><a href="https://www.facebook.com/Ledger-Leap-2104950239762462/" target="_blank">
+             <img src="web/images/facebook.png" class="socialicon">
+              </a>
+              <a href="https://instagram.com/ledgerleap/" target="_blank">
+                <img src="web/images/instagram.png" class="socialicon">
+              </a>
+              <a href="https://www.linkedin.com/company/ledgerleap/" target="_blank">
+                <img src="web/images/linkedin.png" class="socialicon">
+              </a>
+              <a href="mailto:team@ledgerleap.com">
+                <img src="web/images/mail.png" class="socialicon">
+              </a>
+            </div>
+          </div> 
           <a class="goback" onclick="goBack()">Go Back</a>
           <form action="" method="post" id="ledger_contact_form">
             <input type="text" class="wbcontactform"  name="name" autocomplete="name" placeholder="Enter Your Name" >
