@@ -25,9 +25,10 @@
   <meta name="twitter:image:alt" content="Ledger Leap Inc.">
   <link href="css/animate.css" rel="stylesheet">
   <link href="css/style.css?v=3" rel="stylesheet">
+  <link href="css/dropdown.css" rel="stylesheet">
   <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet'>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
+<script type="text/javascript" src="js/modernizr-custom.js"></script>
   <style type="text/css">
   @charset "UTF-8";
   <?php
@@ -711,12 +712,13 @@ new WOW().init();
         <div class="innerPage">
           <h2>Contact Us</h2>
           <a class="goback" onclick="goBack()">Go Back</a>
-          <form action="" method="post" id="ledger_contact_form">
+          <form action="submit.php" method="post" id="ledger_contact_form">
             <input type="text" class="wbcontactform"  name="name" autocomplete="name" placeholder="Enter Your Name" >
             <input type="tel" class="wbcontactform" name="phone" autocomplete="tel-national" placeholder="Enter Your Phone Number" >
             <input type="email" class="wbcontactform"  name="email" autocomplete="email" placeholder="What Is Your Email Address" >
 
-            <select name="subjects">
+            <select name="subjects" id="cd-dropdown" class="cd-select"  >
+              <option value="-1" selected>Select A Subject</option>
               <option value="Portals" class="select_option" >Portals</option>
               <option value="Smart" class="select_option" >Smart Contracts</option>
               <option value="Advisory" class="select_option" >Advisory</option>
@@ -734,15 +736,16 @@ new WOW().init();
   <div id='container'>
     <div id="boxes"></div>
   </div> <!-- Container End !-->
-  <script type="text/javascript" src="js/three.js"></script>
-  <script src="js/OrbitControls.js"></script>
-  <script type="text/javascript" src="js/Detector.js"></script>
-  <script type="text/javascript" src="js/dat.gui.min.js"></script>
 
-  <script id="template" type="notjs">
-    <div class="scene"></div>
-    <div class="description">$</div>
-  </script>
+<script type="text/javascript" src="js/three.js"></script>
+<script src="js/OrbitControls.js"></script>
+<script type="text/javascript" src="js/Detector.js"></script>
+<script type="text/javascript" src="js/dat.gui.min.js"></script>
+
+<script id="template" type="notjs">
+<div class="scene"></div>
+<div class="description">$</div>
+</script>
 <script type="text/javascript">
 if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
 var container, canvas, camera, raycaster, controlsOrbit;
@@ -760,212 +763,179 @@ var selectedPageGeometry;
 
 /*
 window.onload = function() {
-    var gui = new dat.GUI();
-    //gui.add(guiParams, 'Ledger Leap');
-    gui.addColor(text, 'color_0');
+var gui = new dat.GUI();
+//gui.add(guiParams, 'Ledger Leap');
+gui.addColor(text, 'color_0');
 };
 
 var guiParams = function() {
-    this.colors:  '0xFFFFFF',
-    SIZEX: 0,
-    SIZEY: 0,
-    SIZEZ: 0,
-    POSITIONX: 0,
-    POSITIONY: 0,
-    POSITIONZ: 0,
-    cameraCOLOR: '0xFFFFFF',
-    cameraX: 0,
-    cameraY: 0,
-    cameraZ: 0,
-    cameraLOOKAT: (0,0,0),
-    pointLightCOLOR: '0xFFFFFF',
-    pointLightX: 0,
-    pointLightY: 0,
-    pointLightZ: 0,
-    pointLightLOOKAT: (0,0,0),
+this.colors:  '0xFFFFFF',
+SIZEX: 0,
+SIZEY: 0,
+SIZEZ: 0,
+POSITIONX: 0,
+POSITIONY: 0,
+POSITIONZ: 0,
+cameraCOLOR: '0xFFFFFF',
+cameraX: 0,
+cameraY: 0,
+cameraZ: 0,
+cameraLOOKAT: (0,0,0),
+pointLightCOLOR: '0xFFFFFF',
+pointLightX: 0,
+pointLightY: 0,
+pointLightZ: 0,
+pointLightLOOKAT: (0,0,0),
 };
- */
+*/
 
 init();
 animate();
 
 function rotateObjects(){
-  for(var i in objects) {
-    // let multiplier = Math.floor((Math.random() * 50)) / 10;
-    objects[i].rotation.y += speed[i];
-    objects[i].rotation.x += speed[i] / 4;
-  }
+    for(var i in objects) {
+        // let multiplier = Math.floor((Math.random() * 50)) / 10;
+        objects[i].rotation.y += speed[i];
+        objects[i].rotation.x += speed[i] / 4;
+    }
 }
 
 function init(){
-  container = document.getElementById( 'boxes' );
-  scene = new THREE.Scene();
-  scene.background = new THREE.Color( 0x0a0a0a);
+    container = document.getElementById( 'boxes' );
+    scene = new THREE.Scene();
+    scene.background = new THREE.Color( 0x0a0a0a);
 
-  renderer = new THREE.WebGLRenderer({antialias: true, alpha: true});
-  renderer.setPixelRatio( window.devicePixelRatio );
-  renderer.setSize( window.innerWidth, window.innerHeight );
-  
-  container.appendChild( renderer.domElement );
-  
-  //renderer.gammaInput = true;
-  //renderer.gammaOutput = true;
-  //var ambientLight = new THREE.AmbientLight( 0xcccccc, 0.9);
-  //scene.add(ambientLight);
+    renderer = new THREE.WebGLRenderer({antialias: true, alpha: true});
+    renderer.setPixelRatio( window.devicePixelRatio );
+    renderer.setSize( window.innerWidth, window.innerHeight );
 
-  var pointLight = new THREE.PointLight( 0xffffff, 0.6);
-  var redLightLeft = new THREE.DirectionalLight( 0xffb6b6, 3.2 );
-  redLightLeft.position.set( -1.26, 1.0, 0,0  );
-  redLightLeft.name = "redLightLeft";
-  scene.add( redLightLeft );
+    container.appendChild( renderer.domElement );
 
-  var blueLightRight= new THREE.DirectionalLight( 0xcafeff, 0.5 );
-  blueLightRight.position.set( 3.0, 1.94, -3.72 );
-  blueLightRight.name = "blueLightRight";
-  scene.add( blueLightRight );
+    var pointLight = new THREE.PointLight( 0xffffff, 0.6);
+    var redLightLeft = new THREE.DirectionalLight( 0xffb6b6, 3.2 );
+    redLightLeft.position.set( -1.26, 1.0, 0,0  );
+    redLightLeft.name = "redLightLeft";
+    scene.add( redLightLeft );
+
+    var blueLightRight= new THREE.DirectionalLight( 0xcafeff, 0.5 );
+    blueLightRight.position.set( 3.0, 1.94, -3.72 );
+    blueLightRight.name = "blueLightRight";
+    scene.add( blueLightRight );
 
 
-  camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.01, 1000);
-  camera.position.set(0, 0, 11);
-  camera.add(pointLight);
-  scene.add(camera);
-  
-  controlsOrbit = new THREE.OrbitControls( camera, renderer.domElement );
-  controlsOrbit.minDistance = 5;
-  controlsOrbit.maxDistance = 12;
-  controlsOrbit.minPolarAngle = Math.PI / 2;
-  controlsOrbit.maxPolarAngle = Math.PI / 2;
-  controlsOrbit.enableKeys = false;
-  controlsOrbit.enablePan = false;
-  controlsOrbit.enableRotate = true;
+    camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.01, 1000);
+    camera.position.set(0, 0, 11);
+    camera.add(pointLight);
+    scene.add(camera);
 
-  raycaster = new THREE.Raycaster();
+    controlsOrbit = new THREE.OrbitControls( camera, renderer.domElement );
+    controlsOrbit.minDistance = 5;
+    controlsOrbit.maxDistance = 12;
+    controlsOrbit.minPolarAngle = Math.PI / 2;
+    controlsOrbit.maxPolarAngle = Math.PI / 2;
+    controlsOrbit.enableKeys = false;
+    controlsOrbit.enablePan = false;
+    controlsOrbit.enableRotate = true;
 
-  /* Logo */
+    raycaster = new THREE.Raycaster();
 
-  var loader = new THREE.ObjectLoader();
-  loader.load("js/noLights.json",function ( obj ) {
-    var width = window.innerWidth;
+    /* Logo */
 
-    if(width >= 1100){
-        obj.scale.set(4,4,4);
-    } else if(width >= 600) {
-        obj.position.set( -0.08, 1.3, 0 );
-        obj.scale.set( 2.8, 2.8, 2.8 );
-    } else {
-        obj.position.y = 2;
-        obj.scale.set( 1.6, 1.6, 1.6 );
+    var loader = new THREE.ObjectLoader();
+    loader.load("js/noLights.json",function ( obj ) {
+        var width = window.innerWidth;
+
+        if(width >= 1100){
+            obj.scale.set(4,4,4);
+        } else if(width >= 600) {
+            obj.position.set( -0.08, 1.3, 0 );
+            obj.scale.set( 2.8, 2.8, 2.8 );
+        } else {
+            obj.position.y = 2;
+            obj.scale.set( 1.6, 1.6, 1.6 );
+        }
+
+        scene.add( obj );
+    });
+
+    var index = -1;
+
+    pageWrap = document.getElementById('pageWrap');
+    for(var i = 0; i < 6; i++){
+        pages.push(document.getElementById('page'+i));
+
+        if(index == -1)
+            index = Math.floor(Math.random() * 6);
+        else
+            index = (index + 1) % 6;
+
+        var geometry;
+        var material = new THREE.MeshBasicMaterial({color: 0xcccccc, wireframe: true, side: THREE.DoubleSide});
+        //var material = new THREE.MeshStandardMaterial({ metalness: 0, roughness: 0, color: 0xfbfbfb });
+
+        switch(index){
+        case 0: // Box
+            geometry = new THREE.BoxGeometry(0.8, 0.8, 0.8);
+            break;
+        case 1: // Sphere
+            geometry = new THREE.SphereGeometry(0.5, 12, 8);
+            break;
+        case 2:
+            geometry = new THREE.TetrahedronGeometry(0.5, 1);
+            break;
+        case 3:
+            geometry = new THREE.IcosahedronGeometry(0.5, 0);
+            break;
+        case 4:
+            geometry = new THREE.OctahedronGeometry(0.5, 0);
+            break;
+        case 5:
+            geometry = new THREE.TetrahedronGeometry(0.7, 0);
+            break;
+        }
+
+        var labelMap = new THREE.TextureLoader().load("images/label"+i+".png");
+        var labelMat = new THREE.SpriteMaterial({map: labelMap, color: 0xcccccc});
+        var labelObject = new THREE.Sprite(labelMat);
+        labelObject.name = "label" + i.toString();
+        scene.add(labelObject);
+
+        var object = new THREE.Mesh(geometry, material);
+        object.name = i;
+
+        scene.add(object);
+
+        objects.push(object);
+        labels.push(labelObject);
     }
 
-    scene.add( obj );
-  });
+    setPosition();
+    renderer.domElement.addEventListener('mousemove', onDocumentMouseMove, false);
+    renderer.domElement.addEventListener('mousedown', onDocumentMouseDown, false);
+    renderer.domElement.addEventListener('mouseup', onDocumentMouseUp, false);
 
-/*
-  var manager = new THREE.LoadingManager();
-  manager.onProgress = function ( item, loaded, total ) {
-      console.log( item, loaded, total );
-  };
+    renderer.domElement.addEventListener('touchstart', onTouchStart, false);
+    renderer.domElement.addEventListener('touchend', onDocumentMouseUp, false);
 
-  var onProgress = function ( xhr ) {
-      if ( xhr.lengthComputable ) {
-          var percentComplete = xhr.loaded / xhr.total * 100;
-          console.log( Math.round(percentComplete, 2) + '% downloaded' );
-      }
-  };
-  var onError = function ( xhr ) {
-  };
+    window.addEventListener( 'resize', onWindowResize, false );
 
-  var loader = new THREE.OBJLoader( manager );
-  loader.load( '/LLlogo.obj', function ( object ) {
-      object.traverse( function ( child ) {
-          if ( child instanceof THREE.Mesh ) {
-              child.material.map = texture;
-          }
-      } );
-      object.position.y = - 95;
-      scene.add( object );
-  }, onProgress, onError );
- */
-
-  var index = -1;
-
-  pageWrap = document.getElementById('pageWrap');
-  for(var i = 0; i < 6; i++){
-    pages.push(document.getElementById('page'+i));
-
-    if(index == -1)
-      index = Math.floor(Math.random() * 6);
-    else
-      index = (index + 1) % 6;
-
-    var geometry;
-    var material = new THREE.MeshBasicMaterial({color: 0xcccccc, wireframe: true, side: THREE.DoubleSide});
-    //var material = new THREE.MeshStandardMaterial({ metalness: 0, roughness: 0, color: 0xfbfbfb });
-
-    switch(index){
-      case 0: // Box
-        geometry = new THREE.BoxGeometry(0.8, 0.8, 0.8);
-      break;
-      case 1: // Sphere
-        geometry = new THREE.SphereGeometry(0.5, 12, 8);
-      break;
-      case 2:
-        geometry = new THREE.TetrahedronGeometry(0.5, 1);
-      break;
-      case 3:
-        geometry = new THREE.IcosahedronGeometry(0.5, 0);
-      break;
-      case 4:
-        geometry = new THREE.OctahedronGeometry(0.5, 0);
-      break;
-      case 5:
-        geometry = new THREE.TetrahedronGeometry(0.7, 0);
-      break;
-    }
-
-    var labelMap = new THREE.TextureLoader().load("images/label"+i+".png");
-    var labelMat = new THREE.SpriteMaterial({map: labelMap, color: 0xcccccc});
-    var labelObject = new THREE.Sprite(labelMat);
-    labelObject.name = "label" + i.toString();
-    scene.add(labelObject);
-
-    var object = new THREE.Mesh(geometry, material);
-    object.name = i;
-
-    scene.add(object);
-
-    objects.push(object);
-    labels.push(labelObject);
-  }
-
-  setPosition();
-  renderer.domElement.addEventListener('mousemove', onDocumentMouseMove, false);
-  renderer.domElement.addEventListener('mousedown', onDocumentMouseDown, false);
-  renderer.domElement.addEventListener('mouseup', onDocumentMouseUp, false);
-
-  renderer.domElement.addEventListener('touchstart', onTouchStart, false);
-  renderer.domElement.addEventListener('touchend', onDocumentMouseUp, false);
-
-  window.addEventListener( 'resize', onWindowResize, false );
-
-  octa_material = new THREE.MeshStandardMaterial( { 
+    octa_material = new THREE.MeshStandardMaterial( { 
     wireframe: false, 
-    metalness: 1, 
-    roughness: 0.6, 
-    color: 0x727272,
-    transparent: true,
-    opacity: 0.16
-  });
+        metalness: 1, 
+        roughness: 0.6, 
+        color: 0x727272,
+        transparent: true,
+        opacity: 0.16
+    });
 
-  var i;
-  for (i=0; i <= 10; i++){
-    octa_geometry = new THREE.OctahedronGeometry( 120, 0);
-    octa = new THREE.Mesh(octa_geometry, octa_material);
-    octa.position.set( getRandomIntInRange(-500, 500), getRandomIntInRange(-200, 200), getRandomIntInRange( 50, -1000) );
-    octa.name = "octa" + i.toString() ;
-    scene.add(octa);
-  }
-
+    var i;
+    for (i=0; i <= 10; i++){
+        octa_geometry = new THREE.OctahedronGeometry( 120, 0);
+        octa = new THREE.Mesh(octa_geometry, octa_material);
+        octa.position.set( getRandomIntInRange(-500, 500), getRandomIntInRange(-200, 200), getRandomIntInRange( 50, -1000) );
+        octa.name = "octa" + i.toString() ;
+        scene.add(octa);
+    }
 }//end init()
 
 function getRandomIntInRange( min, max ) {
@@ -977,235 +947,234 @@ function getRandomInt(max) {
 }
 
 function onWindowResize(event){
-  camera.aspect = window.innerWidth / window.innerHeight;
-  camera.updateProjectionMatrix();
-  renderer.setSize( window.innerWidth, window.innerHeight );
-  
-  setPosition();
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize( window.innerWidth, window.innerHeight );
+
+    setPosition();
 }
 
 function setPosition(){
-  var width = window.innerWidth;
+    var width = window.innerWidth;
 
-  if(width >= 1100)
-    loadDesktopPosition();
-  else if(width >= 600)
-    loadTabletPosition();
-  else
-    loadMobilePosition();
+    if(width >= 1100)
+        loadDesktopPosition();
+    else if(width >= 600)
+        loadTabletPosition();
+    else
+        loadMobilePosition();
 }
 
 function loadDesktopPosition(){
 
-  var objectPositions = [
-    {x: -5, y: -1.5, z: 0},
-    {x: -3, y: -1.5, z: 0},
-    {x: -1, y: -1.5, z: 0},
-    {x: 1, y: -1.5, z: 0},
-    {x: 3, y: -1.5, z: 0},
-    {x: 5, y: -1.5, z: 0}
-  ];
+    var objectPositions = [
+{x: -5, y: -1.5, z: 0},
+{x: -3, y: -1.5, z: 0},
+{x: -1, y: -1.5, z: 0},
+{x: 1, y: -1.5, z: 0},
+{x: 3, y: -1.5, z: 0},
+{x: 5, y: -1.5, z: 0}
+];
 
-  var labelPositions = [
-    {x: -5, y: -2.3, z: 0},
-    {x: -3, y: -2.3, z: 0},
-    {x: -1, y: -2.3, z: 0},
-    {x: 1, y: -2.3, z: 0},
-    {x: 3, y: -2.3, z: 0},
-    {x: 5, y: -2.3, z: 0}
-  ];
+    var labelPositions = [
+{x: -5, y: -2.3, z: 0},
+{x: -3, y: -2.3, z: 0},
+{x: -1, y: -2.3, z: 0},
+{x: 1, y: -2.3, z: 0},
+{x: 3, y: -2.3, z: 0},
+{x: 5, y: -2.3, z: 0}
+];
 
-  for(var i = 0; i < 6; i++){
-    objects[i].position.set(objectPositions[i].x, objectPositions[i].y, objectPositions[i].z);
-    labels[i].position.set(labelPositions[i].x, labelPositions[i].y, labelPositions[i].z);
+    for(var i = 0; i < 6; i++){
+        objects[i].position.set(objectPositions[i].x, objectPositions[i].y, objectPositions[i].z);
+        labels[i].position.set(labelPositions[i].x, labelPositions[i].y, labelPositions[i].z);
 
-    if(i == 4)
-      labels[i].scale.set(1.9, 0.2, 1);
-    else if(i == 5)
-      labels[i].scale.set(1.575, 0.15, 1);
-    else
-      labels[i].scale.set(0.95, 0.2, 1);
+        if(i == 4)
+            labels[i].scale.set(1.9, 0.2, 1);
+        else if(i == 5)
+            labels[i].scale.set(1.575, 0.15, 1);
+        else
+            labels[i].scale.set(0.95, 0.2, 1);
 
-    objects[i].scale.set(1, 1, 1);
-  }
+        objects[i].scale.set(1, 1, 1);
+    }
 }
 
 function loadTabletPosition(){
 
+    var objectPositions = [
+{x: -2, y: 0.2, z: 0},
+{x: 0, y: 0.2, z: 0},
+{x: 2, y: 0.2, z: 0},
+{x: -2, y: -1.5, z: 0},
+{x: 0, y: -1.5, z: 0},
+{x: 2, y: -1.5, z: 0}
+];
 
-  var objectPositions = [
-    {x: -2, y: 0.2, z: 0},
-    {x: 0, y: 0.2, z: 0},
-    {x: 2, y: 0.2, z: 0},
-    {x: -2, y: -1.5, z: 0},
-    {x: 0, y: -1.5, z: 0},
-    {x: 2, y: -1.5, z: 0}
-  ];
+    var labelPositions = [
+{x: -2, y: -0.4, z: 0},
+{x: 0, y: -0.4, z: 0},
+{x: 2, y: -0.4, z: 0},
+{x: -2, y: -2.2, z: 0},
+{x: 0, y: -2.2, z: 0},
+{x: 2, y: -2.2, z: 0}
+];
 
-  var labelPositions = [
-    {x: -2, y: -0.4, z: 0},
-    {x: 0, y: -0.4, z: 0},
-    {x: 2, y: -0.4, z: 0},
-    {x: -2, y: -2.2, z: 0},
-    {x: 0, y: -2.2, z: 0},
-    {x: 2, y: -2.2, z: 0}
-  ];
+    for(var i = 0; i < 6; i++){
+        objects[i].position.set(objectPositions[i].x, objectPositions[i].y, objectPositions[i].z);
+        labels[i].position.set(labelPositions[i].x, labelPositions[i].y, labelPositions[i].z);
 
-  for(var i = 0; i < 6; i++){
-    objects[i].position.set(objectPositions[i].x, objectPositions[i].y, objectPositions[i].z);
-    labels[i].position.set(labelPositions[i].x, labelPositions[i].y, labelPositions[i].z);
+        if(i == 4)
+            labels[i].scale.set(1.4, 0.13, 1);
+        else if(i == 5)
+            labels[i].scale.set(1.26, 0.12, 1);
+        else
+            labels[i].scale.set(0.8, 0.16, 1);
 
-    if(i == 4)
-      labels[i].scale.set(1.4, 0.13, 1);
-    else if(i == 5)
-      labels[i].scale.set(1.26, 0.12, 1);
-    else
-      labels[i].scale.set(0.8, 0.16, 1);
-
-    objects[i].scale.set(0.8, 0.8, 0.8);
-  }
+        objects[i].scale.set(0.8, 0.8, 0.8);
+    }
 }
 
 function loadMobilePosition(){
 
 
-  var objectPositions = [
-    {x: -0.8, y: 1, z: 0},
-    {x: 0.8, y: 1, z: 0},
-    {x: -0.8, y: -0.5, z: 0},
-    {x: 0.8, y: -0.5, z: 0},
-    {x: -0.8, y: -2, z: 0},
-    {x: 0.8, y: -2, z: 0}
-  ];
+    var objectPositions = [
+{x: -0.8, y: 1, z: 0},
+{x: 0.8, y: 1, z: 0},
+{x: -0.8, y: -0.5, z: 0},
+{x: 0.8, y: -0.5, z: 0},
+{x: -0.8, y: -2, z: 0},
+{x: 0.8, y: -2, z: 0}
+];
 
-  var labelPositions = [
-    {x: -0.8, y: 0.45, z: 0},
-    {x: 0.8, y: 0.45, z: 0},
-    {x: -0.8, y: -1.05, z: 0},
-    {x: 0.8, y: -1.05, z: 0},
-    {x: 0.8, y: -2.6, z: 0},
-    {x: 0.8, y: -2.6, z: 0}
-  ];
+    var labelPositions = [
+{x: -0.8, y: 0.45, z: 0},
+{x: 0.8, y: 0.45, z: 0},
+{x: -0.8, y: -1.05, z: 0},
+{x: 0.8, y: -1.05, z: 0},
+{x: 0.8, y: -2.6, z: 0},
+{x: 0.8, y: -2.6, z: 0}
+];
 
-  for(var i = 0; i < 6; i++){
-    objects[i].position.set(objectPositions[i].x, objectPositions[i].y, objectPositions[i].z);
-    labels[i].position.set(labelPositions[i].x, labelPositions[i].y, labelPositions[i].z);
+    for(var i = 0; i < 6; i++){
+        objects[i].position.set(objectPositions[i].x, objectPositions[i].y, objectPositions[i].z);
+        labels[i].position.set(labelPositions[i].x, labelPositions[i].y, labelPositions[i].z);
 
-    if(i == 4)
-      labels[i].scale.set(1.2, 0.12, 1);
-    else if(i == 5)
-      labels[i].scale.set(1.26, 0.12, 1);
-    else
-      labels[i].scale.set(0.8, 0.16, 1);
+        if(i == 4)
+            labels[i].scale.set(1.2, 0.12, 1);
+        else if(i == 5)
+            labels[i].scale.set(1.26, 0.12, 1);
+        else
+            labels[i].scale.set(0.8, 0.16, 1);
 
-    objects[i].scale.set(0.7, 0.7, 0.7);
-  }
+        objects[i].scale.set(0.7, 0.7, 0.7);
+    }
 }
 
 var selectedPage = -1;
 
 function onDocumentMouseUp(event){
-  event.preventDefault();
+    event.preventDefault();
 
-  for(var i in pages){
-    if(i == selectedPage) {
-      pages[i].style.display = 'block';
-    } else {
-      pages[i].style.display = 'none';
+    for(var i in pages){
+        if(i == selectedPage) {
+            pages[i].style.display = 'block';
+        } else {
+            pages[i].style.display = 'none';
+        }
     }
-  }
 
-  if(selectedPage != -1)
-    pageWrap.style.left = '0';
+    if(selectedPage != -1)
+        pageWrap.style.left = '0';
     makeNextScene();
 }
 
 function onTouchStart(event){
-  event.preventDefault();
+    event.preventDefault();
 
-  mouse.x = (event.touches[0].clientX / window.innerWidth ) * 2 - 1;
-  mouse.y = -(event.touches[0].clientY / window.innerHeight ) * 2 + 1;
-  
-  raycaster.setFromCamera( mouse, camera );
+    mouse.x = (event.touches[0].clientX / window.innerWidth ) * 2 - 1;
+    mouse.y = -(event.touches[0].clientY / window.innerHeight ) * 2 + 1;
 
-  var intersects = raycaster.intersectObjects(objects);
-  
-  if(intersects.length > 0){
-    selectedPage = intersects[0].object.name;
-    selectedPageGeometry = intersects[0].object.geometry.type;
-  }
+    raycaster.setFromCamera( mouse, camera );
+
+    var intersects = raycaster.intersectObjects(objects);
+
+    if(intersects.length > 0){
+        selectedPage = intersects[0].object.name;
+        selectedPageGeometry = intersects[0].object.geometry.type;
+    }
 }
 
 function onDocumentMouseDown(event){
-  event.preventDefault();
+    event.preventDefault();
 
-  mouse.x = (event.clientX / renderer.domElement.clientWidth) * 2 - 1;
-  mouse.y = -(event.clientY / renderer.domElement.clientHeight) * 2 + 1
+    mouse.x = (event.clientX / renderer.domElement.clientWidth) * 2 - 1;
+    mouse.y = -(event.clientY / renderer.domElement.clientHeight) * 2 + 1
 
-  raycaster.setFromCamera( mouse, camera );
+        raycaster.setFromCamera( mouse, camera );
 
-  var intersects = raycaster.intersectObjects(objects);
-  
-  if(intersects.length > 0){
-    selectedPage = intersects[0].object.name;
-    selectedPageGeometry = intersects[0].object.geometry.type;
-    console.log("selectedPageGeometry:", selectedPageGeometry);
+    var intersects = raycaster.intersectObjects(objects);
 
-  }
+    if(intersects.length > 0){
+        selectedPage = intersects[0].object.name;
+        selectedPageGeometry = intersects[0].object.geometry.type;
+        console.log("selectedPageGeometry:", selectedPageGeometry);
+
+    }
 }
 
 function onDocumentMouseMove(event){
-  event.preventDefault();
+    event.preventDefault();
 
-  mouse.x = (event.clientX / renderer.domElement.clientWidth) * 2 - 1;
-  mouse.y = -(event.clientY / renderer.domElement.clientHeight) * 2 + 1
+    mouse.x = (event.clientX / renderer.domElement.clientWidth) * 2 - 1;
+    mouse.y = -(event.clientY / renderer.domElement.clientHeight) * 2 + 1
 
-  raycaster.setFromCamera( mouse, camera );
+        raycaster.setFromCamera( mouse, camera );
 
-  var intersects = raycaster.intersectObjects(objects);
+    var intersects = raycaster.intersectObjects(objects);
 
-  document.getElementById('boxes').style.cursor = 'inherit';
-  
-  if(intersects.length > 0){
-    var selectedIndex = intersects[0].object.name;
-    for(var i in speed){
-      if(i != selectedIndex) {
-        speed[i] = 0.01;
-      } else
-        speed[i] = 0.05;
-        document.getElementById('boxes').style.cursor = 'pointer';
+    document.getElementById('boxes').style.cursor = 'inherit';
+
+    if(intersects.length > 0){
+        var selectedIndex = intersects[0].object.name;
+        for(var i in speed){
+            if(i != selectedIndex) {
+                speed[i] = 0.01;
+            } else
+                speed[i] = 0.05;
+            document.getElementById('boxes').style.cursor = 'pointer';
+        }
+    }else{
+        speed = [0.01, 0.01, 0.01, 0.01, 0.01, 0.01];
     }
-  }else{
-    speed = [0.01, 0.01, 0.01, 0.01, 0.01, 0.01];
-  }
 }
 
 function goBack(){
-  pageWrap.style.left = '100%';
+    pageWrap.style.left = '100%';
 
-  selectedPage = -1;
-  //destroy all elements and dereference them
-  doDispose(scene2);
+    selectedPage = -1;
+    //destroy all elements and dereference them
+    doDispose(scene2);
 }
 
 function animate(){
-  requestAnimationFrame(animate);
-  controlsOrbit.update();
-  rotateObjects();
-  render();
+    requestAnimationFrame(animate);
+    controlsOrbit.update();
+    rotateObjects();
+    render();
 }
 
 function render(){
 
-  if (scene.children[15].name === "octa0"){
-    var j;
-    for (j=16; j <= 25; j++){
-      scene.children[j].position.y += Math.random() * 0.01;
-      scene.children[j].rotation.y += Math.random() * 0.01;
+    if (scene.children[15].name === "octa0"){
+        var j;
+        for (j=16; j <= 25; j++){
+            scene.children[j].position.y += Math.random() * 0.01;
+            scene.children[j].rotation.y += Math.random() * 0.01;
+        }
+
     }
-  
-  }
-  renderer.render(scene, camera);
+    renderer.render(scene, camera);
 }
 
 function doDispose(obj){
@@ -1239,180 +1208,177 @@ renderer2.setSize( window.innerWidth, window.innerHeight);
 
 function makeNextScene() {
 
+    var page0 = document.getElementById("page0");
+    var page1 = document.getElementById("page1");
+    var page2 = document.getElementById("page2");
+    var page3 = document.getElementById("page3");
+    var page4 = document.getElementById("page4");
+    var page5 = document.getElementById("page5");
 
-  var page0 = document.getElementById("page0");
-  var page1 = document.getElementById("page1");
-  var page2 = document.getElementById("page2");
-  var page3 = document.getElementById("page3");
-  var page4 = document.getElementById("page4");
-  var page5 = document.getElementById("page5");
 
+    if(selectedPage != -1) {
+        switch(selectedPage) {
+        case 0:
+            page0.appendChild( renderer2.domElement);
+            document.getElementById('page0').children[1].id = "canvas0";
+            init2();
+            animate2();
+            break;
 
-  if(selectedPage != -1) {
-    switch(selectedPage) {
-      case 0:
-        page0.appendChild( renderer2.domElement);
-        document.getElementById('page0').children[1].id = "canvas0";
-        init2();
-        animate2();
-      break;
+        case 1:
+            page1.appendChild( renderer2.domElement);
+            document.getElementById('page1').children[1].id = "canvas1";
+            init2();
+            animate2();
+            break;
 
-      case 1:
-        page1.appendChild( renderer2.domElement);
-        document.getElementById('page1').children[1].id = "canvas1";
-        init2();
-        animate2();
-      break;
-    
-      case 2:
-        page2.appendChild( renderer2.domElement);
-        document.getElementById('page2').children[1].id = "canvas2";
-        init2();
-        animate2();
-      break;
-    
-      case 3:
-        page3.appendChild( renderer2.domElement);
-        document.getElementById('page3').children[1].id = "canvas3";
-        init2();
-        animate2();
-      break;
-    
-      case 4:
-        page4.appendChild( renderer2.domElement);
-        document.getElementById('page4').children[1].id = "canvas4";
-        init2();
-        animate2();
-      break;
-      case 5:
-        page5.appendChild( renderer2.domElement);
-        document.getElementById('page5').children[1].id = "canvas5";
-        init2();
-        animate2();
-      break;
+        case 2:
+            page2.appendChild( renderer2.domElement);
+            document.getElementById('page2').children[1].id = "canvas2";
+            init2();
+            animate2();
+            break;
+
+        case 3:
+            page3.appendChild( renderer2.domElement);
+            document.getElementById('page3').children[1].id = "canvas3";
+            init2();
+            animate2();
+            break;
+
+        case 4:
+            page4.appendChild( renderer2.domElement);
+            document.getElementById('page4').children[1].id = "canvas4";
+            init2();
+            animate2();
+            break;
+        case 5:
+            page5.appendChild( renderer2.domElement);
+            document.getElementById('page5').children[1].id = "canvas5";
+            init2();
+            animate2();
+            break;
+        }
     }
-  }
 }
 
 function init2() {
-  camera2 = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 20000 );
-  //camera.position.y = 400;
-  camera2.position.z = 2000;
-  camera2.position.x = 1000;
-  camera2.position.y = 1000;
+    camera2 = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 20000 );
+    //camera.position.y = 400;
+    camera2.position.z = 2000;
+    camera2.position.x = 1000;
+    camera2.position.y = 1000;
 
-  scene2 = new THREE.Scene();
-  scene2.background = new THREE.Color( 0xfafafa );
-  var light2, object2;
-  var ambientLight2 = new THREE.AmbientLight( 0xcccccc, 0.4 );
-  scene2.add( ambientLight2 );
-  var pointLight2 = new THREE.PointLight( 0xffffff, 0.8 );
-  camera2.add( pointLight2);
-  scene2.add( camera2 );
-  //var material = new THREE.MeshBasicMaterial( { wireframe: true, wireframeLinewidth: 0,side: THREE.DoubleSide, color: 0x555555 });
-  var material2 = new THREE.MeshStandardMaterial( { metalness: 0, roughness: 0, color: 0xffffff, emissive: 0x666666 });
+    scene2 = new THREE.Scene();
+    scene2.background = new THREE.Color( 0xfafafa );
+    var light2, object2;
+    var ambientLight2 = new THREE.AmbientLight( 0xcccccc, 0.4 );
+    scene2.add( ambientLight2 );
+    var pointLight2 = new THREE.PointLight( 0xffffff, 0.8 );
+    camera2.add( pointLight2);
+    scene2.add( camera2 );
+    //var material = new THREE.MeshBasicMaterial( { wireframe: true, wireframeLinewidth: 0,side: THREE.DoubleSide, color: 0x555555 });
+    var material2 = new THREE.MeshStandardMaterial( { metalness: 0, roughness: 0, color: 0xffffff, emissive: 0x666666 });
 
-  switch(selectedPageGeometry){
+    switch(selectedPageGeometry){
     case "BoxGeometry":
-      var i;
-      for (i=0; i <=20; i++){
-        var boxSize = getRandomInt(200);
-        geometry = new THREE.BoxGeometry( boxSize, boxSize, boxSize );
-        object = new THREE.Mesh(geometry, material2);
-        object.position.set( getRandomInt(1800), getRandomInt(1800), getRandomInt(1800));
-        scene2.add(object);
-      }
-      break;
+        var i;
+        for (i=0; i <=20; i++){
+            var boxSize = getRandomInt(200);
+            geometry = new THREE.BoxGeometry( boxSize, boxSize, boxSize );
+            object = new THREE.Mesh(geometry, material2);
+            object.position.set( getRandomInt(1800), getRandomInt(1800), getRandomInt(1800));
+            scene2.add(object);
+        }
+        break;
 
     case "SphereGeometry":
-      var i;
-      for (i=0; i <=20; i++){
-        geometry = new THREE.SphereGeometry( getRandomInt(200), 12, 12 );
-        object = new THREE.Mesh(geometry, material2);
-        object.position.set( getRandomInt(1800), getRandomInt(1800), getRandomInt(1800));
-        scene2.add(object);
-      }
-      break;
+        var i;
+        for (i=0; i <=20; i++){
+            geometry = new THREE.SphereGeometry( getRandomInt(200), 12, 12 );
+            object = new THREE.Mesh(geometry, material2);
+            object.position.set( getRandomInt(1800), getRandomInt(1800), getRandomInt(1800));
+            scene2.add(object);
+        }
+        break;
 
     case "TetrahedronGeometry":
-      var i;
-      for (i=0; i <=20; i++){
-        geometry = new THREE.TetrahedronGeometry( getRandomInt(200), 1 );
-        object = new THREE.Mesh(geometry, material2);
-        object.position.set( getRandomInt(1800), getRandomInt(1800), getRandomInt(1800));
-        scene2.add(object);
-      }
-      break;
+        var i;
+        for (i=0; i <=20; i++){
+            geometry = new THREE.TetrahedronGeometry( getRandomInt(200), 1 );
+            object = new THREE.Mesh(geometry, material2);
+            object.position.set( getRandomInt(1800), getRandomInt(1800), getRandomInt(1800));
+            scene2.add(object);
+        }
+        break;
 
     case "IcosahedronGeometry":
-      var i;
-      for (i=0; i <=20; i++){
-        geometry = new THREE.IcosahedronGeometry( getRandomInt(200), 0);
-        object = new THREE.Mesh(geometry, material2);
-        object.position.set( getRandomInt(1800), getRandomInt(1800), getRandomInt(1800));
-        scene2.add(object);
-      } 
-      break;
+        var i;
+        for (i=0; i <=20; i++){
+            geometry = new THREE.IcosahedronGeometry( getRandomInt(200), 0);
+            object = new THREE.Mesh(geometry, material2);
+            object.position.set( getRandomInt(1800), getRandomInt(1800), getRandomInt(1800));
+            scene2.add(object);
+        } 
+        break;
 
     case "OctahedronGeometry":
-      var i;
-      for (i=0; i <= 15; i++){
-        geometry = new THREE.OctahedronGeometry( getRandomInt(200), 0);
-        object = new THREE.Mesh(geometry, material2); 
-        object.position.set( getRandomInt(1800), getRandomInt(1800), getRandomInt(1800));
-        scene2.add(object);
-      }
-      break;
-  } 
-}
+        var i;
+        for (i=0; i <= 15; i++){
+            geometry = new THREE.OctahedronGeometry( getRandomInt(200), 0);
+            object = new THREE.Mesh(geometry, material2); 
+            object.position.set( getRandomInt(1800), getRandomInt(1800), getRandomInt(1800));
+            scene2.add(object);
+        }
+        break;
+    } 
+    }
 
 function getRandomInt(max) {
-  return Math.floor(Math.random() * Math.floor(max));
+    return Math.floor(Math.random() * Math.floor(max));
 }
 
 function animate2() {
-  requestAnimationFrame( animate2 );
-  render2();
+    requestAnimationFrame( animate2 );
+    render2();
 }
 
 function render2() {
 
-  var timer = Date.now() * 0.0001;
-  //camera.position.x = Math.cos( timer ) * 800;
-  //camera.position.z = Math.sin( timer ) * 800;
-  //camera.lookAt( scene.position );
-  
-  if (scene2.type === "Scene" && scene2.children[3].geometry !== undefined){
-      scene2.traverse( function( object ) {
-          if ( object.isMesh === true ) {
-              //object.rotation.x = timer * 5;
-              object.rotation.y = timer * 1.5;
-              object.position.y += 0.01;
-              object.position.x += 0.01;
-              object.position.z += 0.01;
-          }
-      } );
-    renderer2.render( scene2, camera2 );
-  }
+    var timer = Date.now() * 0.0001;
+    //camera.position.x = Math.cos( timer ) * 800;
+    //camera.position.z = Math.sin( timer ) * 800;
+    //camera.lookAt( scene.position );
+
+    if (scene2.type === "Scene" && scene2.children[3].geometry !== undefined){
+        scene2.traverse( function( object ) {
+            if ( object.isMesh === true ) {
+                //object.rotation.x = timer * 5;
+                object.rotation.y = timer * 1.5;
+                object.position.y += 0.01;
+                object.position.x += 0.01;
+                object.position.z += 0.01;
+            }
+        } );
+        renderer2.render( scene2, camera2 );
+    }
 }
 
 </script>
 <!--ET -->
-<script
-  src="https://code.jquery.com/jquery-3.3.1.js"
-  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-  crossorigin="anonymous"></script>
-  <script
-  src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
-  integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
-  crossorigin="anonymous"></script>
-  <script
-  src="https://code.jquery.com/color/jquery.color-2.1.2.js"
-  integrity="sha256-1Cn7TdfHiMcEbTuku97ZRSGt2b3SvZftEIn68UMgHC8="
-  crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.1.0/velocity.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.1.0/velocity.ui.js"></script>
-  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/color/jquery.color-2.1.2.js" integrity="sha256-1Cn7TdfHiMcEbTuku97ZRSGt2b3SvZftEIn68UMgHC8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.1.0/velocity.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.1.0/velocity.ui.js"></script>
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery.dropdown.js"></script>
+<script type="text/javascript">
+  $( function() {
+
+      $( '#cd-dropdown' ).dropdown();
+  });
+</script>
 <script type="text/javascript">
   /*jslint browser:true */
 $(document).ready(function () {
