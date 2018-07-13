@@ -741,9 +741,6 @@ var pages = [];
 var labels = [];
 var pageWrap = null;
 
-var logo = null;
-var logoLabel = null;
-
 var speed = [0.01, 0.01, 0.01, 0.01, 0.01, 0.01];
 var selectedPageGeometry;
 
@@ -985,11 +982,6 @@ function setPosition(){
 }
 
 function loadDesktopPosition(){
-  logo.scale.set(2, 2, 1);
-  logoLabel.scale.set(6.3, 0.4, 1);
-
-  logo.position.set(0, 1.7, 0);
-  logoLabel.position.set(0, 0, 0);
 
   var objectPositions = [
     {x: -5, y: -1.5, z: 0},
@@ -1025,11 +1017,7 @@ function loadDesktopPosition(){
 }
 
 function loadTabletPosition(){
-  logo.scale.set(1, 1, 1);
-  logoLabel.scale.set(3.15, 0.2, 1);
 
-  logo.position.set(0, 2.5, 0);
-  logoLabel.position.set(0, 1.5, 0);
 
   var objectPositions = [
     {x: -2, y: 0.2, z: 0},
@@ -1065,11 +1053,7 @@ function loadTabletPosition(){
 }
 
 function loadMobilePosition(){
-  logo.scale.set(0.8, 0.8, 0.8);
-  logoLabel.scale.set(2.3625, 0.15, 1);
 
-  logo.position.set(0, 2.6, 0);
-  logoLabel.position.set(0, 1.8, 0);
 
   var objectPositions = [
     {x: -0.8, y: 1, z: 0},
