@@ -25,10 +25,8 @@
   <meta name="twitter:image:alt" content="Ledger Leap Inc.">
   <link href="css/animate.css" rel="stylesheet">
   <link href="css/style.css?v=3" rel="stylesheet">
-  <link href="css/dropdown.css" rel="stylesheet">
   <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet'>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<script type="text/javascript" src="js/modernizr-custom.js"></script>
   <style type="text/css">
   @charset "UTF-8";
   <?php
@@ -716,12 +714,12 @@ new WOW().init();
         <div class="innerPage">
           <h2>Contact Us</h2>
           <a class="goback" onclick="goBack()">Go Back</a>
-          <form action="submit.php" method="post" id="ledger_contact_form">
+          <form action="/" method="post" id="ledger_contact_form">
             <input type="text" class="wbcontactform"  name="name" autocomplete="name" placeholder="Enter Your Name" >
             <input type="tel" class="wbcontactform" name="phone" autocomplete="tel-national" placeholder="Enter Your Phone Number" >
             <input type="email" class="wbcontactform"  name="email" autocomplete="email" placeholder="What Is Your Email Address" >
 
-            <select name="subjects" id="cd-dropdown" class="cd-select"  >
+            <select name="subjects" >
               <option value="-1" selected>Select A Subject</option>
               <option value="Portals" class="select_option" >Portals</option>
               <option value="Smart" class="select_option" >Smart Contracts</option>
@@ -731,6 +729,7 @@ new WOW().init();
             <textarea rows="4" cols="50" class="contactform" name="message" placeholder="Enter a Message" ></textarea>
             <input type="submit" class="submit_button" value="Submit" name="submit">
           </form>
+          <div id="post_results"></div>
         </div>
       </div>
 <!-- PAGE OFF END -->
@@ -1371,18 +1370,30 @@ function render2() {
 </script>
 <!--ET -->
 <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/color/jquery.color-2.1.2.js" integrity="sha256-1Cn7TdfHiMcEbTuku97ZRSGt2b3SvZftEIn68UMgHC8=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.1.0/velocity.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.1.0/velocity.ui.js"></script>
 <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/jquery.dropdown.js"></script>
 <script type="text/javascript">
-  $( function() {
-
-      $( '#cd-dropdown' ).dropdown();
-  });
 </script>
+
+<script type="text/javascript">
+    $( "#ledger_contact_form" ).submit( function( event ){
+        event.preventDefault();
+        $.post("submit.php", $( "#ledger_contact_form").serialize() )
+            .done(function( data) {
+                console.log( data); 
+                $( "#post_results" ).html("<span>" + data + "</span>")
+                    .hide()
+                    .fadeIn( "slow" );
+            })
+            .fail(function( data ){
+                console.log(data );
+            });
+    });
+</script>
+
+
 <script type="text/javascript">
   /*jslint browser:true */
 $(document).ready(function () {
