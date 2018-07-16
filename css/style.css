@@ -141,7 +141,6 @@ div.innerPage{
 
   .title {
     font-size: 50px;
-    margin-left: 20%;
     width: 60%;
     padding-top: 20px;
     padding-bottom: 20px;
@@ -640,42 +639,6 @@ opacity: .2;
 z-index: -1;
 }
 
-
-.frontend-desc.desc-active::after {
-background: url(https://i.pinimg.com/originals/0f/8b/28/0f8b2870896edcde8f6149fe2733faaf.jpg);
-background-repeat: no-repeat;
-background-size: contain;
-background-position: right center;
-}
-
-.backend-desc.desc-active::after {
-background: url(https://ledgerleap.com/assets/images/ll90.png);
-background-repeat: no-repeat;
-background-size: contain;
-background-position: right center;
-}
-
-.uxui-desc.desc-active::after {
-background: url(https://token.airstayz.com/assets/images/toplogo.png);
-background-repeat: no-repeat;
-background-size: contain;
-background-position: right center;
-}
-
-.edu-desc.desc-active::after {
-background: url(https://www.issconference.org/wp-content/themes/casis-framework/images/iss-r-d-conference-logo-2018.png);
-background-repeat: no-repeat;
-background-size: contain;
-background-position: right center;
-}
-
-.media-desc.desc-active::after {
-background: url(https://www.deedcoinlaunch.com/assets/images/dlogoofficial.png);
-background-repeat: no-repeat;
-background-size: contain;
-background-position: right center;
-}
-
 .hex-master-wrap {
 position: relative;
 /* width: 50%; */
@@ -821,7 +784,6 @@ width: 100%;
 height: 100%;
 background-repeat: no-repeat;
 background-position: 50%;
-/* background-image: url(http://placekitten.com/240/240); */
 visibility: visible;
 -webkit-backface-visibility: hidden;
 backface-visibility: hidden;
