@@ -965,7 +965,7 @@ function init(){
     /* Logo */
 
     var loader = new THREE.ObjectLoader();
-    loader.load("js/noLights.json",function ( obj ) {
+    loader.load("js/noLights4.json",function ( obj ) {
         var width = window.innerWidth;
 
         if(width >= 1100){
