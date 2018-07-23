@@ -860,10 +860,11 @@ new WOW().init();
     <div id="boxes"></div>
   </div> <!-- Container End !-->
 
-<script type="text/javascript" src="js/three.js"></script>
+<script src="js/three.js"></script>
+<script src="js/FontLoader.js"></script>
 <script src="js/OrbitControls.js"></script>
-<script type="text/javascript" src="js/Detector.js"></script>
-<script type="text/javascript" src="js/dat.gui.min.js"></script>
+<script src="js/Detector.js"></script>
+<script src="js/dat.gui.min.js"></script>
 
 <script id="template" type="notjs">
 <div class="scene"></div>
@@ -965,7 +966,7 @@ function init(){
     /* Logo */
 
     var loader = new THREE.ObjectLoader();
-    loader.load("js/noLights4.json",function ( obj ) {
+    loader.load("js/noLights.json",function ( obj ) {
         var width = window.innerWidth;
 
         if(width >= 1100){
