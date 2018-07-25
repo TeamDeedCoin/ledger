@@ -77,6 +77,7 @@
 <script type="text/javascript">
 new WOW().init();
 </script>
+<script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
 <body>
   <!-- AIGC Project Modal -->
@@ -847,6 +848,7 @@ new WOW().init();
               <option value="Get A Quote" class="select_option" >Get A Quote</option>
             </select>
             <textarea class="et-input" name="message" id="message" placeholder="Enter a Message" ></textarea>
+            <div class="g-recaptcha" data-sitekey="6LfoXGYUAAAAANq9OW4Zv2IzToPV7zm-R62"></div>
             <input type="submit" class="submit_button" value="Submit" name="submit">
           </form>
           <div id="post_results"></div>
@@ -861,7 +863,6 @@ new WOW().init();
   </div> <!-- Container End !-->
 
 <script src="js/three.js"></script>
-<script src="js/FontLoader.js"></script>
 <script src="js/OrbitControls.js"></script>
 <script src="js/Detector.js"></script>
 <script src="js/dat.gui.min.js"></script>
@@ -879,9 +880,11 @@ var mouse = new THREE.Vector2();
 var octa, octa_material, octa_geometry;
 var objects = [];
 var pages = [];
+var label_geometry;
+var label_material;
 var labels = [];
 var pageWrap = null;
-
+var font_loader = new THREE.FontLoader();
 var speed = [0.01, 0.01, 0.01, 0.01, 0.01, 0.01];
 var selectedPageGeometry;
 
@@ -975,8 +978,12 @@ function init(){
             obj.position.set( -0.08, 1.3, 0 );
             obj.scale.set( 2.8, 2.8, 2.8 );
         } else {
-            obj.position.y = 2;
-            obj.scale.set( 1.6, 1.6, 1.6 );
+            //obj.position.y = 2;
+            //obj.scale.set( 1.6, 1.6, 1.6 );
+
+            obj.position.y = 2.12;
+            obj.scale.set( 2.12, 2.12, 2.12 );
+
         }
 
         scene.add( obj );
@@ -985,6 +992,8 @@ function init(){
     var index = -1;
 
     pageWrap = document.getElementById('pageWrap');
+
+        
     for(var i = 0; i < 6; i++){
         pages.push(document.getElementById('page'+i));
 
@@ -1002,7 +1011,7 @@ function init(){
             geometry = new THREE.BoxGeometry(0.8, 0.8, 0.8);
             break;
         case 1: // Sphere
-            geometry = new THREE.SphereGeometry(0.5, 12, 8);
+            geometry = new THREE.SphereGeometry(0.5, 7, 7);
             break;
         case 2:
             geometry = new THREE.TetrahedronGeometry(0.5, 1);
@@ -1018,22 +1027,46 @@ function init(){
             break;
         }
 
-        var labelMap = new THREE.TextureLoader().load("images/label"+i+".png");
-        var labelMat = new THREE.SpriteMaterial({map: labelMap, color: 0xcccccc});
-        var labelObject = new THREE.Sprite(labelMat);
-        labelObject.name = "label" + i.toString();
-        scene.add(labelObject);
-
         var object = new THREE.Mesh(geometry, material);
         object.name = i;
 
         scene.add(object);
 
         objects.push(object);
-        labels.push(labelObject);
     }
 
-    setPosition();
+    var label_strings = ['COMPANY', 'PLATFORM', 'SERVICES', 'CLIENTS', 'POST LAUNCH', "LET'S TALK"];
+    var label_material = new THREE.MeshPhongMaterial( { color: 0xffffff, flatShading: true } );
+    var font = font_loader.load( 
+        'js/font.json',
+        function ( font ) {
+            for(var k=0; k < label_strings.length; k++) {
+
+            var label_geometry = new THREE.TextGeometry( label_strings[k], {
+            font: font,
+                size: 0.15,
+                height: 0.01,
+                curveSegments: 2,
+                bevelEnabled: false,
+                bevelThickness: 0,
+                bevelSize: 0,
+                bevelSegments: 0
+            });
+
+            var label_mesh = new THREE.Mesh(label_geometry, label_material);
+            label_mesh.name = "label_" + label_strings[k].replace(/\s+|'/g, "");
+            scene.add(label_mesh);
+            }
+            setPosition();
+        },
+        function( xhr ){
+            //because of a race condition only call this after
+            //font_loader has finished its ajax call to font.json
+            console.log((xhr.loaded / xhr.total * 100 == 100) + "%loaded");
+        }
+    );
+
+
     renderer.domElement.addEventListener('mousemove', onDocumentMouseMove, false);
     renderer.domElement.addEventListener('mousedown', onDocumentMouseDown, false);
     renderer.domElement.addEventListener('mouseup', onDocumentMouseUp, false);
@@ -1092,69 +1125,48 @@ function setPosition(){
 function loadDesktopPosition(){
 
     var objectPositions = [
-{x: -5, y: -1.5, z: 0},
-{x: -3, y: -1.5, z: 0},
-{x: -1, y: -1.5, z: 0},
-{x: 1, y: -1.5, z: 0},
-{x: 3, y: -1.5, z: 0},
-{x: 5, y: -1.5, z: 0}
-];
+    {x: -5, y: -1.5, z: 0},
+    {x: -3, y: -1.5, z: 0},
+    {x: -1, y: -1.5, z: 0},
+    {x: 1, y: -1.5, z: 0},
+    {x: 3, y: -1.5, z: 0},
+    {x: 5, y: -1.5, z: 0}
+    ];
 
-    var labelPositions = [
-{x: -5, y: -2.3, z: 0},
-{x: -3, y: -2.3, z: 0},
-{x: -1, y: -2.3, z: 0},
-{x: 1, y: -2.3, z: 0},
-{x: 3, y: -2.3, z: 0},
-{x: 5, y: -2.3, z: 0}
-];
+    scene.getObjectByName("label_COMPANY").position.set(-5.5, -2.4, 0);
+    scene.getObjectByName("label_PLATFORM").position.set(-3.5, -2.4, 0);
+    scene.getObjectByName("label_SERVICES").position.set(-1.5, -2.4, 0);
+    scene.getObjectByName("label_CLIENTS").position.set(0.5, -2.4, 0);
+    scene.getObjectByName("label_POSTLAUNCH").position.set(2.5, -2.4, 0);
+    scene.getObjectByName("label_LETSTALK").position.set(4.5, -2.4, 0);
 
     for(var i = 0; i < 6; i++){
         objects[i].position.set(objectPositions[i].x, objectPositions[i].y, objectPositions[i].z);
-        labels[i].position.set(labelPositions[i].x, labelPositions[i].y, labelPositions[i].z);
-
-        if(i == 4)
-            labels[i].scale.set(1.9, 0.2, 1);
-        else if(i == 5)
-            labels[i].scale.set(1.575, 0.15, 1);
-        else
-            labels[i].scale.set(0.95, 0.2, 1);
-
         objects[i].scale.set(1, 1, 1);
     }
+
 }
 
 function loadTabletPosition(){
 
     var objectPositions = [
-{x: -2, y: 0.2, z: 0},
-{x: 0, y: 0.2, z: 0},
-{x: 2, y: 0.2, z: 0},
-{x: -2, y: -1.5, z: 0},
-{x: 0, y: -1.5, z: 0},
-{x: 2, y: -1.5, z: 0}
-];
+    {x: -2, y: 0.2, z: 0},
+    {x: 0, y: 0.2, z: 0},
+    {x: 2, y: 0.2, z: 0},
+    {x: -2, y: -1.5, z: 0},
+    {x: 0, y: -1.5, z: 0},
+    {x: 2, y: -1.5, z: 0}
+    ];
 
-    var labelPositions = [
-{x: -2, y: -0.4, z: 0},
-{x: 0, y: -0.4, z: 0},
-{x: 2, y: -0.4, z: 0},
-{x: -2, y: -2.2, z: 0},
-{x: 0, y: -2.2, z: 0},
-{x: 2, y: -2.2, z: 0}
-];
+    scene.getObjectByName("label_COMPANY").position.set(-2.5, -0.55, 0);
+    scene.getObjectByName("label_PLATFORM").position.set(-0.55, -0.55, 0);
+    scene.getObjectByName("label_SERVICES").position.set(1.5, -0.55, 0);
+    scene.getObjectByName("label_CLIENTS").position.set(-2.4, -2.3, 0);
+    scene.getObjectByName("label_POSTLAUNCH").position.set(-0.65, -2.3, 0);
+    scene.getObjectByName("label_LETSTALK").position.set(1.5, -2.3, 0);
 
     for(var i = 0; i < 6; i++){
         objects[i].position.set(objectPositions[i].x, objectPositions[i].y, objectPositions[i].z);
-        labels[i].position.set(labelPositions[i].x, labelPositions[i].y, labelPositions[i].z);
-
-        if(i == 4)
-            labels[i].scale.set(1.4, 0.13, 1);
-        else if(i == 5)
-            labels[i].scale.set(1.26, 0.12, 1);
-        else
-            labels[i].scale.set(0.8, 0.16, 1);
-
         objects[i].scale.set(0.8, 0.8, 0.8);
     }
 }
@@ -1163,34 +1175,22 @@ function loadMobilePosition(){
 
 
     var objectPositions = [
-{x: -0.8, y: 1, z: 0},
-{x: 0.8, y: 1, z: 0},
-{x: -0.8, y: -0.5, z: 0},
-{x: 0.8, y: -0.5, z: 0},
-{x: -0.8, y: -2, z: 0},
-{x: 0.8, y: -2, z: 0}
-];
+    {x: -0.8, y: 1, z: 0},
+    {x: 0.8, y: 1, z: 0},
+    {x: -0.8, y: -0.5, z: 0},
+    {x: 0.8, y: -0.5, z: 0},
+    {x: -0.8, y: -2, z: 0},
+    {x: 0.8, y: -2, z: 0}];
 
-    var labelPositions = [
-{x: -0.8, y: 0.45, z: 0},
-{x: 0.8, y: 0.45, z: 0},
-{x: -0.8, y: -1.05, z: 0},
-{x: 0.8, y: -1.05, z: 0},
-{x: 0.8, y: -2.6, z: 0},
-{x: 0.8, y: -2.6, z: 0}
-];
+    scene.getObjectByName("label_COMPANY").position.set(-1.3, 0.3, 0);
+    scene.getObjectByName("label_PLATFORM").position.set(0.2, 0.3, 0);
+    scene.getObjectByName("label_SERVICES").position.set(-1.3, -1.1, 0);
+    scene.getObjectByName("label_CLIENTS").position.set(0.4, -1.1, 0);
+    scene.getObjectByName("label_POSTLAUNCH").position.set(-1.3, -2.7, 0);
+    scene.getObjectByName("label_LETSTALK").position.set(0.26, -2.7, 0);
 
     for(var i = 0; i < 6; i++){
         objects[i].position.set(objectPositions[i].x, objectPositions[i].y, objectPositions[i].z);
-        labels[i].position.set(labelPositions[i].x, labelPositions[i].y, labelPositions[i].z);
-
-        if(i == 4)
-            labels[i].scale.set(1.2, 0.12, 1);
-        else if(i == 5)
-            labels[i].scale.set(1.26, 0.12, 1);
-        else
-            labels[i].scale.set(0.8, 0.16, 1);
-
         objects[i].scale.set(0.7, 0.7, 0.7);
     }
 }

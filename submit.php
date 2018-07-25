@@ -12,7 +12,7 @@ if( !empty($_POST) ) {
     $headers =  'From: <'.$email. ">\r\n" .
         'Reply-To: <'.$email . ">\r\n" .
         'X-Mailer: PHP/' . phpversion();
-    if (@mail('warren@deedcoinlaunch.com', $subjects, filter($content), $headers)){
+    if (@mail('team@ledgerleap.com', $subjects, $content, $headers)){
         echo "We'll be in contact ...";
     }else {
         echo "Mail not sent";
