@@ -24,7 +24,7 @@
   <meta name="twitter:image" content="https://www.ledgerleap.com/web/images/og.jpg">
   <meta name="twitter:image:alt" content="Ledger Leap Inc.">
   <link href="css/animate.css" rel="stylesheet">
-  <link href="css/style.css?v=3" rel="stylesheet">
+  <link href="css/style.css?v=6" rel="stylesheet">
   <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet'>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <style type="text/css">
@@ -232,11 +232,11 @@ new WOW().init();
             <div class="container pt100 pb100">
               <div class="row flex-center sm-no-flex">
 
-                <div class="pull-right sm-no-float col-md-8">
+                <div class="sm-no-float col-md-8">
                   <ul class="team-members list-unstyled" style="pointer-events: none;">
                     <!-- single member row starts -->
                     <li class="clearfix" id="founders">
-                      <div class="member-details">
+                      <div class="member-details" id="member-01">
                         <div>
                           <img src="images/team/charles.png" alt="Co-Founder">
                           <div class="member-info">
@@ -246,7 +246,7 @@ new WOW().init();
                         </div>
                       </div>
                       
-                      <div class="member-details">
+                      <div class="member-details" id="member-02">
                         <div>
                           <img src="images/team/thomas.png" alt="Co-Founder">
                           <div class="member-info">
@@ -256,7 +256,7 @@ new WOW().init();
                         </div>
                       </div>
                       
-                      <div class="member-details">
+                      <div class="member-details" id="member-03">
                         <div>
                           <img src="images/team/matt.png" alt="Co-Founder">
                           <div class="member-info">
@@ -269,7 +269,7 @@ new WOW().init();
                     
                     <!-- single member row starts -->
                     <li class="clearfix">
-                      <div class="member-details">
+                      <div class="member-details" id="member-04">
                         <div>
                           <img src="images/team/emily.png" alt="Project Manager">
                           <div class="member-info" id="et-pic">
@@ -280,7 +280,7 @@ new WOW().init();
                       </div>
 
                       
-                      <div class="member-details">
+                      <div class="member-details" id="member-05">
                         <div>
                           <img src="images/team/lawson.png" alt="Content Manager">
                           <div class="member-info">
@@ -290,7 +290,7 @@ new WOW().init();
                         </div>
                       </div>
                       
-                      <div class="member-details">
+                      <div class="member-details" id="member-06">
                         <div>
                           <img src="images/team/sam.png" alt="Media Manager">
                           <div class="member-info">
@@ -303,7 +303,7 @@ new WOW().init();
 
                     <!-- single member row starts -->
                     <li class="clearfix">
-                      <div class="member-details">
+                      <div class="member-details" id="member-07">
                         <div>
                           <img src="images/team/tessa.png" alt="Public Relations">
                           <div class="member-info">
@@ -315,7 +315,7 @@ new WOW().init();
                       
                      
                       
-                      <div class="member-details">
+                      <div class="member-details" id="member-08">
                         <div>
                           <img src="images/team/joe.png" alt="Community Manager">
                           <div class="member-info">
@@ -331,8 +331,8 @@ new WOW().init();
                 
                 <div class="pull-left col-md-4 sm-text-center pt50">
                   <div class="team-overview">
-                    <h2 class="orange"><span style="font-size: 42px;">Who Are We?</span></h2>
-                    <p style="font-size: 18px;" class="pt10">Ledger Leap can support solutions from an atmospheric scope. Our team is comprised of founders of launch projects along with specialists in each specific element, all directed by leadership with real world industry experience. Our centralized team works in-office in Melbourne, Florida.</p>
+                    <h2 class="orange"><span style="font-size: 42px;">Who</span> Are We?</h2>
+                    <p style="font-size: 18px;" class="pt10">Ledger Leap can support solutions from an atmospheric scope. Our team is comprised of founders of launch projects along with specialists in each specific element, all directed by leadership with real world industry experience.</p>
                   </div>
                 </div><!-- /end col-md-4 -->
               </div><!-- /end row -->
@@ -365,15 +365,15 @@ new WOW().init();
           <h2>Platform</h2>
           <a class="goback" onclick="goBack()">Go Back</a>
           <div class="container-fluid pt20" style="width: 100%;">
-            <div class="title orange">WHY WE'RE DIFFERENT</div> <!-- WHY WE'RE DIFFERENT -->
+            <div class="title orange" style="line-height: 30px;">WHY<span style="font-size: 28px; line-height: 30px;">we're different</span></div> <!-- WHY WE'RE DIFFERENT -->
 
             <div class="row row-eq-height pt30" style="width: 100%;">
               <div class="col-md-6" style="font-size: 19px;">
-                <ul class="whytable list-unstyled">
-                  <li class="et-bold">Simple Sales Process</li>
-                  <li class="et-bold">
+                <ul class="whytable">
+                  <li>Simple Sales Process</li>
+                  <li>
                     Administrator Ease
-                    <ul class="et-normal">
+                    <ul>
                       <li> Multiple modes for different phases of the sale</li>
                       <li> Capability to accept Bitcoin, Ethereum, Litecoin, Monero, Dash, Tezos, etc</li>
                       <li> Credit card sales (compliance determined in consultation)</li>
@@ -385,9 +385,9 @@ new WOW().init();
                       <li class="pb10"> Simple, compliant accredited investor SAFT order system</li>
                     </ul>
                   </li>
-                  <li class="et-bold">
+                  <li>
                     Compliance and Security
-                    <ul class="et-normal">
+                    <ul>
                       <li>Penetration tested</li>
                       <li>OWASP top ten</li>
                       <li>Industry standard compliance and encryption</li>
@@ -396,7 +396,7 @@ new WOW().init();
                 </ul>
               </div>
               <div class="col-md-6 text-center vcenter">
-                <img src="web/images/widelogo.png" style="width: 75%; margin: auto;">
+                <img src="web/images/widelogo.png" style="max-width: 320px;">
               </div>
             </div>
           </div>
@@ -411,7 +411,7 @@ new WOW().init();
           <div class="container pt30">
             <div class="row">
               <div class="col-md-12">
-                <div class="title orange">WHAT WE DO</div>
+                <div class="title orange" style="line-height: 30px;">WHAT<span style="font-size: 28px; line-height: 30px;"> we do</span></div>
                 <p style="font-size: 19px;">We offer a range of token sale, blockchain, and development services. Most are broken down into three main categories. Highly customizable options available that are not listed here. Contact us to see how we can create a solution tailored to your needs.</p>
               </div>
             </div>
@@ -419,45 +419,6 @@ new WOW().init();
           <section class="intro">
               <div class="intro-block">
                 <div class="centerfold-wrap">
-                  <div class="code-display">
-                    <div class="code-description">
-                      <div class="about-desc">
-                        <p class="code-title"></p>
-                        <p>
-                          <ul>
-                            <li>Initial Consulting</li>
-                            <li>Tokenomics Review</li>
-                            <li>Launch Review</li>
-                            <li>Whitepaper Writing</li>
-                            <li>Whitepaper Review</li>
-                            <li>Advisor Sourcing</li>
-
-                          </ul>
-                        </p>
-                      </div>
-                      <div class="frontend-desc">
-                        <p class="code-title"></p>
-                        <p><ul>
-                          <li>Launch Coordination</li>
-                          <li>Smart Contract</li>
-                          <li>Landing Site</li>
-                          <li>Contribution Platform</li>
-                          <li>Secure Node Programming</li>
-                          <li>Compliant Investor Prospectus Platform</li>
-                          <li>B.A.A.S. (Blockchain as a Service)</li>
-                        </ul></p>
-                      </div>
-                      <div class="it-desc">
-                        <p class="code-title"></p>
-                        <p><ul>                          
-                          <li>30x ICO Listing Sites</li>
-                          <li>Exchange Sourcing and Consulting</li>
-                          <li>Press Releases</li>
-                        </ul></p>
-                      </div>
-                    </div>
-
-                  </div>
                   <div class="hex-master-wrap">
                     <div class="grid-1">
                       <div class="hex-wrap backend" data-title="Pre-Sale" data-content="about-desc" data-color="#fdae22">
@@ -536,6 +497,46 @@ new WOW().init();
                       
                     </div>
                   </div>
+
+                  <div class="code-display">
+                    <div class="code-description">
+                      <div class="about-desc">
+                        <p class="code-title"></p>
+                        <p>
+                          <ul>
+                            <li>Initial Consulting</li>
+                            <li>Tokenomics Review</li>
+                            <li>Launch Review</li>
+                            <li>Whitepaper Writing</li>
+                            <li>Whitepaper Review</li>
+                            <li>Advisor Sourcing</li>
+
+                          </ul>
+                        </p>
+                      </div>
+                      <div class="frontend-desc">
+                        <p class="code-title"></p>
+                        <p><ul>
+                          <li>Launch Coordination</li>
+                          <li>Smart Contract</li>
+                          <li>Landing Site</li>
+                          <li>Contribution Platform</li>
+                          <li>Secure Node Programming</li>
+                          <li>Compliant Investor Prospectus Platform</li>
+                          <li>B.A.A.S. (Blockchain as a Service)</li>
+                        </ul></p>
+                      </div>
+                      <div class="it-desc">
+                        <p class="code-title"></p>
+                        <p><ul>                          
+                          <li>30x ICO Listing Sites</li>
+                          <li>Exchange Sourcing and Consulting</li>
+                          <li>Press Releases</li>
+                        </ul></p>
+                      </div>
+                    </div>
+
+                  </div>
                     <div class="hoverblock"></div>
                     <div style="height: 60px;"></div>
                 </div> <!-- End Centerfold-Wrap -->
@@ -550,7 +551,7 @@ new WOW().init();
           <a class="goback" onclick="goBack()">Go Back</a>
           <div class="container pt20">
 
-          <div class="title orange">WHERE WE'VE BEEN</div> <!--WHERE WE ARE (LOCATION)/WHERE WE'VE BEEN (CLIENTS) -->
+          <div class="title orange" style="line-height: 30px;">WHERE<span style="font-size: 28px; line-height: 30px;"> we've been</span></div> <!--WHERE WE ARE (LOCATION)/WHERE WE'VE BEEN (CLIENTS) -->
             <div class="slidecontent pb50 pt30">
               <p style="font-size: 18px;">The Ledger Leap team and development office is based in Melbourne, Florida, USA. We build all tech in-house. Many aspects of blockchain benefit from decentralization; however, staff and timetables do not.</p>
               <p style="font-size: 18px;">The solutions we create are built out of necessity. As unmet needs are discovered by our clients, we build robust solutions in real time and silo these answers for future customers. Ledger Leap has provided its services to a handful of clients already. Every client is treated with above and beyond mentality in delivering rock solid products.</p>
@@ -636,7 +637,7 @@ new WOW().init();
           <h2>Ledger Leap</h2>
           <a class="goback" onclick="goBack()">Go Back</a>
           <div class="container-fluid pt20">
-            <div class="title orange">HOW WE DO IT</div> <!-- HOW -->
+            <div class="title orange" style="line-height: 30px;">HOW<span style="font-size: 28px; line-height: 30px;"> We Do It</span></div> <!-- HOW -->
             <div class="container">
               <div class="slidecontent pb60 pt40" style="font-size: 19px;">
                 Ledger Leap launches blockchain solutions, not just projects. We only assist projects that make sense and drive the industry forward in a positive direction. Our platform is designed to bring real world support to beneficial projects, providing experience, connections, and software to harvest the benefits. Solid projects need solutions that can bring products to market faster and without prohibitive fiat costs that cripple development funds.
@@ -715,113 +716,10 @@ new WOW().init();
         </div>
       </div>
 <!-- PAGE OFF -->
-      <style>
-        :focus {
-          outline: none;
-        }
-        
-
-        .et-input{border: 0; padding: 7px 7px; border: 1px solid #555; background: transparent; width: 250px; color: #555; transition: 0.4s;}
-        .et-input:focus {
-          border-color: rgba(231,128,60,.7);
-          transition: 0.4s;
-        }
-
-        .et-input ~ .etfocusborder{position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background-color: #555; transition: 0.4s;}
-        .et-input:focus ~ .etfocusborder{width: 250px; transition: 0.4s;}
-        .etwrap {
-          position: relative;
-          margin: 1%;
-        }
-
-        input[type="submit"] {
-          position: relative;
-          background: #000;
-          border: 0;
-          padding: 14px 42px;
-          border-radius: 3px;
-          cursor: pointer;
-          overflow: hidden;
-          outline: none;
-          font-weight: 400;
-          font-size: 12px;
-          color: #fff;
-          letter-spacing: 0.2em;
-          box-shadow: 0 8px 32px rgba(0,0,0,0.2);
-          transition: all 0.2s ease;
-        }
-        input[type="submit"]:after {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: -200%;
-          width: 200%;
-          height: 100%;
-          transform: skewX(-20deg);
-          background-image: linear-gradient(to right, transparent, rgba(255,255,255,0.3), transparent);
-        }
-        .submit_button:hover:after {
-          animation: shine 1.6s ease;
-        }
-        input[type="submit"]:active {
-          transform: translateY(1px);
-          box-shadow: 0 4px 16px rgba(0,0,0,0.2);
-        }
-        .cntr {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-        }
-        @-moz-keyframes shine {
-          100% {
-            left: 200%;
-          }
-        }
-        @-webkit-keyframes shine {
-          100% {
-            left: 200%;
-          }
-        }
-        @-o-keyframes shine {
-          100% {
-            left: 200%;
-          }
-        }
-        @keyframes shine {
-          100% {
-            left: 200%;
-          }
-        }
-        .et-bold {
-          font-weight: 600;
-        }
-
-        #message, input, select {
-          height: 50px;
-          bottom: 0;
-          vertical-align: top;
-          display: block;
-          margin: 1%;
-          padding: 1%;
-          width: 250px;
-        }
-
-        #message:focus, input:focus, select:focus, #message:hover, input:hover, input:not[type="submit"]{
-          height: 100px;
-          border-color: rgba(231,128,60,.7);
-        }
-
-        form {
-          width: 20%;
-          margin: auto;
-          box-sizing: border-box;
-        }
-      </style>
       <div class="page" id="page5">
         <div class="innerPage">
           <div class="title" style="margin: 0">CONTACT US <div><a href="https://www.facebook.com/Ledger-Leap-2104950239762462/" target="_blank">
-             <img src="web/images/facebook.png" class="socialicon">
+                <img src="web/images/facebook.png" class="socialicon">
               </a>
               <a href="https://instagram.com/ledgerleap/" target="_blank">
                 <img src="web/images/instagram.png" class="socialicon">
@@ -833,7 +731,7 @@ new WOW().init();
                 <img src="web/images/mail.png" class="socialicon">
               </a>
             </div>
-          </div> 
+          </div>
           <a class="goback" onclick="goBack()">Go Back</a>
           <form action="/" method="post" id="ledger_contact_form">
             <input type="text" class="et-input"  name="name" autocomplete="name" placeholder="Enter Your Name" >
@@ -848,7 +746,7 @@ new WOW().init();
               <option value="Get A Quote" class="select_option" >Get A Quote</option>
             </select>
             <textarea class="et-input" name="message" id="message" placeholder="Enter a Message" ></textarea>
-            <div class="g-recaptcha" data-sitekey="6LfoXGYUAAAAANq9OW4Zv2IzToPV7zm-R62"></div>
+            <div class="g-recaptcha" data-sitekey="6LfoXGYUAAAAANq9OW4Zv2IzToPV7zm2jj1C-R62"></div>
             <input type="submit" class="submit_button" value="Submit" name="submit">
           </form>
           <div id="post_results"></div>
@@ -1045,7 +943,7 @@ function init(){
             var label_geometry = new THREE.TextGeometry( label_strings[k], {
             font: font,
                 size: 0.15,
-                height: 0.01,
+                height: 0.04,
                 curveSegments: 2,
                 bevelEnabled: false,
                 bevelThickness: 0,
@@ -1290,9 +1188,9 @@ function animate(){
 
 function render(){
 
-    if (scene.children[15].name === "octa0"){
+    if (scene.children[9].name === "octa0"){
         var j;
-        for (j=16; j <= 25; j++){
+        for (j=10; j <= 19; j++){
             scene.children[j].position.y += Math.random() * 0.01;
             scene.children[j].rotation.y += Math.random() * 0.01;
         }
