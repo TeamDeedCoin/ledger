@@ -36,7 +36,8 @@ if( $captcha_success->success == true) {
 /*
     @mail('team@ledgerleap.com', $subjects, $content, $headers);
  */
-    echo "<span id='success-message'>We'll be in contact ...</span>";
+    //echo "<span id='success-message'>We'll be in contact ...</span>";
+    echo "<span id='success-message'>Please emai</span>";
 
 }else if($captcha_success->success == false){
     //bad bot go away!

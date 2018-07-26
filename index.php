@@ -828,7 +828,10 @@ function rotateObjects(){
 function init(){
     container = document.getElementById( 'boxes' );
     scene = new THREE.Scene();
-    scene.background = new THREE.Color( 0x0a0a0a);
+    var fogColor = new THREE.Color( 0x222222 );
+    scene.background = new THREE.Color( 0x333333);
+    scene.fog = new THREE.Fog( fogColor, 0.01, 1000 );
+    //scene.fog = new THREE.FogExp2( fogColor, 0.0025 );
 
     renderer = new THREE.WebGLRenderer({antialias: true, alpha: true});
     renderer.setPixelRatio( window.devicePixelRatio );
@@ -846,6 +849,10 @@ function init(){
     blueLightRight.position.set( 3.0, 1.94, -3.72 );
     blueLightRight.name = "blueLightRight";
     scene.add( blueLightRight );
+
+    var whiteLight = new THREE.AmbientLight( 0xffffff, -0.18 ); // soft white light
+    whiteLight.position.set(0, -100, -700);
+    scene.add( whiteLight );
 
 
     camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.01, 1000);
@@ -943,7 +950,7 @@ function init(){
             var label_geometry = new THREE.TextGeometry( label_strings[k], {
             font: font,
                 size: 0.15,
-                height: 0.04,
+                height: 0.02,
                 curveSegments: 2,
                 bevelEnabled: false,
                 bevelThickness: 0,
@@ -977,10 +984,10 @@ function init(){
     octa_material = new THREE.MeshStandardMaterial( { 
     wireframe: false, 
         metalness: 1, 
-        roughness: 0.6, 
-        color: 0x727272,
+        roughness: 0.3, 
+        color: 0xbbbbbb,
         transparent: true,
-        opacity: 0.16
+        opacity: 0.5
     });
 
     var i;
@@ -1188,9 +1195,9 @@ function animate(){
 
 function render(){
 
-    if (scene.children[9].name === "octa0"){
+    if (scene.children[10].name === "octa0"){
         var j;
-        for (j=10; j <= 19; j++){
+        for (j=10; j <= 20; j++){
             scene.children[j].position.y += Math.random() * 0.01;
             scene.children[j].rotation.y += Math.random() * 0.01;
         }

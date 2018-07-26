@@ -1180,5 +1180,16 @@ form {
 .et-normal {
     font-weight: 400;
 }
-                                                                                                                                        
 /* END * ET * STYLES * */ 
+/*recaptcha styles */
+.rc-anchor-normal-footer {
+    left: 9em !important;
+    position: relative !important;
+    top: -5em !important;
+}
+
+.rc-anchor.rc-anchor-normal.rc-anchor-light {
+    width: 15.7em !important;
+}▸
+
+
