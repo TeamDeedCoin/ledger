@@ -1,858 +1,581 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Leadger Leap - Blockchain Enterprise</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0,
-  maximum-scale=1.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="web/icons/apple-touch-icon.png?v=2"/>
-  <link rel="icon" type="image/png" sizes="32x32" href="web/icons/favicon-32x32.png?v=2"/>
-  <link rel="icon" type="image/png" sizes="16x16" href="web/icons/favicon-16x16.png?v=2"/>
-  <link rel="manifest" href="web/icons/manifest.json"/>
-  <link rel="mask-icon" href="web/icons/safari-pinned-tab.svg?v=2" color="#e7803c"/>
-  <meta name="description" content="We build blockchain from concept to execution."/>
-  <meta name="keywords" content="ledgerleap, ledger, ledger leap, cryptocurrency, crypto, cryptocurrencies, ico, blockchain, technology, token, ethereum"/>
+<title>Ledger Leap - Blockchain Enterprise</title>
+<meta charset="utf-8">
+<meta name="google" content="notranslate">
+<meta http-equiv="Content-Language" content="en">
+<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0,
+maximum-scale=1.0">
+<link rel="apple-touch-icon" sizes="180x180" href="web/icons/apple-touch-icon.png?v=2"/>
+<link rel="icon" type="image/png" sizes="32x32" href="web/icons/favicon-32x32.png?v=2"/>
+<link rel="icon" type="image/png" sizes="16x16" href="web/icons/favicon-16x16.png?v=2"/>
+<link rel="manifest" href="web/icons/manifest.json"/>
+<link rel="mask-icon" href="web/icons/safari-pinned-tab.svg?v=2" color="#e7803c"/>
+<meta name="description" content="We build blockchain from concept to execution."/>
+<meta name="keywords" content="ledgerleap, ledger, ledger leap, cryptocurrency, crypto, cryptocurrencies, ico, blockchain, technology, token, ethereum, ico development, web development"/>
+<meta property="og:title" content="Ledger Leap - Blockchain Enterprise">
+<meta property="og:description" content="We build blockchain from concept to execution.">
+<meta property="og:image" content="https://www.ledgerleap.com/web/images/og.jpg">
+<meta property="og:site_name" content="Ledger Leap">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="">
+<meta name="twitter:title" content="Ledger Leap - Blockchain Enterprise">
+<meta name="twitter:description" content="We build blockchain from concept to execution.">
+<meta name="twitter:image" content="https://www.ledgerleap.com/web/images/og.jpg">
+<meta name="twitter:image:alt" content="Ledger Leap Inc.">
+<link href="css/style.css" rel="stylesheet">
+<link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet'>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
-  <meta property="og:title" content="Leadger Leap - Blockchain Enterprise">
-  <meta property="og:description" content="We build blockchain from concept to execution.">
-  <meta property="og:image" content="https://www.ledgerleap.com/web/images/og.jpg">
-  <meta property="og:site_name" content="Ledger Leap">
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:site" content="">
-  <meta name="twitter:title" content="Leadger Leap - Blockchain Enterprise">
-  <meta name="twitter:description" content="We build blockchain from concept to execution.">
-  <meta name="twitter:image" content="https://www.ledgerleap.com/web/images/og.jpg">
-  <meta name="twitter:image:alt" content="Ledger Leap Inc.">
-  <link href="css/animate.css" rel="stylesheet">
-  <link href="css/style.css?v=6" rel="stylesheet">
-  <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet'>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <style type="text/css">
-  @charset "UTF-8";
-  <?php
-    for ($i=5; $i <= 200; $i+=5) { 
-    echo '.pt'.(string)$i.'{padding-top:'.(string)$i.'px;}';
-    echo '.pb'.(string)$i.'{padding-bottom:'.(string)$i.'px;}';
-    echo '.p'.(string)$i.'{padding:'.(string)$i.'px;}';
-  }
+<style type="text/css">
 
-  $rand = rand(1,2);
-  ?>
+.calendly-badge-content{
+    background: none;
+    position: relative;
+    top: -23em;
+    margin: 0em;
+    color: rgb(231, 127, 60);
+    display: inline-block;
+    right: 38em;
+    box-shadow: none;
+}
 
-  /* ET ADDED STYLES 7/12*/
+.calendly-badge-widget .calendly-badge-content {
+    display: table-cell;
+    width: auto;
+    height: 45px;
+    padding: 0 30px;
+    border-radius: 25px;
+    /* box-shadow: rgba(0,0,0,0.25) 0 2px 5px; */
+    /* font-family: serif; */
+    text-align: center;
+    vertical-align: middle;
+    font-weight: bold;
+    font-size: 1em;
+    color: #fff;
+    cursor: pointer;
+    /* font-size: 1em; */
+}
 
-  .title.orange {
-    font-size: 40px;
-    text-align: left;
-  }
-  .goback {
-    padding-right: 15px;
-  }
+#letstalk {
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding: 0 0 0 0;
+    margin: 1em;
+    background: none;
+    color: #E77F3C;
+    cursor: pointer;
+}
+.contact-modal {
+    z-index: 9999;
+}
+i .fas, .fa-mobile-alt, .fa-envelope, .fa-calendar-alt {
+    color: #e77f3c;
+    font-size: 3em;
+    padding: 0.3em 0.6em;
+}
+::-webkit-scrollbar {
+    width: 10px;
+}
 
-    ::-webkit-scrollbar {
-        width: 10px;
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+    background: rgba(100,100,100,.3)
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(231,128,60,.5);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(231,128,60,.7);
+}
+
+hr { border-color:#333; }
+
+.menuitem { transition: .3s ease; }
+
+.menuitem:hover {
+    margin-left: -20px; cursor: pointer;
+    color: #ff7700; font-size: 23px; transition: .3s ease;
+}
+#new_menu_items {
+    font-size: 20px; color: white; position: absolute; right: 25px; z-index: 18; width: 250px;
+    padding-top: 60px;
+    top: 2em;
+}
+div#newPageWrap {
+    position: absolute;
+    top: 0;
+    z-index: 1001;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    opacity: 0;
+    transition: 1s opacity;
+}
+
+/* LOADING SCREEN */
+
+#loadingScreen {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    opacity: 1;
+    transition: .5s opacity;
+}
+
+#loadingScreen.fade-out {
+    opacity: 0;
+}
+
+#loader {
+    display: block;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    width: 150px;
+    height: 150px;
+    margin: -75px 0 0 -75px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #999999;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+
+#loader:before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #ff7700;
+    -webkit-animation: spin 3s linear infinite;
+    animation: spin 3s linear infinite;
+}
+
+#loader:after {
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #999999;
+    -webkit-animation: spin 1.5s linear infinite;
+    animation: spin 1.5s linear infinite;
+}
+
+@-webkit-keyframes spin {
+    0%   {
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        transform: rotate(0deg);
     }
+    100% {
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+@keyframes spin {
+    0%   {
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
 
-    ::-webkit-scrollbar-track {
-        box-shadow: inset 0 0 5px grey; 
-        border-radius: 10px;
-        background: rgba(100,100,100,.3)
-    }
-     
-    ::-webkit-scrollbar-thumb {
-        background: rgba(231,128,60,.5); 
-        border-radius: 10px;
-    }
+/* LOADING SCREEN END */
 
-    ::-webkit-scrollbar-thumb:hover {
-        background: rgba(231,128,60,.7); 
-    }
+#mobile_menu {
+    color: white; position: absolute; z-index: 18;
+    display: none; bottom: 25px; cursor: pointer; top: calc(100vh - 190px);
+    width: 100%; text-align: center; font-size: 17px; line-height: 17px;
+}
 
-    .et-normal {
-      font-weight: 400;
+#mobile_item1 {
+    position: absolute; height: 50px; left: 0; width: 27.55%; border: 1px solid #392510;
+    margin-top: 50px; transition: 1s ease; background: black;
+    padding-top: 12px;
+}
+#mobile_item2 {
+    position: absolute; height: 50px; left: 27.55%; width: 27.55%; border: 1px solid #392510;
+    margin-top: 50px; transition: 1s ease; background: black;
+    padding-top: 12px;
+}
+#mobile_item3 {
+    position: absolute; height: 50px; left: 55.10%; width: 27.55%; border: 1px solid #392510;
+    margin-top: 50px; transition: 1s ease; background: black;
+    padding-top: 12px;
+}
+
+#mobile_item4 {
+    position: absolute; height: 50px; left: 16.67%; width: 27.55%; border: 1px solid #392510;
+    padding-top: 12px; transition: 1s ease; background: black;
+}
+#mobile_item5 {
+    position: absolute; height: 50px; left: 44.22%; width: 27.55%; border: 1px solid #392510;
+    padding-top: 12px; transition: 1s ease; background: black;
+}
+#mobile_item6 {
+    position: absolute; height: 50px; left: 71.77%; width: 27.55%; border: 1px solid #392510;
+    padding-top: 12px; transition: 1s ease; background: black;
+}
+
+
+#topleft_logo { position: absolute; top: 0; left: 0; margin-left: 20px; font-size: 70px; color: white; padding-top: 14px; }
+#logo_img { height: 75px; width: auto; }
+
+.inner_logo { font-size: 70px; color: black; margin-top: -6px; }
+.inner_logo_img { height: 75px; width: auto; }
+
+
+/* SOCIAL FRONT PAGE */
+/*
+#social_banner {
+    position: fixed; 
+    display: block;
+    bottom: 0; 
+    right: 0;
+    height: 70px; width: 70px;
+    background: rgba(255,153,0,0.5);
+    clip-path: polygon(0 0, 45% 0, 100% 55%, 100% 100%);
+    -webkit-clip-path: polygon(0 0, 45% 0, 100% 55%, 100% 100%);
+    -moz-clip-path: polygon(0 0, 45% 0, 100% 55%, 100% 100%);
+    -ms-clip-path: polygon(0 0, 45% 0, 100% 55%, 100% 100%);
+    transition: .7s ease;
+    text-align: center; color: #ccc; font-size: 14px;
+    padding-top: 15px; cursor: pointer;
+}
+*/
+#social_banner {
+    position: fixed;
+    display: block;
+    bottom: 0px;
+    right: 0px;
+    height: 70px;
+    width: 70px;
+    background: rgba(255,153,0,0.5);
+    clip-path: polygon(100% 0, 100% 40%, 40% 100%, 0% 100%);
+    -webkit-clip-path: polygon(100% 0, 100% 40%, 40% 100%, 0% 100%);
+    -moz-clip-path: polygon(100% 0, 100% 40%, 40% 100%, 0% 100%);
+    -ms-clip-path: polygon(100% 0, 100% 40%, 40% 100%, 0% 100%);
+    transition: .7s ease;
+    text-align: center;
+    color: #ccc;
+    font-size: 14px;
+    padding-top: 15px;
+    cursor: pointer;
+}
+
+
+
+#social_banner:after {
+ /*   content: '\002605';*/
+    padding-left: 0;
+}
+
+#social_banner:hover {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    -moz-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    -ms-clip-path: polygon(0 0, 45% 0, 100% 55%, 100% 100%);
+    transition: .5s ease; padding-top: 17px; padding-left: 0;
+    width: 140px; background: transparent; font-size: 17px;
+    border-bottom: 1px solid rgba(255,153,0,0.4);
+}
+
+#social_banner:hover:after {
+    content: 'Click';
+}
+
+#footer { color: #444; font-size: 16px; position: absolute; bottom: 12px; left: 20px; }
+
+#social_hidden {
+    opacity: 0; display: block; position: fixed;
+    width: 130px; height: 50px; background: transparent;
+    bottom: 0; right: 0; padding-top: 21px; text-align: center;
+    transform: scale(0.01,1); transform-origin: right;
+    -webkit-transform: scale(0.01,1); -webkit-transform-origin: right;
+    -moz-transform: scale(0.01,1); -moz-transform-origin: right;
+    -ms-transform: scale(0.01,1); -ms-transform-origin: right;
+    transition: .4s ease;
+}
+
+.unscale {
+    transform: scale(1,1) !important;
+    -webkit-transform: scale(1,1) !important;
+    -moz-transform: scale(1,1) !important;
+    -ms-transform: scale(1,1) !important;
+}
+
+
+.ml70 { margin-left: 70px; }
+.page1ul { list-style-type: "- "; }
+.mobile_br { display: none; }
+
+
+@media all and (max-width: 991px) {
+    #topleft_logo { font-size: 45px; }
+    #logo_img { height: 50px; }
+
+    /* inner pages */
+    .inner_logo { font-size: 45px; }
+    .inner_logo_img { height: 50px; }
+}
+
+@media all and (max-width: 1150px) {
+    #new_menu_items { display: none; }
+    #mobile_menu { display: block; }
+}
+
+@media all and (max-width: 767px) {
+    #topleft_logo { font-size: 30px; }
+    #logo_img { height: 35px; }
+    #mobile_menu { font-size: 14px; }
+    .mobile_br { display: block; }
+
+    /* inner pages */
+    .inner_logo { font-size: 30px; }
+    .inner_logo_img { height: 35px; }
+    h2#companyh2 { font-size: 26px; }
+    h2#platformh2 { font-size: 26px; }
+    h2#servicesh2 { font-size: 26px; }
+    h2#clientsh2 { font-size: 26px; }
+    h2#postlaunchservicesh2 { font-size: 26px; }
+    h2#contacth2 { font-size: 26px; }
+
+    #mobile_item1,#mobile_item2,#mobile_item3,#mobile_item4,#mobile_item5,#mobile_item6 { padding-top: 7px; }
+   
+    .calendly-badge-content {
+        background: none;
+        position: fixed;
+        top: 12px;
+        right: -1em;
+        margin: 1em;
+        color: rgb(231, 127, 60);
     }
-    /* END ET STYLES */
-  </style>
-<script type="text/javascript" src="js/wow.js"></script>
-<script type="text/javascript">
-new WOW().init();
-</script>
-<script src='https://www.google.com/recaptcha/api.js'></script>
+}
+
+@media all and (max-width: 425px) {
+    .calendly-badge-content {
+        background: none;
+        position: fixed;
+        top: 12px;
+        right: -40px;
+        margin: 1em;
+        color: rgb(231, 127, 60);
+    }
+}
+
+@media all and (min-width: 1150px) {
+    .calendly-badge-content { right: -1em; }
+}
+#container {
+    direction: ltr;
+}
+img#phoneicon {
+    position: relative;
+    width: 1em;
+}
+
+.calendly-badge-content span {
+    float: left;
+    padding-right: 1em;
+}
+
+.modal-content {
+    width: 33em;
+    height: 18em;
+}
+
+span >.fa-mobile-alt {
+    position: relative;
+    float: left;
+}
+span >.fa-envelope {
+    position: relative;
+    float: left;
+    right: 2em;
+}
+
+span.contact-label h2 {
+    width: 18em;
+    position: relative;
+    right: 3em;
+}
+
+span >.fa-calendar-alt {
+    position: relative;
+    right: 4em;
+    float: left;
+}
+
+h2#phone-h2 {
+    right: 0em;
+}
+
+h2#email-h2 {
+    right: 3em;
+    position: relative;
+}
+h2#calendar-h2 {
+    position: relative;
+    right: 6em;
+    width: 100%;
+    white-space: nowrap;
+}
+</style>
 </head>
 <body>
-  <!-- AIGC Project Modal -->
-  <div class="modal fade" id="tributeModal" tabindex="-1" role="dialog" aria-labelledby="tributeTitle">
-    <div class="modal-dialog wide" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h3 class="modal-title text-center" id="tributeTitle">Project Details</h3>
-        </div><!-- /.modal-header -->
-        <div class="modal-body">
-          <div class="row">
-            <div class="col-xs-12 bg-star-g">
-              <img class="img-responsive center-block hero" src="images/projects/AIGC.png" alt="AIGC Project">
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-12 text-center">
-              <h2 class="project-title">AIGC</h2>
-              <h4 class="project-subtitle">RWD/PORTAL</h4>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-10 col-sm-offset-1 col-lg-6 col-lg-offset-0">
-              <p class="mb-30">Businesses that have real-world problems that may be solved by AI can submit these problems on the platform, for users to solve. If you choose to participate in a crowdsourcing challenge, you’ll be rewarded in token. The crowdsourcing customer makes micropayments to each developer that helps to solve the problem.</p>
-            </div>
-            <div class="col-sm-10 col-sm-offset-1 col-lg-6 col-lg-offset-0 md-center">
-              <p><strong>Technologies Used:</strong></p>
-              <p class="mb-30">
-                <span class="label tag">Bootstrap 3</span>
-                <span class="label tag">Responsive Design</span>
-                <span class="label tag">HTML5</span>
-                <span class="label tag">CSS3</span>
-                <span class="label tag">JavaScript</span>
-                <span class="label tag">jQuery</span>
-              </p>
-              <a class="btn td-btn outline green mb-30" href="http://home.aigaming.com/" target="_blank" title="Link to aigmaing.com"><span class="glyphicon glyphicon-link"></span> Visit Live Site</a>
-             
-            </div>
-          </div><!-- /.row -->
-          <div class="modal-footer center">
-            <button type="button" class="btn td-btn outline small" data-dismiss="modal">Close Project</button>
-          </div><!-- /.modal-footer -->
-        </div><!-- /.modal-body -->
-      </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-  </div><!-- /.modal -->
-
-  <!-- Deedcoin Project Modal -->
-  <div class="modal fade" id="tmsModal" tabindex="-1" role="dialog" aria-labelledby="tmsTitle">
-    <div class="modal-dialog wide" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h3 class="modal-title text-center" id="tmsTitle">Project Details</h3>
-        </div><!-- /.modal-header -->
-        <div class="modal-body">
-          <div class="row">
-            <div class="col-xs-12 bg-star-g">
-              <img class="img-responsive center-block hero" src="images/projects/deedcoin.png" alt="Deedcoin Hero Image">
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-12 text-center">
-              <h2 class="project-title">Deedcoin</h2>
-              <h4 class="project-subtitle">RWD/PORTAL</h4>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-10 col-sm-offset-1 col-lg-6 col-lg-offset-0">
-              <p>
-                Deedcoin customers use DEED to decide what to pay in commission costs when purchasing or selling a home, lowering the traditional 6% fee to 1%.
-              </p>
-              <p class="mb-30">
-                By simplifying the transaction process and streamlining real estate to run on 1%, DEED users are able to decide their future commission costs based on the free market price of DEED.
-              </p>
-            </div>
-            <div class="col-sm-10 col-sm-offset-1 col-lg-6 col-lg-offset-0 md-center">
-              <p><strong>Technologies Used:</strong></p>
-              <p class="mb-30">
-                <span class="label tag">Bootstrap 4</span>
-                <span class="label tag">Responsive Design</span>
-                <span class="label tag">HTML5</span>
-                <span class="label tag">CSS3</span>
-                <span class="label tag">jQuery</span>
-              </p>
-              <a class="btn td-btn outline green mb-30" href="http://www.deedcoinlaunch.com/" target="_blank" title="Link to Deedcoin"><span class="glyphicon glyphicon-link"></span> Visit Live Site</a>
-              <a class="btn td-btn outline green mb-30" href="http://www.deedcoin.com/" target="_blank" title="Link to Deedcoin"><span class="glyphicon glyphicon-link"></span> Visit Second Site</a>
-            </div>
-          </div><!-- /.row -->
-          <div class="modal-footer center">
-            <button type="button" class="btn td-btn outline small" data-dismiss="modal">Close Project</button>
-          </div><!-- /.modal-footer -->
-        </div><!-- /.modal-body -->
-      </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-  </div><!-- /.modal -->
-
-  <!-- AIRSTAYZ&trade; Project Modal -->
-  <div class="modal fade" id="rbModal" tabindex="-1" role="dialog" aria-labelledby="rbTitle">
-    <div class="modal-dialog wide" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h3 class="modal-title text-center" id="rbTitle">Project Details</h3>
-        </div><!-- /.modal-header -->
-        <div class="modal-body">
-          <div class="row">
-            <div class="col-xs-12 bg-star-g">
-              <img class="img-responsive center-block hero" src="images/projects/airstayz.png" alt="AIRSTAYZ&trade; Hero Image">
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-12 text-center">
-              <h2 class="project-title">AIRSTAYZ&trade;</h2>
-              <h4 class="project-subtitle">RWD/PORTAL</h4>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-10 col-sm-offset-1 col-lg-6 col-lg-offset-0">
-              <p>AIRSTAYZ&trade; is the next generation of booking that pays you to STAY with a blockchain currently useful for travelers and hotels</p>
-              <p class="mb-30">
-                STAY allows travelers to be automatically rewarded with a currency that has actual industry demand. STAY is given to the travelers as rewards, and they can choose to redeem the token for a multitude of offered goods and services.  
-              </p>
-            </div>
-            <div class="col-sm-10 col-sm-offset-1 col-lg-6 col-lg-offset-0 md-center">
-              <p><strong>Technologies Used:</strong></p>
-              <p class="mb-30">
-                <span class="label tag">Responsive Design</span>
-                <span class="label tag">HTML5</span>
-                <span class="label tag">CSS3</span>
-                <span class="label tag">PHP</span>
-                <span class="label tag">PHPMailer</span>
-              </p>
-              <a class="btn td-btn outline green mb-30" href="http://token.airstayz.com/" target="_blank" title="Link to token.airstayz.com"><span class="glyphicon glyphicon-link"></span> Visit Live Site</a>
-            </div>
-          </div><!-- /.row -->
-          <div class="modal-footer center">
-            <button type="button" class="btn td-btn outline small" data-dismiss="modal">Close Project</button>
-          </div><!-- /.modal-footer -->
-        </div><!-- /.modal-body -->
-      </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-  </div><!-- /.modal -->
-  <div id="pageWrap"> <!-- Page Wrap Begin !-->
-    <div class="innerPage"> <!-- Inner Page Begin !-->
-      <div class="page" id="page0">
-        <div class="innerPage">
-          <h2>Company</h2>
-          <a class="goback" onclick="goBack()">Go Back</a>
-          <section style="height: 100%; width: 100%; overflow-y: scroll; overflow-x: hidden;">
-            <div class="container pt100 pb100">
-              <div class="row flex-center sm-no-flex">
-
-                <div class="sm-no-float col-md-8">
-                  <ul class="team-members list-unstyled" style="pointer-events: none;">
-                    <!-- single member row starts -->
-                    <li class="clearfix" id="founders">
-                      <div class="member-details" id="member-01">
-                        <div>
-                          <img src="images/team/charles.png" alt="Co-Founder">
-                          <div class="member-info">
-                            <h3>Charles Wismer</h3>
-                            <p>Co-Founder</p>
-                          </div>
-                        </div>
-                      </div>
-                      
-                      <div class="member-details" id="member-02">
-                        <div>
-                          <img src="images/team/thomas.png" alt="Co-Founder">
-                          <div class="member-info">
-                            <h3>Thomas Spangler</h3>
-                            <p>Co-Founder</p>
-                          </div>
-                        </div>
-                      </div>
-                      
-                      <div class="member-details" id="member-03">
-                        <div>
-                          <img src="images/team/matt.png" alt="Co-Founder">
-                          <div class="member-info">
-                            <h3>Matthew Herrick</h3>
-                            <p>Co-Founder</p>
-                          </div>
-                        </div>
-                      </div>
-                    </li><!-- /single member row ends -->
-                    
-                    <!-- single member row starts -->
-                    <li class="clearfix">
-                      <div class="member-details" id="member-04">
-                        <div>
-                          <img src="images/team/emily.png" alt="Project Manager">
-                          <div class="member-info" id="et-pic">
-                            <h3>Emily Thacker</h3>
-                            <p>Project Manager</p>
-                          </div>
-                        </div>
-                      </div>
-
-                      
-                      <div class="member-details" id="member-05">
-                        <div>
-                          <img src="images/team/lawson.png" alt="Content Manager">
-                          <div class="member-info">
-                            <h3>Matt Lawson</h3>
-                            <p>Content Manager</p>
-                          </div>
-                        </div>
-                      </div>
-                      
-                      <div class="member-details" id="member-06">
-                        <div>
-                          <img src="images/team/sam.png" alt="Media Manager">
-                          <div class="member-info">
-                            <h3>Sam Mihal</h3>
-                            <p>Media Manager</p>
-                          </div>
-                        </div>
-                      </div>
-                    </li><!-- /single member row ends -->
-
-                    <!-- single member row starts -->
-                    <li class="clearfix">
-                      <div class="member-details" id="member-07">
-                        <div>
-                          <img src="images/team/tessa.png" alt="Public Relations">
-                          <div class="member-info">
-                            <h3>Tessa Reve</h3>
-                            <p>Public Relations</p>
-                          </div>
-                        </div>
-                      </div>
-                      
-                     
-                      
-                      <div class="member-details" id="member-08">
-                        <div>
-                          <img src="images/team/joe.png" alt="Community Manager">
-                          <div class="member-info">
-                            <h3>Joe Davies</h3>
-                            <p>Community Manager</p>
-                          </div>
-                        </div>
-                      </div> 
-                    </li><!-- /single member row ends -->
-
-                  </ul><!-- /end team-photos -->
-                </div><!-- /end col-md-8 -->
-                
-                <div class="pull-left col-md-4 sm-text-center pt50">
-                  <div class="team-overview">
-                    <h2 class="orange"><span style="font-size: 42px;">Who</span> Are We?</h2>
-                    <p style="font-size: 18px;" class="pt10">Ledger Leap can support solutions from an atmospheric scope. Our team is comprised of founders of launch projects along with specialists in each specific element, all directed by leadership with real world industry experience.</p>
-                  </div>
-                </div><!-- /end col-md-4 -->
-              </div><!-- /end row -->
-            </div><!-- /end container -->
-            <div style="bottom: 100px; left: 0; right: 0; margin: 0 auto; width: 300px; height: 60px; text-align: center;">
-              <a href="https://www.facebook.com/Ledger-Leap-2104950239762462/" target="_blank">
-                <img src="web/images/facebook.png" class="socialicon">
-              </a>
-              <a href="https://instagram.com/ledgerleap/" target="_blank">
-                <img src="web/images/instagram.png" class="socialicon">
-              </a>
-              <a href="https://www.linkedin.com/company/ledgerleap/" target="_blank">
-                <img src="web/images/linkedin.png" class="socialicon">
-              </a>
-              <a href="mailto:team@ledgerleap.com">
-                <img src="web/images/mail.png" class="socialicon">
-              </a><!--
-              <a href="https://t.me/" target="_blank">
-                <img src="web/images/telegram.png" class="socialicon">
-              </a>
-              <a href="https://twitter.com/" target="_blank">
-                <img src="web/images/twitter.png" class="socialicon">
-              </a>-->
-            </div>
-          </section>
-        </div>
-      </div>
-      <div class="page" id="page1">
-        <div class="innerPage" style="overflow-y: scroll; overflow-x: hidden;">
-          <h2>Platform</h2>
-          <a class="goback" onclick="goBack()">Go Back</a>
-          <div class="container-fluid pt20" style="width: 100%;">
-            <div class="title orange" style="line-height: 30px;">WHY<span style="font-size: 28px; line-height: 30px;">we're different</span></div> <!-- WHY WE'RE DIFFERENT -->
-
-            <div class="row row-eq-height pt30" style="width: 100%;">
-              <div class="col-md-6" style="font-size: 19px;">
-                <ul class="whytable">
-                  <li>Simple Sales Process</li>
-                  <li>
-                    Administrator Ease
-                    <ul>
-                      <li> Multiple modes for different phases of the sale</li>
-                      <li> Capability to accept Bitcoin, Ethereum, Litecoin, Monero, Dash, Tezos, etc</li>
-                      <li> Credit card sales (compliance determined in consultation)</li>
-                      <li> On-demand adjustable security features</li>
-                      <li> One-click referral link functionality for marketing</li>
-                      <li> Automated email confirmations and countdown timers</li>
-                      <li> ERC20, ERC223, ERC721, ERC725, and ERC865 tokens supported</li>
-                      <li> Comprehensive airdrop service</li>
-                      <li class="pb10"> Simple, compliant accredited investor SAFT order system</li>
-                    </ul>
-                  </li>
-                  <li>
-                    Compliance and Security
-                    <ul>
-                      <li>Penetration tested</li>
-                      <li>OWASP top ten</li>
-                      <li>Industry standard compliance and encryption</li>
-                    </ul>
-                  </li>
-                </ul>
-              </div>
-              <div class="col-md-6 text-center vcenter">
-                <img src="web/images/widelogo.png" style="max-width: 320px;">
-              </div>
-            </div>
-          </div>
-          <div style="height: 60px;"></div>
-          <a href="mailto:team@ledgerleap.com"><button style="position: absolute;left: 0;right: 0;margin: 0 auto;height: 50px;width: 240px;font-size: 20px;background-color: rgba(231,128,60,.7);border: outset transparent 3px;border-radius: 4px;box-shadow: 5px 5px 10px #aaa;color: white;">Schedule Live Demo</button></a>
-        </div>
-      </div>
-      <div class="page" id="page2">
-        <div class="innerPage" style="overflow-y: scroll; overflow-x: hidden;"> 
-          <h2>Services</h2>
-          <a class="goback" onclick="goBack()">Go Back</a>
-          <div class="container pt30">
-            <div class="row">
-              <div class="col-md-12">
-                <div class="title orange" style="line-height: 30px;">WHAT<span style="font-size: 28px; line-height: 30px;"> we do</span></div>
-                <p style="font-size: 19px;">We offer a range of token sale, blockchain, and development services. Most are broken down into three main categories. Highly customizable options available that are not listed here. Contact us to see how we can create a solution tailored to your needs.</p>
-              </div>
-            </div>
-          </div>
-          <section class="intro">
-              <div class="intro-block">
-                <div class="centerfold-wrap">
-                  <div class="hex-master-wrap">
-                    <div class="grid-1">
-                      <div class="hex-wrap backend" data-title="Pre-Sale" data-content="about-desc" data-color="#fdae22">
-                          <div class="hex-init" id="consultingserv"></div>
-                          <div class="hex-borders">
-                            <div class="border-1"></div>
-                            <!-- <div class="border-2"></div> -->
-                            <!-- <div class="border-3"></div> -->
-                          </div>
-                        <div class="hexagon">
-                          <div class="hex-inner-1">
-                          </div>
-                        </div>
-                      </div>
-                      <!-- <div class="hex-wrap frontend" data-title="Skills (Admin)" data-content="it-desc" data-color="#fdae22">
-                          <div class="hex-init"></div>
-                          <div class="hex-borders">
-                            <div class="border-1"></div>
-                            <div class="border-2"></div>
-                            <div class="border-3"></div>
-                          </div>
-
-                        <div class="hexagon">
-                          <div class="hex-inner-1">
-                            <div class="hex-inner-2"></div>
-                          </div>
-                        </div>
-                      </div> -->
-                    </div>
-                    <div class="grid-2">
-                      <div class="hex-wrap html sm-hide" data-title="Sale" data-content="" data-color="#fdae22">
-                          <div class="hex-init"></div>
-            <!--              <div class="hex-borders">
-                            <div class="border-1"></div>
-                            <div class="border-2"></div>
-                            <div class="border-3"></div>
-                          </div> -->
-                    
-                        <div class="hexagon">
-                          <div class="hex-inner-1">
-                            <div class="hex-inner-2"></div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="hex-wrap css" data-title="Sales Platform" data-content="frontend-desc" data-color="#fdae22">
-                          <div class="hex-init" id="techserv"></div>
-                          <div class="hex-borders">
-                            <div class="border-1"></div>
-                            <!-- <div class="border-2"></div>
-                              <div class="border-3"></div> -->
-                          </div>
-                        
-                        <div class="hexagon">
-                          <div class="hex-inner-1">
-                            <div class="hex-inner-2"></div>
-                          </div>
-                        </div>
-                      </div>
-
-                    </div>
-                    <div class="grid-3">
-                      <div class="hex-wrap gui" data-title="Post Sale" data-content="it-desc" data-color="#fdae22">
-                          <div class="hex-init" id="servicesserv"></div>
-                          <div class="hex-borders">
-                            <div class="border-1"></div>
-                            <!-- <div class="border-2"></div>
-                            <div class="border-3"></div> -->
-                          </div>
-
-                        <div class="hexagon">
-                          <div class="hex-inner-1">
-                            <div class="hex-inner-2"></div>
-                          </div>
-                        </div>
-                      </div>
-                      
-                    </div>
-                  </div>
-
-                  <div class="code-display">
-                    <div class="code-description">
-                      <div class="about-desc">
-                        <p class="code-title"></p>
-                        <p>
-                          <ul>
-                            <li>Initial Consulting</li>
-                            <li>Tokenomics Review</li>
-                            <li>Launch Review</li>
-                            <li>Whitepaper Writing</li>
-                            <li>Whitepaper Review</li>
-                            <li>Advisor Sourcing</li>
-
-                          </ul>
-                        </p>
-                      </div>
-                      <div class="frontend-desc">
-                        <p class="code-title"></p>
-                        <p><ul>
-                          <li>Launch Coordination</li>
-                          <li>Smart Contract</li>
-                          <li>Landing Site</li>
-                          <li>Contribution Platform</li>
-                          <li>Secure Node Programming</li>
-                          <li>Compliant Investor Prospectus Platform</li>
-                          <li>B.A.A.S. (Blockchain as a Service)</li>
-                        </ul></p>
-                      </div>
-                      <div class="it-desc">
-                        <p class="code-title"></p>
-                        <p><ul>                          
-                          <li>30x ICO Listing Sites</li>
-                          <li>Exchange Sourcing and Consulting</li>
-                          <li>Press Releases</li>
-                        </ul></p>
-                      </div>
-                    </div>
-
-                  </div>
-                    <div class="hoverblock"></div>
-                    <div style="height: 60px;"></div>
-                </div> <!-- End Centerfold-Wrap -->
-              </div>
-
-            </section>
-        </div>
-      </div>
-      <div class="page" id="page3">
-        <div class="innerPage" style="overflow-y: scroll; overflow-x: hidden; ">
-          <h2>Clients</h2>
-          <a class="goback" onclick="goBack()">Go Back</a>
-          <div class="container pt20">
-
-          <div class="title orange" style="line-height: 30px;">WHERE<span style="font-size: 28px; line-height: 30px;"> we've been</span></div> <!--WHERE WE ARE (LOCATION)/WHERE WE'VE BEEN (CLIENTS) -->
-            <div class="slidecontent pb50 pt30">
-              <p style="font-size: 18px;">The Ledger Leap team and development office is based in Melbourne, Florida, USA. We build all tech in-house. Many aspects of blockchain benefit from decentralization; however, staff and timetables do not.</p>
-              <p style="font-size: 18px;">The solutions we create are built out of necessity. As unmet needs are discovered by our clients, we build robust solutions in real time and silo these answers for future customers. Ledger Leap has provided its services to a handful of clients already. Every client is treated with above and beyond mentality in delivering rock solid products.</p>
-            </div>
-          </div>
-          <section id="portfolio">
-            <div class="row">
-              <div id="projects" class="carousel slide col-xs-12" data-ride="carousel" data-interval="false">
-                <div class="row">
-                  <!-- Carousel Prev Button -->
-                  <div class="col-xs-1">
-                    <a class="left carousel-control" href="#projects" role="button" data-slide="prev">
-                      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                      <span class="sr-only">Previous</span>
-                    </a>
-                  </div>
-                  <div class="col-xs-10">
-                    <div class="carousel-inner" role="listbox">
-                      <div class="item">
-                        <div class="col-sm-7">
-                          <img class="img-responsive center-block mb-30" src="images/projects/aigcscreen.png" alt="AIGC Project">
-                        </div>
-                        <div class="col-sm-5">
-                          <div class="carousel-caption card">
-                            <img src="web/images/aig.png" class="clientlogos" style="height: 80px; width: auto; float: right;">
-                            <h3 class="project-title">AIGC</h3>
-                            <h4 class="project-subtitle">RWD/PORTAL</h4>
-                            <button class="btn td-btn small outline green" data-toggle="modal" data-target="#tributeModal">View Details</button>
-                          </div>
-                        </div>
-                      </div><!-- /.item -->
-                      <div class="item">
-                        <div class="col-sm-7">
-                          <img class="img-responsive center-block mb-30" src="images/projects/deedscreen.png" alt="Deedcoin Project">
-                        </div>
-                        <div class="col-sm-5">
-                          <div class="carousel-caption card">
-                            <img src="web/images/deedcoin.png" class="clientlogos" style="height: 80px; width: auto; float: right;">
-                            <h3 class="project-title">Deedcoin</h3>
-                            <h4 class="project-subtitle">RWD/PORTAL</h4>
-                            <button class="btn td-btn small outline green" data-toggle="modal" data-target="#tmsModal">View Details</button>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="item active">
-                        <div class="col-sm-7">
-                          <img class="img-responsive center-block mb-30" src="images/projects/airstayzscreen.png" alt="AIRSTAYZ&trade; Project">
-                        </div>
-                        <div class="col-sm-5">
-                          <div class="carousel-caption card">
-                            <img src="web/images/airstayz.png" class="clientlogos" style="height: 80px; width: auto; float: right;">
-                            <h3 class="project-title">AIRSTAYZ&trade;</h3>
-                            <h4 class="project-subtitle">RWD/PORTAL</h4>
-                            <button class="btn td-btn small outline green" data-toggle="modal" data-target="#rbModal">View Details</button>
-                          </div>
-                        </div>
-                      </div><!-- /.item -->
-                    </div><!-- /.carousel-inner -->
-                  </div>
-                  <div class="col-xs-1">
-                    <!-- Carousel Next Button -->
-                    <a class="right carousel-control" href="#projects" role="button" data-slide="next">
-                      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                      <span class="sr-only">Next</span>
-                    </a>
-                  </div><!-- / Next Btn -->
-                  <div class="col-xs-12">
-                    <!-- Indicators -->
-                    <ol class="carousel-indicators mt-30">
-                      <li data-target="#projects" data-slide-to="0" class="active"></li>
-                      <li data-target="#projects" data-slide-to="1"></li>
-                      <li data-target="#projects" data-slide-to="2"></li>
-                    </ol>
-                  </div><!-- /.col -->
-                </div><!-- /.row -->
-              </div><!-- /#projects -->
-            </div><!-- /.row -->
-          </section>
-        </div>
-      </div>
-      <div class="page" id="page4">
-        <div class="innerPage" style="overflow-y: scroll; overflow-x: hidden; ">
-          <h2>Ledger Leap</h2>
-          <a class="goback" onclick="goBack()">Go Back</a>
-          <div class="container-fluid pt20">
-            <div class="title orange" style="line-height: 30px;">HOW<span style="font-size: 28px; line-height: 30px;"> We Do It</span></div> <!-- HOW -->
-            <div class="container">
-              <div class="slidecontent pb60 pt40" style="font-size: 19px;">
-                Ledger Leap launches blockchain solutions, not just projects. We only assist projects that make sense and drive the industry forward in a positive direction. Our platform is designed to bring real world support to beneficial projects, providing experience, connections, and software to harvest the benefits. Solid projects need solutions that can bring products to market faster and without prohibitive fiat costs that cripple development funds.
-              </div>
-              <div class="row pb10 text-center sidearrows">
-                <div class="col-md-3 col-sm-3">
-                  <div class="arrowline1">&xrarr;</div>
-                </div>
-                <div class="col-md-3 col-sm-3">
-                  <div class="arrowline2">&xrarr;</div>
-                </div>
-                <div class="col-md-3 col-sm-3">
-                  <div class="arrowline3">&xrarr;</div>
-                </div>
-                <div class="col-md-3 col-sm-3">
-                  <div class="arrowline4">&xrarr;</div>
-                </div>
-              </div>
-              <div class="row pb40">
-                <div class="col-xs-1 downarrow"></div>
-                <div class="text-center col-md-12 col-sm-12 col-xs-10" style="font-size: 19px; padding: 0;">
-                  <div class="col-md-3 col-sm-3">
-                      <div class="wow fadeInLeft" data-wow-duration="1700ms" data-wow-delay="300ms" >
-                          <p class="flowchart-heading">No Cost Consultation</p>
-                      </div>
-                      <div class="wow fadeInLeft" data-wow-duration="1700ms" data-wow-delay="400ms">
-                          <p class="flowchart-heading">Client Onboarding</p>
-                      </div>
-                  </div>
-                  <div class="col-md-3 col-sm-3 tech-platform">
-                      <div class="wow fadeInLeft" data-wow-duration="1700ms" data-wow-delay="500ms">
-                          <p class="flowchart-heading">Workflow Establishment</p>
-                      </div>
-                      <div class="wow fadeInLeft" data-wow-duration="1700ms" data-wow-delay="600ms">
-                          <p class="flowchart-heading">Development</p>
-                      </div>
-                      <div class="wow fadeInLeft" data-wow-duration="1700ms" data-wow-delay="700ms">
-                          <p class="flowchart-heading">Smart Contracts</p>
-                      </div>
-                      <div class="wow fadeInLeft" data-wow-duration="1700ms" data-wow-delay="800ms">
-                          <p class="flowchart-heading">Install Sales Portal</p>
-                      </div>
-                  </div>
-                  <div class="col-md-3 col-sm-3 pr-content">
-                      <div class="wow fadeInLeft" data-wow-duration="1700ms" data-wow-delay="900ms">
-                          <p class="flowchart-heading">Partnership Creation</p>
-                      </div>
-                      <div class="wow fadeInLeft" data-wow-duration="1700ms" data-wow-delay="1100ms">
-                          <p class="flowchart-heading">Metrics Tracking</p>
-                      </div>
-                      <div class="wow fadeInLeft" data-wow-duration="1700ms" data-wow-delay="1200ms">
-                          <p class="flowchart-heading">Tokenomics</p>
-                      </div>
-                      <div class="wow fadeInLeft" data-wow-duration="1700ms" data-wow-delay="1300ms">
-                          <p class="flowchart-heading">Whitepaper</p>
-                      </div>
-                      <div class="wow fadeInLeft" data-wow-duration="1700ms" data-wow-delay="1400ms">
-                          <p class="flowchart-heading">Community Management</p>
-                      </div>
-                  </div>
-                  <div class="col-md-3 col-sm-3">
-                      <div class="wow fadeInLeft" data-wow-duration="1700ms" data-wow-delay="1500ms">
-                          <p class="flowchart-heading">Sale</p>
-                      </div>
-                      <div class="wow fadeInLeft" data-wow-duration="1700ms" data-wow-delay="1600ms">
-                          <p class="flowchart-heading">Sale Management</p>
-                      </div>
-                      <div class="wow fadeInLeft" data-wow-duration="1700ms" data-wow-delay="1700ms">
-                          <p class="flowchart-heading">Post Launch Services</p>
-                      </div>
-                  </div>
-                </div>
-              </div><!-- row -->
-            </div>
-          </div>
-        </div>
-      </div>
-<!-- PAGE OFF -->
-      <div class="page" id="page5">
-        <div class="innerPage">
-          <div class="title" style="margin: 0">CONTACT US <div><a href="https://www.facebook.com/Ledger-Leap-2104950239762462/" target="_blank">
-                <img src="web/images/facebook.png" class="socialicon">
-              </a>
-              <a href="https://instagram.com/ledgerleap/" target="_blank">
-                <img src="web/images/instagram.png" class="socialicon">
-              </a>
-              <a href="https://www.linkedin.com/company/ledgerleap/" target="_blank">
-                <img src="web/images/linkedin.png" class="socialicon">
-              </a>
-              <a href="mailto:team@ledgerleap.com">
-                <img src="web/images/mail.png" class="socialicon">
-              </a>
-            </div>
-          </div>
-          <a class="goback" onclick="goBack()">Go Back</a>
-          <form action="/" method="post" id="ledger_contact_form">
-            <input type="text" class="et-input"  name="name" autocomplete="name" placeholder="Enter Your Name" >
-            <input type="tel" class="et-input" name="phone" autocomplete="tel-national" placeholder="Enter Your Phone Number" >
-            <input type="email" class="et-input"  name="email" autocomplete="email" placeholder="What Is Your Email Address" >
-
-            <select name="subjects" >
-              <option value="-1" selected>Select A Subject</option>
-              <option value="Portals" class="select_option" >Portals</option>
-              <option value="Smart" class="select_option" >Smart Contracts</option>
-              <option value="Advisory" class="select_option" >Advisory</option>
-              <option value="Get A Quote" class="select_option" >Get A Quote</option>
-            </select>
-            <textarea class="et-input" name="message" id="message" placeholder="Enter a Message" ></textarea>
-            <div class="g-recaptcha" data-sitekey="6LfoXGYUAAAAANq9OW4Zv2IzToPV7zm2jj1C-R62"></div>
-            <input type="submit" class="submit_button" value="Submit" name="submit">
-          </form>
-          <div id="post_results"></div>
-        </div>
-      </div>
-<!-- PAGE OFF END -->
-    </div> <!-- Inner Page End !-->
-  </div> <!-- Page Wrap End !-->
-
-  <div id='container'>
+<div id='container'>
+    <div id="loadingScreen">
+        <div id="loader"></div>
+    </div>
     <div id="boxes"></div>
-  </div> <!-- Container End !-->
+    <div id="footer">&copy;&ensp;Copyright 2018. Ledger Leap Inc.</div>
+</div> <!-- Container End !-->
+<div id="newPageWrap">
+    <div id="topleft_logo">
+      &ensp;Ledger Leap <img src="images/ll90.png" id="logo_img">
+    </div>
+    <div id="letstalk-div"> 
+        <span id="letstalk" data-toggle="modal" data-target=".bd-example-modal-lg">LET'S TALK</span>
+    </div>
+        <div id="new_menu_items">
+        <div class="menuitem" id="_company">Consulting & Advising</div><hr>
+        <div class="menuitem" id="_platform">Technology Development</div><hr>
+        <div class="menuitem" id="_services">Community Management & PR</div><hr>
+        <div class="menuitem" id="_clients">Token Sale Management</div><hr>
+        <div class="menuitem" id="_postlaunch">Clients & Partners</div><hr>
+        <div class="menuitem" id="_letstalk">Team</div>
+    </div>
+    <div id="mobile_menu">
+        <div id="mobile_item1">Consulting & <br class="mobile_br">Advising</div>
+        <div id="mobile_item2">Technology <br class="mobile_br">Development</div>
+        <div id="mobile_item3">Community <br class="mobile_br">Management, PR</div>
+        <div id="mobile_item4">Token Sale <br class="mobile_br">Management</div>
+        <div id="mobile_item5">Clients & <br class="mobile_br">Partners</div>
+        <div id="mobile_item6">Team</div>
+    </div>
+    <div id="social_banner"></div>
+    <div id="social_hidden">
+        <a href="https://www.facebook.com/Ledger-Leap-2104950239762462/" target="_blank">
+            <img src="web/images/facebook.png" class="socialicon" style="width: 25px; height: 25px;">
+        </a>
+        <a href="https://instagram.com/ledgerleap/" target="_blank">
+            <img src="web/images/instagram.png" class="socialicon" style="width: 25px; height: 25px;">
+        </a>
+        <a href="https://www.linkedin.com/company/ledgerleap/" target="_blank">
+            <img src="web/images/linkedin.png" class="socialicon" style="width: 25px; height: 25px;">
+        </a>
+        <a href="mailto:team@ledgerleap.com">
+            <img src="web/images/mail.png" class="socialicon" style="width: 25px; height: 25px;">
+        </a>
+    </div>
+</div>
 
 <script src="js/three.js"></script>
 <script src="js/OrbitControls.js"></script>
 <script src="js/Detector.js"></script>
 <script src="js/dat.gui.min.js"></script>
+<script src="js/ParticleEngine.js"></script>
+<script src="js/GLTFLoader.js"></script>
+<script src="js/draco/DRACOLoader.js"></script>
 
 <script id="template" type="notjs">
 <div class="scene"></div>
 <div class="description">$</div>
 </script>
+
 <script type="text/javascript">
 if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
-var container, canvas, camera, raycaster, controlsOrbit;
+var container, canvas, camera, raycaster, controlsOrbit, OLDINTERSECTED;
 var renderer, scene;
 var mouse = new THREE.Vector2();
 
 var octa, octa_material, octa_geometry;
+var object = new THREE.GLTFLoader();
 var objects = [];
 var pages = [];
-var label_geometry;
-var label_material;
-var labels = [];
 var pageWrap = null;
-var font_loader = new THREE.FontLoader();
 var speed = [0.01, 0.01, 0.01, 0.01, 0.01, 0.01];
 var selectedPageGeometry;
+var group = new THREE.Group();
+var sprite;
+var fogColor;
+var screensize = 1; // 1 = desktop, 2 = tablet, 3 = mobile
 
-/*
-window.onload = function() {
-var gui = new dat.GUI();
-//gui.add(guiParams, 'Ledger Leap');
-gui.addColor(text, 'color_0');
-};
+var cube_opacity = 0.9;
+var cubeMetalness = 0.9;
+var cubeMetalnessHover = 1;
 
-var guiParams = function() {
-this.colors:  '0xFFFFFF',
-SIZEX: 0,
-SIZEY: 0,
-SIZEZ: 0,
-POSITIONX: 0,
-POSITIONY: 0,
-POSITIONZ: 0,
-cameraCOLOR: '0xFFFFFF',
-cameraX: 0,
-cameraY: 0,
-cameraZ: 0,
-cameraLOOKAT: (0,0,0),
-pointLightCOLOR: '0xFFFFFF',
-pointLightX: 0,
-pointLightY: 0,
-pointLightZ: 0,
-pointLightLOOKAT: (0,0,0),
-};
-*/
+var fontSizeBold = "23px";
+var fontSizeReg = "20px";
 
 init();
 animate();
 
 function rotateObjects(){
     for(var i in objects) {
-        // let multiplier = Math.floor((Math.random() * 50)) / 10;
         objects[i].rotation.y += speed[i];
-        objects[i].rotation.x += speed[i] / 4;
+        objects[i].rotation.x += speed[i] / 2;
     }
+    group.rotation.z += 0.004;
 }
 
 function init(){
     container = document.getElementById( 'boxes' );
     scene = new THREE.Scene();
-    var fogColor = new THREE.Color( 0x222222 );
-    scene.background = new THREE.Color( 0x333333);
-    scene.fog = new THREE.Fog( fogColor, 0.01, 1000 );
-    //scene.fog = new THREE.FogExp2( fogColor, 0.0025 );
+    //scene.background = new THREE.Color( 0x0a0a0a);
+
+    fogColor = new THREE.Color(0x030303);
+     
+    scene.background = fogColor;
+    scene.fog = new THREE.Fog(fogColor, 0.0025, 400);
 
     renderer = new THREE.WebGLRenderer({antialias: true, alpha: true});
     renderer.setPixelRatio( window.devicePixelRatio );
     renderer.setSize( window.innerWidth, window.innerHeight );
+    //renderer.setClearColor(0x000000, 0);
 
     container.appendChild( renderer.domElement );
 
     var pointLight = new THREE.PointLight( 0xffffff, 0.6);
-    var redLightLeft = new THREE.DirectionalLight( 0xffb6b6, 3.2 );
-    redLightLeft.position.set( -1.26, 1.0, 0,0  );
-    redLightLeft.name = "redLightLeft";
-    scene.add( redLightLeft );
+    var orangeLightLeft = new THREE.DirectionalLight( 0xffb6b6, 3.2 );
+    orangeLightLeft.position.set( -1.26, 1.0, 0,0  );
+    orangeLightLeft.name = "orangeLightLeft";
+    scene.add( orangeLightLeft );
 
-    var blueLightRight= new THREE.DirectionalLight( 0xcafeff, 0.5 );
-    blueLightRight.position.set( 3.0, 1.94, -3.72 );
-    blueLightRight.name = "blueLightRight";
-    scene.add( blueLightRight );
-
-    var whiteLight = new THREE.AmbientLight( 0xffffff, -0.18 ); // soft white light
-    whiteLight.position.set(0, -100, -700);
-    scene.add( whiteLight );
+    var orangeLightRight= new THREE.DirectionalLight( 0xff7700, 0.5 );
+    orangeLightRight.position.set( 3.0, 1.94, -3.72 );
+    orangeLightRight.name = "orangeLightRight";
+    scene.add( orangeLightRight );
 
 
     camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.01, 1000);
@@ -861,44 +584,79 @@ function init(){
     scene.add(camera);
 
     controlsOrbit = new THREE.OrbitControls( camera, renderer.domElement );
-    controlsOrbit.minDistance = 5;
+    controlsOrbit.minDistance = 8;
     controlsOrbit.maxDistance = 12;
-    controlsOrbit.minPolarAngle = Math.PI / 2;
-    controlsOrbit.maxPolarAngle = Math.PI / 2;
+    // controlsOrbit.minPolarAngle = Math.PI / 2;
+    // controlsOrbit.maxPolarAngle = Math.PI / 2;
     controlsOrbit.enableKeys = false;
     controlsOrbit.enablePan = false;
     controlsOrbit.enableRotate = true;
 
     raycaster = new THREE.Raycaster();
 
-    /* Logo */
-
-    var loader = new THREE.ObjectLoader();
-    loader.load("js/noLights.json",function ( obj ) {
-        var width = window.innerWidth;
-
-        if(width >= 1100){
-            obj.scale.set(4,4,4);
-        } else if(width >= 600) {
-            obj.position.set( -0.08, 1.3, 0 );
-            obj.scale.set( 2.8, 2.8, 2.8 );
-        } else {
-            //obj.position.y = 2;
-            //obj.scale.set( 1.6, 1.6, 1.6 );
-
-            obj.position.y = 2.12;
-            obj.scale.set( 2.12, 2.12, 2.12 );
-
-        }
-
-        scene.add( obj );
-    });
-
     var index = -1;
 
     pageWrap = document.getElementById('pageWrap');
 
-        
+    // SPRITE GLOW
+    var spriteMaterial = new THREE.SpriteMaterial({
+    map: new THREE.ImageUtils.loadTexture('images/glow.png'),
+        useScreenCoordinates: false,
+        color: 0x333333, 
+        transparent: true, 
+        blending: THREE.AdditiveBlending
+    });
+    sprite = new THREE.Sprite( spriteMaterial );
+    sprite.scale.set(0.038, 0.038, 0.038);
+    // urls of the images, one per half axis
+
+
+    var urls = [
+      'images/metal.jpg',
+      'images/metal.jpg',
+      'images/metal.jpg',
+      'images/metal.jpg',
+      'images/metal.jpg',
+      'images/metal.jpg'
+    ];
+
+
+    // wrap it up into the object that we need
+    var cubemap = THREE.ImageUtils.loadTextureCube(urls);
+
+    // set the format, likely RGB unless you've gone crazy
+    cubemap.format = THREE.RGBFormat;
+    // ROUNDED CUBES
+    var rounded_cube_material = new THREE.MeshStandardMaterial({
+            metalness: cubeMetalness,
+            roughness: 0.3,
+            color: 0xfbfbfb,
+            //envMap: cubemap,
+            transparent: true,
+            opacity: cube_opacity
+        });
+
+    THREE.DRACOLoader.setDecoderPath('/js/draco/');
+    object.setDRACOLoader(new THREE.DRACOLoader());
+    object.load('objects/cube.glb', function(gltf) {
+        var cube = gltf.scene.children[0].children[0];
+        cube.material = rounded_cube_material;
+        cube.scale.set(100,100,100);
+        cube.add(sprite);
+        for(var i =0; i < 6; i++) {
+            cube.name = i;
+            var clone = cube.clone()
+            objects.push( clone );
+            group.add( clone );
+        }
+        scene.add(group);
+        setPosition();
+    }, function(xhr) {
+        console.log("Loading cubes: " + (xhr.loaded / xhr.total * 100) + "%");
+    }, function(err) {
+        console.log('Error: ' + err);
+    });
+
     for(var i = 0; i < 6; i++){
         pages.push(document.getElementById('page'+i));
 
@@ -906,70 +664,7 @@ function init(){
             index = Math.floor(Math.random() * 6);
         else
             index = (index + 1) % 6;
-
-        var geometry;
-        var material = new THREE.MeshBasicMaterial({color: 0xcccccc, wireframe: true, side: THREE.DoubleSide});
-        //var material = new THREE.MeshStandardMaterial({ metalness: 0, roughness: 0, color: 0xfbfbfb });
-
-        switch(index){
-        case 0: // Box
-            geometry = new THREE.BoxGeometry(0.8, 0.8, 0.8);
-            break;
-        case 1: // Sphere
-            geometry = new THREE.SphereGeometry(0.5, 7, 7);
-            break;
-        case 2:
-            geometry = new THREE.TetrahedronGeometry(0.5, 1);
-            break;
-        case 3:
-            geometry = new THREE.IcosahedronGeometry(0.5, 0);
-            break;
-        case 4:
-            geometry = new THREE.OctahedronGeometry(0.5, 0);
-            break;
-        case 5:
-            geometry = new THREE.TetrahedronGeometry(0.7, 0);
-            break;
-        }
-
-        var object = new THREE.Mesh(geometry, material);
-        object.name = i;
-
-        scene.add(object);
-
-        objects.push(object);
     }
-
-    var label_strings = ['COMPANY', 'PLATFORM', 'SERVICES', 'CLIENTS', 'POST LAUNCH', "LET'S TALK"];
-    var label_material = new THREE.MeshPhongMaterial( { color: 0xffffff, flatShading: true } );
-    var font = font_loader.load( 
-        'js/font.json',
-        function ( font ) {
-            for(var k=0; k < label_strings.length; k++) {
-
-            var label_geometry = new THREE.TextGeometry( label_strings[k], {
-            font: font,
-                size: 0.15,
-                height: 0.02,
-                curveSegments: 2,
-                bevelEnabled: false,
-                bevelThickness: 0,
-                bevelSize: 0,
-                bevelSegments: 0
-            });
-
-            var label_mesh = new THREE.Mesh(label_geometry, label_material);
-            label_mesh.name = "label_" + label_strings[k].replace(/\s+|'/g, "");
-            scene.add(label_mesh);
-            }
-            setPosition();
-        },
-        function( xhr ){
-            //because of a race condition only call this after
-            //font_loader has finished its ajax call to font.json
-            console.log((xhr.loaded / xhr.total * 100 == 100) + "%loaded");
-        }
-    );
 
 
     renderer.domElement.addEventListener('mousemove', onDocumentMouseMove, false);
@@ -981,24 +676,44 @@ function init(){
 
     window.addEventListener( 'resize', onWindowResize, false );
 
-    octa_material = new THREE.MeshStandardMaterial( { 
-    wireframe: false, 
-        metalness: 1, 
-        roughness: 0.3, 
-        color: 0xbbbbbb,
-        transparent: true,
-        opacity: 0.5
+
+    // PARTICLES
+    var particleCount = 1800;
+    var particles = new THREE.Geometry();
+    var pMaterial = new THREE.PointsMaterial({
+        color: 0xffffff,
+        size: 0.6,
+        map: THREE.ImageUtils.loadTexture("images/star.png"),
+        blending: THREE.AdditiveBlending,
+        transparent: true
     });
 
-    var i;
-    for (i=0; i <= 10; i++){
-        octa_geometry = new THREE.OctahedronGeometry( 120, 0);
-        octa = new THREE.Mesh(octa_geometry, octa_material);
-        octa.position.set( getRandomIntInRange(-500, 500), getRandomIntInRange(-200, 200), getRandomIntInRange( 50, -1000) );
-        octa.name = "octa" + i.toString() ;
-        scene.add(octa);
+    for(var p = 0; p < particleCount; p++) {
+        var pX = Math.random() * 500 - 250;
+        var pY = Math.random() * 250;
+        var pZ = Math.random() * 500 - 250;
+        particle = new THREE.Vector3(pX, pY, pZ);
+
+        particles.vertices.push(particle);
     }
+
+    var particleSystem = new THREE.Points(particles, pMaterial);
+    particleSystem.position.y = -1;
+    particleSystem.position.x = 0;
+    particleSystem.position.z = 10;
+    scene.add(particleSystem);
+
+
+    var size = 125;
+    var divisions = 30;
+
+    var gridHelper = new THREE.GridHelper( size, divisions );
+    scene.add( gridHelper );
+    gridHelper.position.set(0, -18.5, 0);
+    gridHelper.scale.set(6,6,6);
+
 }//end init()
+
 
 function getRandomIntInRange( min, max ) {
     return Math.random() * ( max - min ) + min;
@@ -1029,93 +744,228 @@ function setPosition(){
 
 function loadDesktopPosition(){
 
+    screensize = 1;
+
     var objectPositions = [
-    {x: -5, y: -1.5, z: 0},
-    {x: -3, y: -1.5, z: 0},
-    {x: -1, y: -1.5, z: 0},
-    {x: 1, y: -1.5, z: 0},
-    {x: 3, y: -1.5, z: 0},
-    {x: 5, y: -1.5, z: 0}
+    {x: -1, y: 1.7, z: 0},
+    {x: -2, y: 0, z: 0},
+    {x: -1, y: -1.7, z: 0},
+    {x: 1, y: -1.7, z: 0},
+    {x: 2, y: 0, z: 0},
+    {x: 1, y: 1.7, z: 0}
     ];
 
-    scene.getObjectByName("label_COMPANY").position.set(-5.5, -2.4, 0);
-    scene.getObjectByName("label_PLATFORM").position.set(-3.5, -2.4, 0);
-    scene.getObjectByName("label_SERVICES").position.set(-1.5, -2.4, 0);
-    scene.getObjectByName("label_CLIENTS").position.set(0.5, -2.4, 0);
-    scene.getObjectByName("label_POSTLAUNCH").position.set(2.5, -2.4, 0);
-    scene.getObjectByName("label_LETSTALK").position.set(4.5, -2.4, 0);
+    group.scale.set(1,1,1);
+    group.position.set(0,0,0);
 
     for(var i = 0; i < 6; i++){
         objects[i].position.set(objectPositions[i].x, objectPositions[i].y, objectPositions[i].z);
-        objects[i].scale.set(1, 1, 1);
     }
 
 }
 
 function loadTabletPosition(){
 
+    screensize = 2;
+
     var objectPositions = [
-    {x: -2, y: 0.2, z: 0},
-    {x: 0, y: 0.2, z: 0},
-    {x: 2, y: 0.2, z: 0},
-    {x: -2, y: -1.5, z: 0},
-    {x: 0, y: -1.5, z: 0},
-    {x: 2, y: -1.5, z: 0}
+    {x: -1, y: 1.7, z: 0},
+    {x: -2, y: 0, z: 0},
+    {x: -1, y: -1.7, z: 0},
+    {x: 1, y: -1.7, z: 0},
+    {x: 2, y: 0, z: 0},
+    {x: 1, y: 1.7, z: 0}
     ];
 
-    scene.getObjectByName("label_COMPANY").position.set(-2.5, -0.55, 0);
-    scene.getObjectByName("label_PLATFORM").position.set(-0.55, -0.55, 0);
-    scene.getObjectByName("label_SERVICES").position.set(1.5, -0.55, 0);
-    scene.getObjectByName("label_CLIENTS").position.set(-2.4, -2.3, 0);
-    scene.getObjectByName("label_POSTLAUNCH").position.set(-0.65, -2.3, 0);
-    scene.getObjectByName("label_LETSTALK").position.set(1.5, -2.3, 0);
+    group.scale.set(0.9,0.9,0.9);
+    group.position.set(0,0.3,0);
 
     for(var i = 0; i < 6; i++){
         objects[i].position.set(objectPositions[i].x, objectPositions[i].y, objectPositions[i].z);
-        objects[i].scale.set(0.8, 0.8, 0.8);
     }
 }
 
 function loadMobilePosition(){
 
+    screensize = 3;
 
     var objectPositions = [
-    {x: -0.8, y: 1, z: 0},
-    {x: 0.8, y: 1, z: 0},
-    {x: -0.8, y: -0.5, z: 0},
-    {x: 0.8, y: -0.5, z: 0},
-    {x: -0.8, y: -2, z: 0},
-    {x: 0.8, y: -2, z: 0}];
+    {x: -1, y: 1.7, z: 0},
+    {x: -2, y: 0, z: 0},
+    {x: -1, y: -1.7, z: 0},
+    {x: 1, y: -1.7, z: 0},
+    {x: 2, y: 0, z: 0},
+    {x: 1, y: 1.7, z: 0}
+    ];
 
-    scene.getObjectByName("label_COMPANY").position.set(-1.3, 0.3, 0);
-    scene.getObjectByName("label_PLATFORM").position.set(0.2, 0.3, 0);
-    scene.getObjectByName("label_SERVICES").position.set(-1.3, -1.1, 0);
-    scene.getObjectByName("label_CLIENTS").position.set(0.4, -1.1, 0);
-    scene.getObjectByName("label_POSTLAUNCH").position.set(-1.3, -2.7, 0);
-    scene.getObjectByName("label_LETSTALK").position.set(0.26, -2.7, 0);
+    group.scale.set(0.75,0.75,0.75);
+    group.position.set(0,0.5,0);
 
     for(var i = 0; i < 6; i++){
         objects[i].position.set(objectPositions[i].x, objectPositions[i].y, objectPositions[i].z);
-        objects[i].scale.set(0.7, 0.7, 0.7);
     }
 }
 
 var selectedPage = -1;
 
+
 function onDocumentMouseUp(event){
     event.preventDefault();
 
-    for(var i in pages){
-        if(i == selectedPage) {
-            pages[i].style.display = 'block';
-        } else {
-            pages[i].style.display = 'none';
+    mouse.x = (event.clientX / renderer.domElement.clientWidth) * 2 - 1;
+    mouse.y = -(event.clientY / renderer.domElement.clientHeight) * 2 + 1
+
+    raycaster.setFromCamera( mouse, camera );
+
+    var intersects = raycaster.intersectObjects(objects);
+
+    if(intersects.length > 0){
+        selectedPage = intersects[0].object.name;
+        selectedPageGeometry = intersects[0].object.geometry.type;
+        console.log("selectedPageGeometry:", selectedPageGeometry);
+        switch (selectedPage){
+            case 0:
+                document.getElementById("_company").style.color = "#ff7700";
+                break;
+            case 1:
+                document.getElementById("_platform").style.color = "#ff7700";
+                break;
+            case 2:
+                document.getElementById("_services").style.color = "#ff7700";
+                break;
+            case 3:
+                document.getElementById("_clients").style.color = "#ff7700";
+                break;
+            case 4:
+                document.getElementById("_postlaunch").style.color = "#ff7700";
+                break;
+            case 5:
+                document.getElementById("_letstalk").style.color = "#ff7700";
+                break;
         }
     }
 
-    if(selectedPage != -1)
-        pageWrap.style.left = '0';
-    makeNextScene();
+    // MOBILE FANCY CLICK
+    if(screensize == 3) {
+        if(selectedPage == 0) {
+            window.mobile_item1.style.borderColor = '#ff7700';
+            window.mobile_item1.style.background = 'rgba(255,153,0,.2)';
+        } else
+        if(selectedPage == 1) {
+            window.mobile_item2.style.borderColor = '#ff7700';
+            window.mobile_item2.style.background = 'rgba(255,153,0,.2)';
+        } else
+        if(selectedPage == 2) {
+            window.mobile_item3.style.borderColor = '#ff7700';
+            window.mobile_item3.style.background = 'rgba(255,153,0,.2)';
+        } else
+        if(selectedPage == 3) {
+            window.mobile_item4.style.borderColor = '#ff7700';
+            window.mobile_item4.style.background = 'rgba(255,153,0,.2)';
+        } else
+        if(selectedPage == 4) {
+            window.mobile_item5.style.borderColor = '#ff7700';
+            window.mobile_item5.style.background = 'rgba(255,153,0,.2)';
+        } else
+        if(selectedPage == 5) {
+            window.mobile_item6.style.borderColor = '#ff7700';
+            window.mobile_item6.style.background = 'rgba(255,153,0,.2)';
+        }
+
+        setTimeout(function() {/*
+            for(var i in pages){
+                if(i == selectedPage) {
+                    pages[i].style.display = 'block';
+                } else {
+                    pages[i].style.display = 'none';
+                }
+            }
+
+            if(selectedPage != -1){
+                //pageWrap.style.left = '0';
+                pageWrap.style.display = 'block';
+                setTimeout(function() {
+                    pageWrap.style.opacity = '1';
+                },100);
+            }
+            makeNextScene();*/
+
+            switch(selectedPage) {
+                case 0:
+                    selectedPage = -1;
+                    window.location.href = "/consulting-and-advising";
+                    break;
+                case 1:
+                    selectedPage = -1;
+                    window.location.href = "/technology-development";
+                    break;
+                case 2:
+                    selectedPage = -1;
+                    window.location.href = "/community-management";
+                    break;
+                case 3:
+                    selectedPage = -1;
+                    window.location.href = "/token-sale-management";
+                    break;
+                case 4:
+                    selectedPage = -1;
+                    window.location.href = "/clients-partners";
+                    break;
+                case 5:
+                    selectedPage = -1;
+                    window.location.href = "/team";
+                    break;
+            }
+        },500);
+
+    } else {
+
+        setTimeout(function() {/*
+            for(var i in pages){
+                if(i == selectedPage) {
+                    pages[i].style.display = 'block';
+                } else {
+                    pages[i].style.display = 'none';
+                }
+            }
+
+            if(selectedPage != -1){
+                //pageWrap.style.left = '0';
+                pageWrap.style.display = 'block';
+                setTimeout(function() {
+                    pageWrap.style.opacity = '1';
+                },100);
+            }
+            makeNextScene();*/
+
+            switch(selectedPage) {
+                case 0:
+                    selectedPage = -1;
+                    window.location.href = "/consulting-and-advising";
+                    break;
+                case 1:
+                    selectedPage = -1;
+                    window.location.href = "/technology-development";
+                    break;
+                case 2:
+                    selectedPage = -1;
+                    window.location.href = "/community-management";
+                    break;
+                case 3:
+                    selectedPage = -1;
+                    window.location.href = "/token-sale-management";
+                    break;
+                case 4:
+                    selectedPage = -1;
+                    window.location.href = "/clients-partners";
+                    break;
+                case 5:
+                    selectedPage = -1;
+                    window.location.href = "/team";
+                    break;
+            }
+        },500);
+    }
 }
 
 function onTouchStart(event){
@@ -1131,16 +981,62 @@ function onTouchStart(event){
     if(intersects.length > 0){
         selectedPage = intersects[0].object.name;
         selectedPageGeometry = intersects[0].object.geometry.type;
+        var orange_material = new THREE.MeshStandardMaterial({metalness:cubeMetalnessHover,roughness:0.3,color:0xfb9b4b,transparent:true,opacity:cube_opacity})
+
+        switch (selectedPage){
+            case 0:
+                document.getElementById("_company").style.color = "#ff7700";
+                group.children[0].material = orange_material;
+                //group.children[0].geometry = new THREE.BoxGeometry(1.2, 1.2, 1.2);
+                group.children[0].scale.set(120, 120, 120);
+                speed[0] = 0.05;
+                break;
+            case 1:
+                document.getElementById("_platform").style.color = "#ff7700";
+                group.children[1].material = orange_material;
+                //group.children[1].geometry = new THREE.BoxGeometry(1.2, 1.2, 1.2);
+                group.children[1].scale.set(120, 120, 120);
+                speed[1] = 0.05;
+                break;
+            case 2:
+                document.getElementById("_services").style.color = "#ff7700";
+                group.children[2].material = orange_material;
+                //group.children[2].geometry = new THREE.BoxGeometry(1.2, 1.2, 1.2);
+                group.children[2].scale.set(120, 120, 120);
+                speed[2] = 0.05;
+                break;
+            case 3:
+                document.getElementById("_clients").style.color = "#ff7700";
+                group.children[3].material = orange_material;
+                //group.children[3].geometry = new THREE.BoxGeometry(1.2, 1.2, 1.2);
+                group.children[3].scale.set(120, 120, 120);
+                speed[3] = 0.05;
+                break;
+            case 4:
+                document.getElementById("_postlaunch").style.color = "#ff7700";
+                group.children[4].material = orange_material;
+                //group.children[4].geometry = new THREE.BoxGeometry(1.2, 1.2, 1.2);
+                group.children[4].scale.set(120, 120, 120);
+                speed[4] = 0.05;
+                break;
+            case 5:
+                document.getElementById("_letstalk").style.color = "#ff7700";
+                group.children[5].material = orange_material;
+                //group.children[5].geometry = new THREE.BoxGeometry(1.2, 1.2, 1.2);
+                group.children[5].scale.set(120, 120, 120);
+                speed[5] = 0.05;
+                break;
+        }
     }
 }
 
 function onDocumentMouseDown(event){
     event.preventDefault();
-
+/*
     mouse.x = (event.clientX / renderer.domElement.clientWidth) * 2 - 1;
     mouse.y = -(event.clientY / renderer.domElement.clientHeight) * 2 + 1
 
-        raycaster.setFromCamera( mouse, camera );
+    raycaster.setFromCamera( mouse, camera );
 
     var intersects = raycaster.intersectObjects(objects);
 
@@ -1148,8 +1044,27 @@ function onDocumentMouseDown(event){
         selectedPage = intersects[0].object.name;
         selectedPageGeometry = intersects[0].object.geometry.type;
         console.log("selectedPageGeometry:", selectedPageGeometry);
-
-    }
+        switch (selectedPage){
+            case 0:
+                document.getElementById("_company").style.color = "#ff7700";
+                break;
+            case 1:
+                document.getElementById("_platform").style.color = "#ff7700";
+                break;
+            case 2:
+                document.getElementById("_services").style.color = "#ff7700";
+                break;
+            case 3:
+                document.getElementById("_clients").style.color = "#ff7700";
+                break;
+            case 4:
+                document.getElementById("_postlaunch").style.color = "#ff7700";
+                break;
+            case 5:
+                document.getElementById("_letstalk").style.color = "#ff7700";
+                break;
+        }
+    }*/
 }
 
 function onDocumentMouseMove(event){
@@ -1169,40 +1084,144 @@ function onDocumentMouseMove(event){
         for(var i in speed){
             if(i != selectedIndex) {
                 speed[i] = 0.01;
-            } else
+                if(i == 5) { Object.assign(document.getElementById("_letstalk").style, {"color": "#fbfbfb","transition": ".4s ease", "marginLeft": "0", "fontSize": fontSizeReg }); }
+                if(i == 4) { Object.assign(document.getElementById("_postlaunch").style, {"color": "#fbfbfb","transition": ".4s ease", "marginLeft": "0", "fontSize": fontSizeReg }); }
+                if(i == 3) { Object.assign(document.getElementById("_clients").style, {"color": "#fbfbfb","transition": ".4s ease", "marginLeft": "0", "fontSize": fontSizeReg }); }
+                if(i == 2) { Object.assign(document.getElementById("_services").style, {"color": "#fbfbfb","transition": ".4s ease", "marginLeft": "0", "fontSize": fontSizeReg }); }
+                if(i == 1) { Object.assign(document.getElementById("_platform").style, {"color": "#fbfbfb","transition": ".4s ease", "marginLeft": "0", "fontSize": fontSizeReg }); }
+                if(i == 0) { Object.assign(document.getElementById("_company").style, {"color": "#fbfbfb","transition": ".4s ease", "marginLeft": "0", "fontSize": fontSizeReg }); }
+                group.children[i].material = new THREE.MeshStandardMaterial({metalness:cubeMetalness,roughness:0.3,color:0xfbfbfb,transparent:true,opacity:cube_opacity});
+                //group.children[i].geometry = new THREE.BoxGeometry(1, 1, 1);
+                group.children[i].scale.set(100, 100, 100);
+            } else {
                 speed[i] = 0.05;
+                if(i == 5) { Object.assign(document.getElementById("_letstalk").style, {"color": "#fb9b4b", "fontSize": fontSizeBold, "transition": ".4s ease", "marginLeft":"-20px", "cursor": "pointer"}); }
+                if(i == 4) { Object.assign(document.getElementById("_postlaunch").style, {"color": "#fb9b4b", "fontSize": fontSizeBold, "transition": ".4s ease", "marginLeft":"-20px", "cursor": "pointer"}); }
+                if(i == 3) { Object.assign(document.getElementById("_clients").style, {"color": "#fb9b4b", "fontSize": fontSizeBold, "transition": ".4s ease", "marginLeft":"-20px", "cursor": "pointer"}); }
+                if(i == 2) { Object.assign(document.getElementById("_services").style, {"color": "#fb9b4b", "fontSize": fontSizeBold, "transition": ".4s ease", "marginLeft":"-20px", "cursor": "pointer"}); }
+                if(i == 1) { Object.assign(document.getElementById("_platform").style, {"color": "#fb9b4b", "fontSize": fontSizeBold, "transition": ".4s ease", "marginLeft":"-20px", "cursor": "pointer"}); }
+                if(i == 0) { Object.assign(document.getElementById("_company").style, {"color": "#fb9b4b", "fontSize": fontSizeBold, "transition": ".4s ease", "marginLeft":"-20px", "cursor": "pointer"}); }
+
+                group.children[i].material = new THREE.MeshStandardMaterial({metalness:cubeMetalnessHover,roughness:0.3,color:0xfb9b4b,transparent:true, opacity:cube_opacity});
+                //group.children[i].geometry = new THREE.BoxGeometry(1.2, 1.2, 1.2);
+                group.children[i].scale.set(120, 120, 120);
+            }
             document.getElementById('boxes').style.cursor = 'pointer';
         }
     }else{
         speed = [0.01, 0.01, 0.01, 0.01, 0.01, 0.01];
+        var grey_material = new THREE.MeshStandardMaterial({metalness:cubeMetalness,roughness:0.3,color:0xfbfbfb,transparent:true,opacity:cube_opacity});
+        group.children[0].material = grey_material;
+        group.children[1].material = grey_material;
+        group.children[2].material = grey_material;
+        group.children[3].material = grey_material;
+        group.children[4].material = grey_material;
+        group.children[5].material = grey_material;
+
+        group.children[0].scale.set(100,100,100);
+        group.children[1].scale.set(100,100,100);
+        group.children[2].scale.set(100,100,100);
+        group.children[3].scale.set(100,100,100);
+        group.children[4].scale.set(100,100,100);
+        group.children[5].scale.set(100,100,100);
+        Object.assign(document.getElementById("_letstalk").style, {"color": "#fbfbfb","transition": ".4s ease", "marginLeft": "0", "fontSize": fontSizeReg });
+        Object.assign(document.getElementById("_postlaunch").style, {"color": "#fbfbfb","transition": ".4s ease", "marginLeft": "0", "fontSize": fontSizeReg });
+        Object.assign(document.getElementById("_clients").style, {"color": "#fbfbfb","transition": ".4s ease", "marginLeft": "0", "fontSize": fontSizeReg });
+        Object.assign(document.getElementById("_services").style, {"color": "#fbfbfb","transition": ".4s ease", "marginLeft": "0", "fontSize": fontSizeReg });
+        Object.assign(document.getElementById("_platform").style, {"color": "#fbfbfb","transition": ".4s ease", "marginLeft": "0", "fontSize": fontSizeReg });
+        Object.assign(document.getElementById("_company").style, {"color": "#fbfbfb","transition": ".4s ease", "marginLeft": "0", "fontSize": fontSizeReg });
     }
 }
+/*
+function update(){
+    ray = new THREE.Raycaster();
+    ray.setFromCamera( mouse, camera );
 
+    var intersectedRay = raycaster.intersectObjects(objects);
+
+    document.getElementById('boxes').style.cursor = 'inherit';
+    var hoverMaterial = new THREE.MeshStandardMaterial({ metalness: 0, roughness: 0, color: 0xfb9b4b});
+    var regularMaterial = new THREE.MeshStandardMaterial({ metalness: 0, roughness: 0, color: 0xfbfbfb});
+    var hoverGeometry = new THREE.BoxGeometry(1.2, 1.2, 1.2);
+    var regularGeometry = new THREE.BoxGeometry(1, 1, 1);
+
+    if(intersectedRay.length > 0){
+
+        //restore previous object to original color and size
+        if(intersectedRay[0].object != OLDINTERSECTED){
+           if( OLDINTERSECTED) {
+                OLDINTERSECTED.material = regularMaterial;
+                OLDINTERSECTED.geometry = regularGeometry;
+            }
+            //define intersected object
+            OLDINTERSECTED = intersectedRay[0].object;
+
+            OLDINTERSECTED.material = hoverMaterial;
+            OLDINTERSECTED.geometry = hoverGeometry;
+        //there are no intersections restore to original
+        } else if( intersectedRay[0].object == OLDINTERSECTED ){
+            //OLDINTERSECTED.material = regularMaterial;
+            //OLDINTERSECTED.geometry= regularGeometry;
+            console.log("old one set");
+        }
+    } else if( intersectedRay.length == 0 ){
+        OLDINTERSECTED = null;
+
+    }
+}
+*/
 function goBack(){
-    pageWrap.style.left = '100%';
+    window.mobile_item1.style.borderColor = '#392510';
+    window.mobile_item2.style.borderColor = '#392510';
+    window.mobile_item3.style.borderColor = '#392510';
+    window.mobile_item4.style.borderColor = '#392510';
+    window.mobile_item5.style.borderColor = '#392510';
+    window.mobile_item6.style.borderColor = '#392510';
+    window.mobile_item1.style.background = 'black';
+    window.mobile_item2.style.background = 'black';
+    window.mobile_item3.style.background = 'black';
+    window.mobile_item4.style.background = 'black';
+    window.mobile_item5.style.background = 'black';
+    window.mobile_item6.style.background = 'black';
+    var grey_material = new THREE.MeshStandardMaterial({metalness:cubeMetalness,roughness:0.3,color:0xfbfbfb,transparent:true,opacity:cube_opacity})
+    group.children[0].material = grey_material;
+    //group.children[0].geometry = new THREE.BoxGeometry(1, 1, 1);
+    group.children[0].scale.set(100, 100, 100);
+    speed[0] = 0.01;
+    group.children[1].material = grey_material;
+    group.children[100].scale.set(100, 100, 100);
+    speed[1] = 0.01;
+    group.children[2].material = grey_material;
+    group.children[2].scale.set(100, 100, 100);
+    speed[2] = 0.01;
+    group.children[3].material = grey_material;
+    group.children[3].scale.set(100, 100, 100);
+    speed[3] = 0.01;
+    group.children[4].material = grey_material;
+    group.children[4].scale.set(100, 100, 100);
+    speed[4] = 0.01;
+    group.children[5].material = grey_material;
+    group.children[5].scale.set(100, 100, 100);
+    speed[5] = 0.01;
+    //pageWrap.style.left = '100%';
+    pageWrap.style.opacity = '0';
+    setTimeout(function() {
+      pageWrap.style.display = 'none';
+    },500);
 
     selectedPage = -1;
     //destroy all elements and dereference them
     doDispose(scene2);
 }
-
 function animate(){
     requestAnimationFrame(animate);
     controlsOrbit.update();
     rotateObjects();
     render();
+    //update();
 }
 
 function render(){
-
-    if (scene.children[10].name === "octa0"){
-        var j;
-        for (j=10; j <= 20; j++){
-            scene.children[j].position.y += Math.random() * 0.01;
-            scene.children[j].rotation.y += Math.random() * 0.01;
-        }
-
-    }
     renderer.render(scene, camera);
 }
 
@@ -1229,7 +1248,7 @@ function doDispose(obj){
 
 ///////////////SCENE 2, ACTION!!!///////////
 var camera2, scene2, renderer2;
-
+/*
 
 renderer2 = new THREE.WebGLRenderer( { antialias: true });
 renderer2.setPixelRatio( window.devicePixelRatio);
@@ -1308,6 +1327,9 @@ function init2() {
     scene2.add( camera2 );
     //var material = new THREE.MeshBasicMaterial( { wireframe: true, wireframeLinewidth: 0,side: THREE.DoubleSide, color: 0x555555 });
     var material2 = new THREE.MeshStandardMaterial( { metalness: 0, roughness: 0, color: 0xffffff, emissive: 0x666666 });
+    if(selectedPageGeometry === undefined){
+        selectedPageGeometry = "BoxGeometry";
+    }
 
     switch(selectedPageGeometry){
     case "BoxGeometry":
@@ -1348,23 +1370,19 @@ function init2() {
             object = new THREE.Mesh(geometry, material2);
             object.position.set( getRandomInt(1800), getRandomInt(1800), getRandomInt(1800));
             scene2.add(object);
-        } 
+        }
         break;
 
     case "OctahedronGeometry":
         var i;
         for (i=0; i <= 15; i++){
             geometry = new THREE.OctahedronGeometry( getRandomInt(200), 0);
-            object = new THREE.Mesh(geometry, material2); 
+            object = new THREE.Mesh(geometry, material2);
             object.position.set( getRandomInt(1800), getRandomInt(1800), getRandomInt(1800));
             scene2.add(object);
         }
         break;
-    } 
     }
-
-function getRandomInt(max) {
-    return Math.floor(Math.random() * Math.floor(max));
 }
 
 function animate2() {
@@ -1392,14 +1410,15 @@ function render2() {
         renderer2.render( scene2, camera2 );
     }
 }
+*/
 
 </script>
 <!--ET -->
-<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/color/jquery.color-2.1.2.js" integrity="sha256-1Cn7TdfHiMcEbTuku97ZRSGt2b3SvZftEIn68UMgHC8=" crossorigin="anonymous"></script>
+<script src="js/jquery-3.3.1.js"></script>
+<script src="js/jquery.color-2.1.2.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.1.0/velocity.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.1.0/velocity.ui.js"></script>
-<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript">
 </script>
 
@@ -1408,20 +1427,16 @@ function render2() {
         event.preventDefault();
         $.post("submit.php", $( "#ledger_contact_form").serialize() )
             .done(function( data) {
-                console.log( data); 
                 $( "#post_results" ).html("<span>" + data + "</span>")
                     .hide()
                     .fadeIn( "slow" );
             })
             .fail(function( data ){
-                console.log(data );
             });
     });
 </script>
 
-
 <script type="text/javascript">
-  /*jslint browser:true */
 $(document).ready(function () {
   var $body = $('body');
   var $modalBackdropDiv = $('<div class="modal-backdrop fade in"></div>');
@@ -1462,9 +1477,8 @@ function myStopFunction() {
 $(".hover-notify").velocity('stop', true).velocity("fadeOut");
     clearInterval(hoverdetect);
 }
-
     $(".hex-init").mouseenter(function () {
-      
+
       myStopFunction();
 
       var title_color =  $(this).parent().attr("data-color");
@@ -1483,14 +1497,421 @@ $(".hover-notify").velocity('stop', true).velocity("fadeOut");
           }
           hex_description();
 
-        $(this).parent().addClass('hexactive'); 
+        $(this).parent().addClass('hexactive');
         $('.hexactive').velocity({scaleX:"1.1",scaleY:"1.1"}, { duration: 200 });
 
       }).mouseleave(function () {
          $('.hexactive').velocity('stop', true).velocity('reverse').removeClass('hexactive');
       });
 });
+
+function displayOnlyThisPage(page){
+    var pagesToHide = ['#page0', '#page1', '#page2', '#page3', '#page4', '#page5' ];
+    for (var i in pagesToHide){
+        if(pagesToHide[i] != page){
+            $(pagesToHide[i]).css({"display": "none"});
+        }
+    }
+}
+var orange_material = new THREE.MeshStandardMaterial({
+    metalness:cubeMetalness,
+    roughness:0.3,
+    color:0xfb9b4b,
+    transparent:true,
+    opacity:cube_opacity 
+});
+
+var grey_material = new THREE.MeshStandardMaterial({
+    metalness:cubeMetalness,
+    roughness:0.3,
+    color:0xfbfbfb,
+    transparent:false,
+    opacity:cube_opacity
+})
+
+$("#_company").hover(function() {
+  var cube1 = group.children[0];
+  cube1.material = orange_material;
+  cube1.scale.set(120, 120, 120);
+  $(this).css( {"margin-left": "-20px", "cursor": "pointer", "color": "#ff7700", "font-size": fontSizeBold, "transition": ".4s ease"});
+  speed[0] = 0.05;
+}).mouseleave(function() {
+  var cube1 = group.children[0];
+  cube1.material = grey_material;
+  cube1.scale.set(100, 100, 100);
+  $(this).css( { "margin-left": "0", "color": "#fbfbfb", "font-size": fontSizeReg, "transition": ".4s ease" });
+  speed[0] = 0.01;
+}).click(function(){
+    /*displayOnlyThisPage('#page0');
+    $('#page0').css({"display": "block"}); 
+    pageWrap.style.display = 'block';
+    setTimeout(function() {
+        pageWrap.style.opacity = '1';
+    },100);
+    page0.appendChild( renderer2.domElement);
+    document.getElementById('page0').children[1].id = "canvas0";
+    init2();
+    animate2();*/
+
+    selectedPage = -1;
+    window.location.href = "/consulting-and-advising";
+});
+
+$("#_platform").hover(function() {
+  var cube2 = group.children[1];
+  cube2.material = orange_material; 
+  cube2.scale.set(120, 120, 120);
+  $(this).css( { "margin-left":"-20px", "cursor": "pointer", "color": "#ff7700", "font-size": fontSizeBold, "transition": ".4s ease" });
+  speed[1] = 0.05;
+}).mouseleave(function() {
+  var cube2 = group.children[1];
+  cube2.material = grey_material; 
+  cube2.scale.set(100, 100, 100);
+  $(this).css( { "margin-left": "0", "color": "#fbfbfb", "font-size": fontSizeReg, "transition": ".4s ease" });
+  speed[1] = 0.01;
+}).click(function(){
+    /*displayOnlyThisPage('#page1');
+    $('#page1').css({"display": "block"}); 
+    pageWrap.style.display = 'block';
+    setTimeout(function() {
+        pageWrap.style.opacity = '1';
+    },100);
+    page1.appendChild( renderer2.domElement);
+    document.getElementById('page1').children[1].id = "canvas1";
+    init2();
+    animate2();*/
+
+    selectedPage = -1;
+    window.location.href = "/technology-development";
+});
+
+$("#_services").hover(function() {
+  var cube3 = group.children[2];
+  cube3.material = orange_material; 
+  cube3.scale.set(120, 120, 120);
+  $(this).css( { "margin-left": "-20px", "cursor": "pointer", "color": "#ff7700", "font-size": fontSizeBold, "transition": ".4s ease" });
+  speed[2] = 0.05;
+}).mouseleave(function() {
+  var cube3 = group.children[2];
+  cube3.material = grey_material; 
+  cube3.scale.set(100, 100, 100);
+  $(this).css( { "margin-left": "0", "color": "#fbfbfb", "font-size": fontSizeReg, "transition": ".4s ease" });
+  speed[2] = 0.01;
+}).click(function(){
+    /*displayOnlyThisPage('#page2');
+    $('#page2').css({"display": "block"}); 
+    pageWrap.style.display = 'block';
+    setTimeout(function() {
+        pageWrap.style.opacity = '1';
+    },100);
+    page2.appendChild( renderer2.domElement);
+    document.getElementById('page2').children[1].id = "canvas2";
+    init2();
+    animate2();*/
+
+    selectedPage = -1;
+    window.location.href = "/community-management";
+});
+
+$("#_clients").hover(function() {
+    var cube4 = group.children[3];
+    cube4.material = orange_material; 
+    cube4.scale.set(120, 120, 120);
+    $(this).css( { "margin-left": "-20px", "cursor": "pointer", "color": "#ff7700", "font-size": fontSizeBold, "transition": ".4s ease" });
+    speed[3] = 0.05;
+}).mouseleave(function() {
+    var cube4 = group.children[3];
+    cube4.material = grey_material; 
+    cube4.scale.set(100, 100, 100);
+    $(this).css( { "margin-left": "0", "color": "#fbfbfb", "font-size": fontSizeReg, "transition": ".4s ease" });
+    speed[3] = 0.01;
+}).click(function(){
+    /*displayOnlyThisPage('#page3');
+    $('#page3').css({"display": "block"}); 
+    pageWrap.style.display = 'block';
+    setTimeout(function() {
+        pageWrap.style.opacity = '1';
+    },100);
+    page3.appendChild( renderer2.domElement);
+    document.getElementById('page3').children[1].id = "canvas3";
+    init2();
+    animate2();*/
+
+    selectedPage = -1;
+    window.location.href = "/token-sale-management";
+});
+
+$("#_postlaunch").hover(function() {
+    var cube5 = group.children[4];
+    cube5.material = orange_material; 
+    cube5.scale.set(120, 120, 120);
+    $(this).css( { "margin-left": "-20px", "cursor": "pointer", "color": "#ff7700", "font-size": fontSizeBold, "transition": ".4s ease" });
+    speed[4] = 0.05;
+}).mouseleave(function() {
+    var cube5 = group.children[4];
+    cube5.material = grey_material; 
+    cube5.scale.set(100, 100, 100);
+    $(this).css( { "margin-left": "0", "color": "#fbfbfb", "font-size": fontSizeReg, "transition": ".4s ease" });
+  speed[4] = 0.01;
+}).click(function(){
+    /*displayOnlyThisPage('#page4');
+    $('#page4').css({"display": "block"}); 
+    pageWrap.style.display = 'block';
+    setTimeout(function() {
+        pageWrap.style.opacity = '1';
+    },100);
+    page4.appendChild( renderer2.domElement);
+    document.getElementById('page4').children[1].id = "canvas4";
+    init2();
+    animate2();*/
+
+    selectedPage = -1;
+    window.location.href = "/clients-partners";
+});
+
+$("#_letstalk").hover(function() {
+    var cube6 = group.children[5];
+    cube6.material = orange_material; 
+    cube6.scale.set(120, 120, 120);
+    $(this).css( { "margin-left": "-20px", "cursor": "pointer", "color": "#ff7700", "font-size": fontSizeBold, "transition": ".4s ease" });
+    speed[5] = 0.05;
+}).mouseleave(function() {
+    var cube6 = group.children[5];
+    cube6.material = grey_material;
+    cube6.scale.set(100, 100, 100);
+    $(this).css( { "margin-left": "0", "color": "#fbfbfb", "font-size": fontSizeReg, "transition": ".4s ease" });
+    speed[5] = 0.01;
+}).click(function(){
+    /*displayOnlyThisPage('#page5');
+    $('#page5').css({"display": "block"});
+    pageWrap.style.display = 'block';
+    setTimeout(function() {
+        pageWrap.style.opacity = '1';
+    },100);
+    page5.appendChild( renderer2.domElement);
+    document.getElementById('page5').children[1].id = "canvas5";
+    init2();
+    animate2();*/
+
+    selectedPage = -1;
+    window.location.href = "/team";
+});
+
+
+//////////// MOBILE CLICKS /////////////
+
+$("#mobile_item1").click(function() {
+    var cube1 = group.children[0];
+    cube1.material = orange_material;
+    cube1.scale.set(120, 120, 120);
+    window.mobile_item1.style.borderColor = '#ff7700';
+    window.mobile_item1.style.background = 'rgba(255,153,0,.2)';
+    speed[0] = 0.05;
+/*
+    setTimeout(function() {
+        displayOnlyThisPage('#page0');
+        $('#page0').css({"display": "block"});
+        pageWrap.style.display = 'block';
+        setTimeout(function() {
+            pageWrap.style.opacity = '1';
+        },100);
+        page0.appendChild( renderer2.domElement);
+        document.getElementById('page0').children[1].id = "canvas0";
+        init2();
+        animate2();
+    },1000);*/
+
+    selectedPage = -1;
+    window.location.href = "/consulting-and-advising";
+});
+
+$("#mobile_item2").click(function() {
+    var cube2 = group.children[1];
+    cube2.material = orange_material; 
+    cube2.scale.set(120, 120, 120);
+    window.mobile_item2.style.borderColor = '#ff7700';
+    window.mobile_item2.style.background = 'rgba(255,153,0,.2)';
+    speed[1] = 0.05;
+/*
+    setTimeout(function() {
+        displayOnlyThisPage('#page1');
+        $('#page1').css({"display": "block"});
+        pageWrap.style.display = 'block';
+        setTimeout(function() {
+            pageWrap.style.opacity = '1';
+        },100);
+        page1.appendChild( renderer2.domElement);
+        document.getElementById('page1').children[1].id = "canvas1";
+        init2();
+        animate2();
+    },1000);*/
+
+    selectedPage = -1;
+    window.location.href = "/technology-development";
+});
+
+$("#mobile_item3").click(function() {
+    var cube3 = group.children[2];
+    cube3.material = orange_material; 
+    cube3.scale.set(120, 120, 120);
+    window.mobile_item3.style.borderColor = '#ff7700';
+    window.mobile_item3.style.background = 'rgba(255,153,0,.2)';
+    speed[2] = 0.05;
+/*
+    setTimeout(function() {
+        displayOnlyThisPage('#page2');
+        $('#page2').css({"display": "block"});
+        pageWrap.style.display = 'block';
+        setTimeout(function() {
+            pageWrap.style.opacity = '1';
+        },100);
+        page2.appendChild( renderer2.domElement);
+        document.getElementById('page2').children[1].id = "canvas2";
+        init2();
+        animate2();
+    },1000);*/
+
+    selectedPage = -1;
+    window.location.href = "/community-management";
+});
+
+$("#mobile_item4").click(function() {
+    var cube4 = group.children[3];
+    cube4.material = orange_material; 
+    cube4.scale.set(120, 120, 120);
+    window.mobile_item4.style.borderColor = '#ff7700';
+    window.mobile_item4.style.background = 'rgba(255,153,0,.2)';
+    speed[3] = 0.05;
+/*
+    setTimeout(function() {
+        displayOnlyThisPage('#page3');
+        $('#page3').css({"display": "block"});
+        pageWrap.style.display = 'block';
+        setTimeout(function() {
+            pageWrap.style.opacity = '1';
+        },100);
+        page3.appendChild( renderer2.domElement);
+        document.getElementById('page3').children[1].id = "canvas3";
+        init2();
+        animate2();
+    },1000);*/
+
+    selectedPage = -1;
+    window.location.href = "/token-sale-management";
+});
+
+$("#mobile_item5").click(function() {
+    var cube5 = group.children[4];
+    cube5.material = orange_material; 
+    cube5.scale.set(120, 120, 120);
+    window.mobile_item5.style.borderColor = '#ff7700';
+    window.mobile_item5.style.background = 'rgba(255,153,0,.2)';
+    speed[4] = 0.05;
+/*
+    setTimeout(function() {
+        displayOnlyThisPage('#page4');
+        $('#page4').css({"display": "block"});
+        pageWrap.style.display = 'block';
+        setTimeout(function() {
+            pageWrap.style.opacity = '1';
+        },100);
+        page4.appendChild( renderer2.domElement);
+        document.getElementById('page4').children[1].id = "canvas4";
+        init2();
+        animate2();
+    },1000);*/
+
+    selectedPage = -1;
+    window.location.href = "/clients-partners";
+});
+
+$("#mobile_item6").click(function() {
+    var cube6 = group.children[5];
+    cube6.material = orange_material; 
+    cube6.scale.set(120, 120, 120);
+    window.mobile_item6.style.borderColor = '#ff7700';
+    window.mobile_item6.style.background = 'rgba(255,153,0,.2)';
+    speed[5] = 0.05;
+/*
+    setTimeout(function() {
+        displayOnlyThisPage('#page5');
+        $('#page5').css({"display": "block"});
+        pageWrap.style.display = 'block';
+        setTimeout(function() {
+            pageWrap.style.opacity = '1';
+        },100);
+        page5.appendChild( renderer2.domElement);
+        document.getElementById('page5').children[1].id = "canvas5";
+        init2();
+        animate2();
+    },1000);*/
+
+    selectedPage = -1;
+    window.location.href = "/team";
+});
+
+
+setTimeout(function() {
+    window.boxes.style.opacity = 1;
+    window.loadingScreen.style.opacity = 0;
+    window.newPageWrap.style.opacity = 1;
+    setTimeout(function() {
+    window.loadingScreen.style.display = "none";
+    },500);
+},1400);
+
+$("#social_banner").click(function() {
+    $("#social_hidden").addClass('unscale');
+    window.social_hidden.style.opacity = 1;
+    window.social_banner.style.opacity = 0;
+});
+
+
+
+window.addEventListener("DOMContentLoaded", function() {
+    $(".calendly-badge-widget").hide();
+}, false);
+
+
+</script>
+<!--THE BEST PLACE TO PLACE BOOTSTRAP MODALS IS OUTSIDE OF ANY PARENT DIV OR THE BOTTOM OF YOUR DOCUMENT-->
+<div class="modal bd-example-modal-lg" id="contact-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" style="max-width: 100%;">
+    <div class="modal-dialog modal-sm" style="max-width: 100%;">
+        <div class="modal-content" style="max-width: 100%;">
+            <div class="modal-header">
+                <span style="font-size: 24px;">Let's Talk</span>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="padding: 25px; max-width: 100%;">
+                <h4 style="position: relative;">
+                    <img src="images/telephone.png" style="width: 25px; height: 25px;">&emsp;
+                    321-313-3900
+                </h4>
+                <h4>
+                    <img src="images/mail.png" style="width: 25px; height: 25px;">&emsp;
+                    <a href="mailto:team@ledgerleap.com" style="color: #444;">team@ledgerleap.com</a>
+                </h4>
+                <h4 style="padding-top: 5px;">
+                    <img src="images/consoltation.png" style="width: 25px; height: 25px;">&emsp;
+                    <span id="cal-btn" style="cursor: pointer;"><u>Schedule a Consultation</u></span>
+                    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+                    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript"></script>
+                    <script type="text/javascript"> Calendly.initBadgeWidget({url: 'https://calendly.com/ledger-leap', text: "", color: '#e77f3c', branding: true}); </script>
+                </h4>
+          </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+$("#cal-btn").click(function() {
+    Calendly.showPopupWidget('https://calendly.com/ledger-leap',"PopupWidget");
+});
+
 </script>
 
-  </body>
+</body>
 </html>
